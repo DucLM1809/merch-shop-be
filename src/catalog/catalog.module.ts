@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AuthModule } from '../auth/auth.module';
 import { PublishersController } from './publishers/publishers.controller';
 import { PublishersService } from './publishers/publishers.service';
 import { GamesController } from './games/games.controller';
@@ -14,7 +13,6 @@ import { SkusController } from './skus/skus.controller';
 import { SkusService } from './skus/skus.service';
 
 @Module({
-  imports: [AuthModule],
   controllers: [
     PublishersController,
     GamesController,

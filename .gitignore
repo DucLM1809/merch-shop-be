@@ -3,3 +3,18 @@
 .dolt/
 *.db
 .beads-credential-key
+
+# Node
+node_modules/
+dist/
+coverage/
+
+# Env
+.env
+.env.local
+
+# Prisma
+prisma/migrations/dev.db
+
+graphify-out/cost.json        # local only
+# graphify-out/cache/         # optional: commit for speed, skip to keep repo small
