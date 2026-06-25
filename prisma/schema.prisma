@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Catalog ─────────────────────────────────────────────────────────────────
+
+model Publisher {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  logoUrl   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  games     Game[]
+}
+
+model Game {
+  id          String      @id @default(cuid())
+  publisherId String
+  name        String
+  slug        String      @unique
+  imageUrl    String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  publisher   Publisher   @relation(fields: [publisherId], references: [id])
+  teams       Team[]
+  characters  Character[]
+  products    Product[]
+}
+
+model Team {
+  id        String    @id @default(cuid())
+  gameId    String
+  name      String
+  slug      String    @unique
+  logoUrl   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  game      Game      @relation(fields: [gameId], references: [id])
+  products  Product[]
+}
+
+model Character {
+  id        String    @id @default(cuid())
+  gameId    String
+  name      String
+  slug      String    @unique
+  imageUrl  String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  game      Game      @relation(fields: [gameId], references: [id])
+  products  Product[]
+}
+
+model Product {
+  id          String     @id @default(cuid())
+  name        String
+  description String?
+  images      String[]
+  gameId      String?
+  teamId      String?
+  characterId String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  game        Game?      @relation(fields: [gameId], references: [id])
+  team        Team?      @relation(fields: [teamId], references: [id])
+  character   Character? @relation(fields: [characterId], references: [id])
+  skus        Sku[]
+}
+
+model Sku {
+  id         String      @id @default(cuid())
+  productId  String
+  price      Decimal     @db.Decimal(10, 2)
+  available  Boolean     @default(true)
+  attributes Json        // e.g. { "size": "L", "color": "Black" }
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  product    Product     @relation(fields: [productId], references: [id])
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+}
+
+// ─── Commerce ────────────────────────────────────────────────────────────────
+
+model Account {
+  id          String   @id @default(cuid())
+  clerkUserId String   @unique
+  email       String   @unique
+  role        Role     @default(BUYER)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  cart        Cart?
+  orders      Order[]
+}
+
+enum Role {
+  BUYER
+  ADMIN
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  accountId String?    @unique
+  sessionId String?    @unique
+  expiresAt DateTime?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  account   Account?   @relation(fields: [accountId], references: [id])
+  items     CartItem[]
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  cartId    String
+  skuId     String
+  quantity  Int
+  createdAt DateTime @default(now())
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  sku       Sku      @relation(fields: [skuId], references: [id])
+
+  @@unique([cartId, skuId])
+}
+
+model Order {
+  id                    String      @id @default(cuid())
+  accountId             String?
+  buyerEmail            String
+  status                OrderStatus @default(PENDING)
+  stripePaymentIntentId String      @unique
+  shippingAddress       Json
+  supplierReference     String?
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+  account               Account?    @relation(fields: [accountId], references: [id])
+  items                 OrderItem[]
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  FORWARDED
+  CANCELLED
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  skuId     String
+  quantity  Int
+  unitPrice Decimal @db.Decimal(10, 2)
+  order     Order   @relation(fields: [orderId], references: [id])
+  sku       Sku     @relation(fields: [skuId], references: [id])
+}
