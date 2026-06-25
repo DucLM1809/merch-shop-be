@@ -4,11 +4,11 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 export class CreatePublisherDto {
   @ApiProperty()
   @IsString()
-  name: string;
+  name!: string;
 
   @ApiProperty()
   @IsString()
-  slug: string;
+  slug!: string;
 
   @ApiPropertyOptional()
   @IsUrl()

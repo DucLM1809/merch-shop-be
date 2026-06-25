@@ -4,15 +4,15 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 export class CreateGameDto {
   @ApiProperty()
   @IsString()
-  publisherId: string;
+  publisherId!: string;
 
   @ApiProperty()
   @IsString()
-  name: string;
+  name!: string;
 
   @ApiProperty()
   @IsString()
-  slug: string;
+  slug!: string;
 
   @ApiPropertyOptional()
   @IsUrl()

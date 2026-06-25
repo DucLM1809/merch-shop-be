@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { APP_FILTER } from '@nestjs/core';
-import { PrismaExceptionFilter } from './prisma/prisma-exception.filter';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { CacheModule } from '@nestjs/cache-manager';
 import { PrismaModule } from './prisma/prisma.module';
+import { CommonModule } from './common';
 import { AuthModule } from './auth/auth.module';
 import { CatalogModule } from './catalog/catalog.module';
 import { CommerceModule } from './commerce/commerce.module';
@@ -19,7 +20,10 @@ import { NotificationsModule } from './notifications/notifications.module';
       { name: 'auth', ttl: 60_000, limit: 10 },
       { name: 'checkout', ttl: 60_000, limit: 5 },
     ]),
+    EventEmitterModule.forRoot(),
+    CacheModule.register({ isGlobal: true, ttl: 300 }),
     PrismaModule,
+    CommonModule,
     AuthModule,
     CatalogModule,
     CommerceModule,
@@ -27,6 +31,5 @@ import { NotificationsModule } from './notifications/notifications.module';
     PaymentsModule,
     NotificationsModule,
   ],
-  providers: [{ provide: APP_FILTER, useClass: PrismaExceptionFilter }],
 })
 export class AppModule {}

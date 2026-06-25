@@ -4,31 +4,31 @@ import { ApiProperty } from '@nestjs/swagger';
 export class ShippingAddressDto {
   @ApiProperty()
   @IsString()
-  line1: string;
+  line1!: string;
 
   @ApiProperty()
   @IsString()
-  city: string;
+  city!: string;
 
   @ApiProperty()
   @IsString()
-  country: string;
+  country!: string;
 
   @ApiProperty()
   @IsString()
-  postalCode: string;
+  postalCode!: string;
 }
 
 export class CreateOrderDto {
   @ApiProperty()
   @IsEmail()
-  buyerEmail: string;
+  buyerEmail!: string;
 
   @ApiProperty()
   @IsString()
-  stripePaymentIntentId: string;
+  stripePaymentIntentId!: string;
 
   @ApiProperty()
   @IsObject()
-  shippingAddress: ShippingAddressDto;
+  shippingAddress!: ShippingAddressDto;
 }

@@ -4,10 +4,10 @@ import { ApiProperty } from '@nestjs/swagger';
 export class AddToCartDto {
   @ApiProperty()
   @IsString()
-  skuId: string;
+  skuId!: string;
 
   @ApiProperty({ minimum: 1 })
   @IsInt()
   @Min(1)
-  quantity: number;
+  quantity!: number;
 }

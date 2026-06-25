@@ -4,15 +4,15 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 export class CreateTeamDto {
   @ApiProperty()
   @IsString()
-  gameId: string;
+  gameId!: string;
 
   @ApiProperty()
   @IsString()
-  name: string;
+  name!: string;
 
   @ApiProperty()
   @IsString()
-  slug: string;
+  slug!: string;
 
   @ApiPropertyOptional()
   @IsUrl()

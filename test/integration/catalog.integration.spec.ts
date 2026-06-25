@@ -23,11 +23,25 @@ afterAll(() => app.close());
 describe('GET /api/publishers/:slug', () => {
   it('returns 404 for unknown slug', () =>
     request(app.getHttpServer()).get('/api/publishers/no-such-publisher').expect(404));
+
+  it('returns unified error shape', async () => {
+    const { body } = await request(app.getHttpServer()).get('/api/publishers/no-such-publisher').expect(404);
+    expect(body.success).toBe(false);
+    expect(body.code).toBe('PUBLISHER_NOT_FOUND');
+    expect(body.timestamp).toBeDefined();
+  });
 });
 
 describe('GET /api/products/:id', () => {
   it('returns 404 for unknown id', () =>
     request(app.getHttpServer()).get('/api/products/no-such-product-id').expect(404));
+
+  it('returns unified error shape', async () => {
+    const { body } = await request(app.getHttpServer()).get('/api/products/no-such-product-id').expect(404);
+    expect(body.success).toBe(false);
+    expect(body.code).toBe('PRODUCT_NOT_FOUND');
+    expect(body.timestamp).toBeDefined();
+  });
 });
 
 // ─── Slice 2: Publishers sorted by name ──────────────────────────────────────
@@ -47,8 +61,9 @@ describe('GET /api/publishers', () => {
 
   it('returns publishers ordered by name asc', async () => {
     const { body } = await request(app.getHttpServer()).get('/api/publishers').expect(200);
-    const seeded = body.filter((p: any) => pubIds.includes(p.id));
-    expect(seeded.map((p: any) => p.name)).toEqual(['Apex Studios', 'Zyncast']);
+    expect(body.success).toBe(true);
+    const seeded = body.data.filter((p: { id: string }) => pubIds.includes(p.id));
+    expect(seeded.map((p: { name: string }) => p.name)).toEqual(['Apex Studios', 'Zyncast']);
   });
 });
 
@@ -83,9 +98,10 @@ describe('GET /api/games?publisherId=', () => {
     const { body } = await request(app.getHttpServer())
       .get(`/api/games?publisherId=${p1Id}`)
       .expect(200);
-    const seeded = body.filter((g: any) => gameIds.includes(g.id));
+    expect(body.success).toBe(true);
+    const seeded = body.data.filter((g: { id: string }) => gameIds.includes(g.id));
     expect(seeded).toHaveLength(2);
-    expect(seeded.every((g: any) => g.publisher.id === p1Id)).toBe(true);
+    expect(seeded.every((g: { publisher: { id: string } }) => g.publisher.id === p1Id)).toBe(true);
   });
 });
 
@@ -133,7 +149,8 @@ describe('GET /api/products (SKU availability)', () => {
 
   it('excludes unavailable SKUs', async () => {
     const { body } = await request(app.getHttpServer()).get('/api/products').expect(200);
-    const p = body.find((p: any) => p.id === productId);
+    expect(body.success).toBe(true);
+    const p = body.data.find((p: { id: string }) => p.id === productId);
     expect(p).toBeDefined();
     expect(p.skus).toHaveLength(1);
     expect(p.skus[0].attributes).toMatchObject({ size: 'M' });
@@ -167,16 +184,18 @@ describe('GET /api/products (facet filters)', () => {
     const { body } = await request(app.getHttpServer())
       .get(`/api/products?gameId=${gameId}`)
       .expect(200);
-    const seeded = body.filter((p: any) => productIds.includes(p.id));
+    expect(body.success).toBe(true);
+    const seeded = body.data.filter((p: { id: string }) => productIds.includes(p.id));
     expect(seeded).toHaveLength(2);
-    expect(seeded.every((p: any) => p.game?.id === gameId)).toBe(true);
+    expect(seeded.every((p: { game?: { id: string } }) => p.game?.id === gameId)).toBe(true);
   });
 
   it('filters by combined facets (gameId + teamId)', async () => {
     const { body } = await request(app.getHttpServer())
       .get(`/api/products?gameId=${gameId}&teamId=${teamId}`)
       .expect(200);
-    const seeded = body.filter((p: any) => productIds.includes(p.id));
+    expect(body.success).toBe(true);
+    const seeded = body.data.filter((p: { id: string }) => productIds.includes(p.id));
     expect(seeded).toHaveLength(1);
     expect(seeded[0].name).toBe('Game+Team product');
   });
@@ -207,6 +226,7 @@ describe('GET /api/skus?productId=', () => {
     const { body } = await request(app.getHttpServer())
       .get(`/api/skus?productId=${productId}`)
       .expect(200);
-    expect(body).toHaveLength(2);
+    expect(body.success).toBe(true);
+    expect(body.data).toHaveLength(2);
   });
 });

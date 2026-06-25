@@ -21,8 +21,11 @@ beforeAll(async () => {
 afterAll(() => app.close());
 
 describe('GET /api/publishers', () => {
-  it('returns 200 with empty array on fresh DB', () =>
-    request(app.getHttpServer()).get('/api/publishers').expect(200).expect([]));
+  it('returns 200 with empty array on fresh DB', async () => {
+    const { body } = await request(app.getHttpServer()).get('/api/publishers').expect(200);
+    expect(body.success).toBe(true);
+    expect(body.data).toEqual([]);
+  });
 });
 
 describe('GET /api/docs', () => {

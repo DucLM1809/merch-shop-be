@@ -1,31 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { TeamsRepository } from './teams.repository';
 import { CreateTeamDto } from './dto/create-team.dto';
+import { TeamNotFoundException } from '../exceptions/team-not-found.exception';
 
 @Injectable()
 export class TeamsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly repo: TeamsRepository) {}
 
   findAll(gameId?: string) {
-    return this.prisma.team.findMany({
-      where: gameId ? { gameId } : undefined,
-      orderBy: { name: 'asc' },
-    });
+    return this.repo.findAll(gameId);
   }
 
-  findOne(slug: string) {
-    return this.prisma.team.findUniqueOrThrow({ where: { slug } });
+  async findOne(slug: string) {
+    const team = await this.repo.findBySlug(slug);
+    if (!team) throw new TeamNotFoundException(slug);
+    return team;
   }
 
   create(dto: CreateTeamDto) {
-    return this.prisma.team.create({ data: dto });
+    return this.repo.create(dto);
   }
 
   update(id: string, dto: Partial<CreateTeamDto>) {
-    return this.prisma.team.update({ where: { id }, data: dto });
+    return this.repo.update(id, dto);
   }
 
   remove(id: string) {
-    return this.prisma.team.delete({ where: { id } });
+    return this.repo.remove(id);
   }
 }

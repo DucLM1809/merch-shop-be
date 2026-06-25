@@ -4,11 +4,11 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 export class CreateSkuDto {
   @ApiProperty()
   @IsString()
-  productId: string;
+  productId!: string;
 
   @ApiProperty({ example: 29.99 })
   @IsNumber()
-  price: number;
+  price!: number;
 
   @ApiPropertyOptional({ default: true })
   @IsBoolean()
@@ -17,5 +17,5 @@ export class CreateSkuDto {
 
   @ApiProperty({ example: { size: 'L', color: 'Black' } })
   @IsObject()
-  attributes: Record<string, unknown>;
+  attributes!: Record<string, unknown>;
 }

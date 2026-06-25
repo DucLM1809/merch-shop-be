@@ -8,7 +8,7 @@ export class NotificationsService {
   private readonly from: string;
   private readonly logger = new Logger(NotificationsService.name);
 
-  constructor(private readonly config: ConfigService) {
+  constructor(config: ConfigService) {
     this.resend = new Resend(config.getOrThrow('RESEND_API_KEY'));
     this.from = config.getOrThrow('RESEND_FROM_EMAIL');
   }

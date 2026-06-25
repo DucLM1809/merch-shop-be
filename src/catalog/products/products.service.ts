@@ -1,44 +1,32 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { ProductsRepository } from './products.repository';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FilterProductsDto } from './dto/filter-products.dto';
+import { ProductNotFoundException } from '../exceptions/product-not-found.exception';
 
 @Injectable()
 export class ProductsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly repo: ProductsRepository) {}
 
   findAll(filters: FilterProductsDto) {
-    return this.prisma.product.findMany({
-      where: {
-        ...(filters.gameId && { gameId: filters.gameId }),
-        ...(filters.teamId && { teamId: filters.teamId }),
-        ...(filters.characterId && { characterId: filters.characterId }),
-      },
-      include: {
-        game: { select: { id: true, name: true, slug: true } },
-        team: { select: { id: true, name: true, slug: true } },
-        character: { select: { id: true, name: true, slug: true } },
-        skus: { where: { available: true }, select: { id: true, price: true, attributes: true } },
-      },
-    });
+    return this.repo.findAll(filters);
   }
 
-  findOne(id: string) {
-    return this.prisma.product.findUniqueOrThrow({
-      where: { id },
-      include: { game: true, team: true, character: true, skus: true },
-    });
+  async findOne(id: string) {
+    const product = await this.repo.findOneWithRelations(id);
+    if (!product) throw new ProductNotFoundException(id);
+    return product;
   }
 
   create(dto: CreateProductDto) {
-    return this.prisma.product.create({ data: dto });
+    return this.repo.create(dto);
   }
 
   update(id: string, dto: Partial<CreateProductDto>) {
-    return this.prisma.product.update({ where: { id }, data: dto });
+    return this.repo.update(id, dto);
   }
 
   remove(id: string) {
-    return this.prisma.product.delete({ where: { id } });
+    return this.repo.remove(id);
   }
 }

@@ -7,7 +7,6 @@ import {
   Param,
   Req,
   UseGuards,
-  Optional,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
@@ -23,7 +22,7 @@ export class CartController {
   constructor(private readonly cart: CartService) {}
 
   private resolveSession(req: Request): { accountId?: string; sessionId?: string } {
-    const user = (req as any).user as AuthUser | undefined;
+    const user = (req as Request & { user?: AuthUser }).user;
     if (user) return { accountId: user.userId };
 
     if (!req.cookies['cart_session']) {

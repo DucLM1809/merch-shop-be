@@ -1,24 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { Prisma } from '@prisma/client';
+import { SkusRepository } from './skus.repository';
 import { CreateSkuDto } from './dto/create-sku.dto';
 
 @Injectable()
 export class SkusService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly repo: SkusRepository) {}
 
   findByProduct(productId: string) {
-    return this.prisma.sku.findMany({ where: { productId } });
+    return this.repo.findByProduct(productId);
   }
 
   create(dto: CreateSkuDto) {
-    return this.prisma.sku.create({ data: { ...dto, attributes: dto.attributes as any } });
+    const data: Prisma.SkuCreateInput = {
+      price: dto.price,
+      available: dto.available,
+      attributes: dto.attributes as Prisma.InputJsonValue,
+      product: { connect: { id: dto.productId } },
+    };
+    return this.repo.create(data);
   }
 
   setAvailability(id: string, available: boolean) {
-    return this.prisma.sku.update({ where: { id }, data: { available } });
+    return this.repo.setAvailability(id, available);
   }
 
   remove(id: string) {
-    return this.prisma.sku.delete({ where: { id } });
+    return this.repo.remove(id);
   }
 }

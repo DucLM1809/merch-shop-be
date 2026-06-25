@@ -1,29 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { OrdersRepository } from './orders.repository';
+import { OrderNotFoundException } from '../exceptions/order-not-found.exception';
 
 @Injectable()
 export class OrdersService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly repo: OrdersRepository) {}
 
   findByAccount(accountId: string) {
-    return this.prisma.order.findMany({
-      where: { accountId },
-      include: { items: { include: { sku: { include: { product: true } } } } },
-      orderBy: { createdAt: 'desc' },
-    });
+    return this.repo.findByAccount(accountId);
   }
 
-  findOne(id: string) {
-    return this.prisma.order.findUniqueOrThrow({
-      where: { id },
-      include: { items: { include: { sku: { include: { product: true } } } } },
-    });
+  async findOne(id: string) {
+    const order = await this.repo.findOneWithItems(id);
+    if (!order) throw new OrderNotFoundException(id);
+    return order;
   }
 
   findAll() {
-    return this.prisma.order.findMany({
-      include: { items: true },
-      orderBy: { createdAt: 'desc' },
-    });
+    return this.repo.findAll();
   }
 }
