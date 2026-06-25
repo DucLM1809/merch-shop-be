@@ -1,0 +1,750 @@
+openapi: 3.0.3
+info:
+  title: Merch Shop API
+  description: E-Sport merch shop REST API
+  version: 1.0.0
+
+servers:
+  - url: /api
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    CreatePublisherDto:
+      type: object
+      required: [name, slug]
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        logoUrl:
+          type: string
+          format: uri
+
+    CreateGameDto:
+      type: object
+      required: [publisherId, name, slug]
+      properties:
+        publisherId:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+
+    CreateTeamDto:
+      type: object
+      required: [gameId, name, slug]
+      properties:
+        gameId:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        logoUrl:
+          type: string
+          format: uri
+
+    CreateCharacterDto:
+      type: object
+      required: [gameId, name, slug]
+      properties:
+        gameId:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+
+    CreateProductDto:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+        gameId:
+          type: string
+        teamId:
+          type: string
+        characterId:
+          type: string
+
+    CreateSkuDto:
+      type: object
+      required: [productId, price, attributes]
+      properties:
+        productId:
+          type: string
+        price:
+          type: number
+          example: 29.99
+        available:
+          type: boolean
+          default: true
+        attributes:
+          type: object
+          additionalProperties: true
+          example: { size: L, color: Black }
+
+    AddToCartDto:
+      type: object
+      required: [skuId, quantity]
+      properties:
+        skuId:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+
+    ShippingAddressDto:
+      type: object
+      required: [line1, city, country, postalCode]
+      properties:
+        line1:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+
+    CreateOrderDto:
+      type: object
+      required: [buyerEmail, stripePaymentIntentId, shippingAddress]
+      properties:
+        buyerEmail:
+          type: string
+          format: email
+        stripePaymentIntentId:
+          type: string
+        shippingAddress:
+          $ref: '#/components/schemas/ShippingAddressDto'
+
+paths:
+  # --- Publishers ---
+  /publishers:
+    get:
+      tags: [publishers]
+      summary: List all publishers
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [publishers]
+      summary: Create publisher (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePublisherDto'
+      responses:
+        '201':
+          description: Created
+
+  /publishers/{slug}:
+    get:
+      tags: [publishers]
+      summary: Get publisher by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
+  /publishers/{id}:
+    patch:
+      tags: [publishers]
+      summary: Update publisher (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePublisherDto'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [publishers]
+      summary: Delete publisher (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- Games ---
+  /games:
+    get:
+      tags: [games]
+      summary: List all games
+      parameters:
+        - name: publisherId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [games]
+      summary: Create game (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGameDto'
+      responses:
+        '201':
+          description: Created
+
+  /games/{slug}:
+    get:
+      tags: [games]
+      summary: Get game by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
+  /games/{id}:
+    patch:
+      tags: [games]
+      summary: Update game (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGameDto'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [games]
+      summary: Delete game (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- Teams ---
+  /teams:
+    get:
+      tags: [teams]
+      summary: List all teams
+      parameters:
+        - name: gameId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [teams]
+      summary: Create team (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamDto'
+      responses:
+        '201':
+          description: Created
+
+  /teams/{slug}:
+    get:
+      tags: [teams]
+      summary: Get team by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
+  /teams/{id}:
+    patch:
+      tags: [teams]
+      summary: Update team (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamDto'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [teams]
+      summary: Delete team (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- Characters ---
+  /characters:
+    get:
+      tags: [characters]
+      summary: List all characters
+      parameters:
+        - name: gameId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [characters]
+      summary: Create character (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCharacterDto'
+      responses:
+        '201':
+          description: Created
+
+  /characters/{slug}:
+    get:
+      tags: [characters]
+      summary: Get character by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
+  /characters/{id}:
+    patch:
+      tags: [characters]
+      summary: Update character (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCharacterDto'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [characters]
+      summary: Delete character (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- Products ---
+  /products:
+    get:
+      tags: [products]
+      summary: List all products
+      parameters:
+        - name: gameId
+          in: query
+          schema:
+            type: string
+        - name: teamId
+          in: query
+          schema:
+            type: string
+        - name: characterId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [products]
+      summary: Create product (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductDto'
+      responses:
+        '201':
+          description: Created
+
+  /products/{id}:
+    get:
+      tags: [products]
+      summary: Get product by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+    patch:
+      tags: [products]
+      summary: Update product (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductDto'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [products]
+      summary: Delete product (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- SKUs ---
+  /skus:
+    get:
+      tags: [skus]
+      summary: List SKUs by product
+      parameters:
+        - name: productId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [skus]
+      summary: Create SKU (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSkuDto'
+      responses:
+        '201':
+          description: Created
+
+  /skus/{id}/availability:
+    patch:
+      tags: [skus]
+      summary: Set SKU availability (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [available]
+              properties:
+                available:
+                  type: boolean
+      responses:
+        '200':
+          description: OK
+
+  /skus/{id}:
+    delete:
+      tags: [skus]
+      summary: Delete SKU (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- Cart ---
+  /cart:
+    get:
+      tags: [cart]
+      summary: Get or create cart (cookie or token)
+      responses:
+        '200':
+          description: OK
+
+  /cart/items:
+    post:
+      tags: [cart]
+      summary: Add item to cart (cookie or token)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddToCartDto'
+      responses:
+        '201':
+          description: Created
+
+  /cart/items/{skuId}:
+    delete:
+      tags: [cart]
+      summary: Remove item from cart (cookie or token)
+      parameters:
+        - name: skuId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  /cart/merge:
+    post:
+      tags: [cart]
+      summary: Merge guest cart into authenticated user cart
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [sessionId]
+              properties:
+                sessionId:
+                  type: string
+      responses:
+        '201':
+          description: Merged
+
+  # --- Orders ---
+  /orders:
+    get:
+      tags: [orders]
+      summary: List all orders (admin)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+
+  /orders/mine:
+    get:
+      tags: [orders]
+      summary: List authenticated user's orders
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+
+  /orders/{id}:
+    get:
+      tags: [orders]
+      summary: Get order by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
+  # --- Payments ---
+  /payments/payment-intent:
+    post:
+      tags: [payments]
+      summary: Create Stripe PaymentIntent
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [cartId]
+              properties:
+                cartId:
+                  type: string
+      responses:
+        '201':
+          description: PaymentIntent created
+
+  /payments/webhook:
+    post:
+      tags: [payments]
+      summary: Stripe webhook receiver
+      parameters:
+        - name: stripe-signature
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: '{ received: true }'
