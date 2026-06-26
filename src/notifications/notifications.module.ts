@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { NotificationsService } from './notifications.service';
+import { NOTIFICATION_PORT } from './notification.port';
+import { ResendAdapter } from './resend.adapter';
 
 @Module({
-  providers: [NotificationsService],
-  exports: [NotificationsService],
+  providers: [{ provide: NOTIFICATION_PORT, useClass: ResendAdapter }],
+  exports: [NOTIFICATION_PORT],
 })
 export class NotificationsModule {}

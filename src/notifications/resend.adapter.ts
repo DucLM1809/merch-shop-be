@@ -1,12 +1,13 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Resend } from 'resend';
+import { NotificationPort } from './notification.port';
 
 @Injectable()
-export class NotificationsService {
+export class ResendAdapter implements NotificationPort {
   private readonly resend: Resend;
   private readonly from: string;
-  private readonly logger = new Logger(NotificationsService.name);
+  private readonly logger = new Logger(ResendAdapter.name);
 
   constructor(config: ConfigService) {
     this.resend = new Resend(config.getOrThrow('RESEND_API_KEY'));
@@ -17,9 +18,8 @@ export class NotificationsService {
     to: string;
     orderId: string;
     items: Array<{ name: string; quantity: number; unitPrice: number }>;
-  }) {
+  }): Promise<void> {
     const { to, orderId, items } = params;
-
     const itemLines = items
       .map((i) => `${i.quantity}x ${i.name} — $${i.unitPrice.toFixed(2)}`)
       .join('\n');

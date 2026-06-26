@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
 import { PrismaService } from '../prisma/prisma.service';
 import { SUPPLIER_PORT, SupplierPort } from '../fulfillment/supplier.port';
-import { NotificationsService } from '../notifications/notifications.service';
+import { NOTIFICATION_PORT, NotificationPort } from '../notifications/notification.port';
 import { CatalogReadService } from '../catalog/catalog-read.service';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class PaymentsService {
   constructor(
     private readonly prisma: PrismaService,
     @Inject(SUPPLIER_PORT) private readonly supplier: SupplierPort,
-    private readonly notifications: NotificationsService,
+    @Inject(NOTIFICATION_PORT) private readonly notifications: NotificationPort,
     private readonly catalogRead: CatalogReadService,
     config: ConfigService,
   ) {
