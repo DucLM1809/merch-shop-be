@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { PrismaModule } from '../prisma/prisma.module';
 import { CartController } from './cart/cart.controller';
 import { CartService } from './cart/cart.service';
 import { CartRepository } from './cart/cart.repository';
@@ -7,6 +8,7 @@ import { OrdersService } from './orders/orders.service';
 import { OrdersRepository } from './orders/orders.repository';
 
 @Module({
+  imports: [PrismaModule],
   controllers: [CartController, OrdersController],
   providers: [CartService, CartRepository, OrdersService, OrdersRepository],
   exports: [OrdersService],

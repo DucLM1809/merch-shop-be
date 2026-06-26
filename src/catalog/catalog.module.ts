@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { PrismaModule } from '../prisma/prisma.module';
 import { PublishersController } from './publishers/publishers.controller';
 import { PublishersService } from './publishers/publishers.service';
 import { PublishersRepository } from './publishers/publishers.repository';
@@ -19,6 +20,7 @@ import { SkusService } from './skus/skus.service';
 import { SkusRepository } from './skus/skus.repository';
 
 @Module({
+  imports: [PrismaModule],
   controllers: [
     PublishersController,
     GamesController,
