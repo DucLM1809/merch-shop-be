@@ -18,6 +18,7 @@ import { ProductsRepository } from './products/products.repository';
 import { SkusController } from './skus/skus.controller';
 import { SkusService } from './skus/skus.service';
 import { SkusRepository } from './skus/skus.repository';
+import { CatalogReadService } from './catalog-read.service';
 
 @Module({
   imports: [PrismaModule],
@@ -36,6 +37,8 @@ import { SkusRepository } from './skus/skus.repository';
     CharactersService, CharactersRepository,
     ProductsService, ProductsRepository,
     SkusService, SkusRepository,
+    CatalogReadService,
   ],
+  exports: [CatalogReadService],
 })
 export class CatalogModule {}

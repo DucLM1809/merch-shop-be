@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { PrismaService } from '../prisma/prisma.service';
 import { SUPPLIER_PORT, SupplierPort } from '../fulfillment/supplier.port';
 import { NotificationsService } from '../notifications/notifications.service';
+import { CatalogReadService } from '../catalog/catalog-read.service';
 
 @Injectable()
 export class PaymentsService {
@@ -15,6 +16,7 @@ export class PaymentsService {
     private readonly prisma: PrismaService,
     @Inject(SUPPLIER_PORT) private readonly supplier: SupplierPort,
     private readonly notifications: NotificationsService,
+    private readonly catalogRead: CatalogReadService,
     config: ConfigService,
   ) {
     this.stripe = new Stripe(config.getOrThrow('STRIPE_SECRET_KEY'));
@@ -24,13 +26,16 @@ export class PaymentsService {
   async createPaymentIntent(cartId: string): Promise<{ clientSecret: string }> {
     const cart = await this.prisma.cart.findUniqueOrThrow({
       where: { id: cartId },
-      include: { items: { include: { sku: true } } },
+      include: { items: true },
     });
 
-    const amount = cart.items.reduce(
-      (sum, item) => sum + Number(item.sku.price) * item.quantity * 100,
-      0,
+    const itemAmounts = await Promise.all(
+      cart.items.map(async (item) => {
+        const price = await this.catalogRead.getSkuPrice(item.skuId);
+        return Number(price) * item.quantity * 100;
+      }),
     );
+    const amount = itemAmounts.reduce((sum, v) => sum + v, 0);
 
     const intent = await this.stripe.paymentIntents.create({
       amount: Math.round(amount),
