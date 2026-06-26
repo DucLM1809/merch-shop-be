@@ -23,7 +23,7 @@ An in-game figure associated with a Game, used as a product facet. Covers what i
 _Avoid_: Champion, hero, agent, skin
 
 **Product**:
-A purchasable item type carrying at least one facet (Game, Team, or Champion) and one or more SKUs.
+A purchasable item type carrying at least one facet (Game, Team, or Character) and one or more SKUs.
 _Avoid_: Item, listing, good
 
 **SKU**:
@@ -31,7 +31,7 @@ A single purchasable variant of a Product with its own price and availability (e
 _Avoid_: Variant, option
 
 **Facet**:
-An orthogonal classification dimension applied to Products: Game, Team, or Champion. A Product may carry any combination of these three.
+An orthogonal classification dimension applied to Products: Game, Team, or Character. A Product may carry any combination of these three.
 _Avoid_: Category, tag, filter
 
 ### Commerce
@@ -57,8 +57,12 @@ An authenticated identity linked to a Buyer, enabling order history, saved addre
 _Avoid_: User, profile, member
 
 **Admin**:
-An Account with elevated privileges to manage the catalog (Products, SKUs, Publishers, Games, Teams) and view all Orders. Not a separate identity — an Account with a role flag.
+An Account with elevated privileges to manage live catalog entities (Characters, Products, SKUs) and monitor and act on Orders. Publishers, Games, and Teams are managed via seed data, not by Admins at runtime. Not a separate identity — an Account with a role flag.
 _Avoid_: Superuser, staff, operator
+
+**Order Status**:
+The lifecycle stage of an Order. Stages in order: PENDING (payment captured, not yet confirmed), CONFIRMED (payment verified, awaiting forwarding to Supplier), FORWARDED (Order sent to Supplier, `supplierReference` set), CANCELLED (Order will not be fulfilled). An Order with no `supplierReference` in CONFIRMED status is considered stuck and eligible for retry.
+_Avoid_: State, phase, stage
 
 ### Fulfillment
 

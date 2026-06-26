@@ -1,0 +1,23 @@
+{
+  "0": "Auth & Commerce Modules",
+  "1": "Architecture Decision Records",
+  "2": "Dev Dependencies & Test Setup",
+  "3": "Skill Framework & Design Patterns",
+  "4": "Fulfillment & Supplier Port",
+  "5": "Issue Triage & Workflow Skills",
+  "6": "Catalog & Characters API",
+  "7": "Products & DTOs",
+  "8": "TypeScript Config",
+  "9": "Games API",
+  "10": "Publishers API",
+  "11": "Teams API",
+  "12": "Runtime Dependencies",
+  "13": "SKUs API",
+  "14": "Build & Migration Scripts",
+  "15": "Skill Writing Vocabulary",
+  "16": "NestJS CLI Config",
+  "17": "HITL Diagnostics Script",
+  "18": "Beads Issue Tracker",
+  "19": "Order DTOs",
+  "23": "Docker Compose"
+}
