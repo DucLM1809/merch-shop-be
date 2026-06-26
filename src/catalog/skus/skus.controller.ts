@@ -2,6 +2,7 @@ import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards } f
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { SkusService } from './skus.service';
 import { CreateSkuDto } from './dto/create-sku.dto';
+import { BulkAvailabilityDto } from './dto/bulk-availability.dto';
 import { AdminGuard } from '../../auth/admin.guard';
 
 @ApiTags('skus')
@@ -19,6 +20,14 @@ export class SkusController {
   @ApiBearerAuth()
   create(@Body() dto: CreateSkuDto) {
     return this.skus.create(dto);
+  }
+
+  // ponytail: must be declared before :id/availability to avoid route shadowing
+  @Patch('availability/bulk')
+  @UseGuards(AdminGuard)
+  @ApiBearerAuth()
+  bulkSetAvailability(@Body() dto: BulkAvailabilityDto) {
+    return this.skus.bulkSetAvailability(dto);
   }
 
   @Patch(':id/availability')

@@ -1,9 +1,10 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, HttpCode, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { OrdersService } from './orders.service';
 import { ClerkGuard } from '../../auth/clerk.guard';
 import { AdminGuard } from '../../auth/admin.guard';
 import { CurrentUser, AuthUser } from '../../auth/current-user.decorator';
+import { FilterOrdersDto } from './dto/filter-orders.dto';
 
 @ApiTags('orders')
 @Controller('orders')
@@ -20,8 +21,8 @@ export class OrdersController {
   @Get()
   @UseGuards(AdminGuard)
   @ApiBearerAuth()
-  findAll() {
-    return this.orders.findAll();
+  findAll(@Query() filters: FilterOrdersDto) {
+    return this.orders.findAll(filters);
   }
 
   @Get(':id')
@@ -29,5 +30,13 @@ export class OrdersController {
   @ApiBearerAuth()
   findOne(@Param('id') id: string) {
     return this.orders.findOne(id);
+  }
+
+  @Post(':id/retry-fulfillment')
+  @HttpCode(200)
+  @UseGuards(AdminGuard)
+  @ApiBearerAuth()
+  retryFulfillment(@Param('id') id: string) {
+    return this.orders.retryFulfillment(id);
   }
 }

@@ -31,4 +31,12 @@ export class SkusRepository extends BaseRepository<Sku, Prisma.SkuUpdateInput> {
       select: { id: true, available: true },
     });
   }
+
+  bulkSetAvailability(facet: 'game' | 'team' | 'character', facetId: string, available: boolean) {
+    const facetKey = facet === 'game' ? 'gameId' : facet === 'team' ? 'teamId' : 'characterId';
+    return this.prisma.sku.updateMany({
+      where: { product: { [facetKey]: facetId } },
+      data: { available },
+    });
+  }
 }

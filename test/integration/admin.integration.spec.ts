@@ -439,4 +439,121 @@ describe('Admin guard role enforcement (403)', () => {
 
   it('GET /api/orders → 403', () =>
     request(guardApp.getHttpServer()).get('/api/orders').expect(403));
+
+  it('PATCH /api/skus/availability/bulk → 403', () =>
+    request(guardApp.getHttpServer()).patch('/api/skus/availability/bulk').send({}).expect(403));
+
+  it('POST /api/orders/:id/retry-fulfillment → 403', () =>
+    request(guardApp.getHttpServer()).post('/api/orders/any-id/retry-fulfillment').send({}).expect(403));
+});
+
+// ─── Order list: status filter + pagination ───────────────────────────────────
+
+describe('GET /api/orders (filter + pagination)', () => {
+  let orderIds: string[];
+
+  beforeAll(async () => {
+    const [o1, o2, o3] = await Promise.all([
+      prisma.order.create({ data: { buyerEmail: 'a@test.com', status: 'CONFIRMED', stripePaymentIntentId: 'pi_filter_1', shippingAddress: {} } }),
+      prisma.order.create({ data: { buyerEmail: 'b@test.com', status: 'CONFIRMED', stripePaymentIntentId: 'pi_filter_2', shippingAddress: {} } }),
+      prisma.order.create({ data: { buyerEmail: 'c@test.com', status: 'PENDING',   stripePaymentIntentId: 'pi_filter_3', shippingAddress: {} } }),
+    ]);
+    orderIds = [o1.id, o2.id, o3.id];
+  });
+
+  afterAll(() => prisma.order.deleteMany({ where: { id: { in: orderIds } } }));
+
+  it('filters by status=CONFIRMED', async () => {
+    const { body } = await request(app.getHttpServer())
+      .get('/api/orders?status=CONFIRMED')
+      .expect(200);
+    const seeded = body.data.filter((o: { id: string }) => orderIds.includes(o.id));
+    expect(seeded).toHaveLength(2);
+    expect(seeded.every((o: { status: string }) => o.status === 'CONFIRMED')).toBe(true);
+  });
+
+  it('paginates with page=1&limit=1', async () => {
+    const { body } = await request(app.getHttpServer())
+      .get('/api/orders?page=1&limit=1')
+      .expect(200);
+    expect(body.data).toHaveLength(1);
+    expect(body.meta).toBeDefined();
+    expect(body.meta.total).toBeGreaterThanOrEqual(3);
+  });
+});
+
+// ─── Retry fulfillment ────────────────────────────────────────────────────────
+
+describe('POST /api/orders/:id/retry-fulfillment', () => {
+  let confirmedOrderId: string;
+  let forwardedOrderId: string;
+
+  beforeAll(async () => {
+    const [confirmed, forwarded] = await Promise.all([
+      prisma.order.create({ data: { buyerEmail: 'retry@test.com', status: 'CONFIRMED', stripePaymentIntentId: 'pi_retry_1', shippingAddress: {} } }),
+      prisma.order.create({ data: { buyerEmail: 'fwd@test.com', status: 'FORWARDED', stripePaymentIntentId: 'pi_retry_2', shippingAddress: {}, supplierReference: 'REF-123' } }),
+    ]);
+    confirmedOrderId = confirmed.id;
+    forwardedOrderId = forwarded.id;
+  });
+
+  afterAll(() => prisma.order.deleteMany({ where: { id: { in: [confirmedOrderId, forwardedOrderId] } } }));
+
+  it('200 + sets supplierReference on CONFIRMED order', async () => {
+    const { body } = await request(app.getHttpServer())
+      .post(`/api/orders/${confirmedOrderId}/retry-fulfillment`)
+      .expect(200);
+    expect(body.data.supplierReference).toBeDefined();
+    expect(body.data.status).toBe('FORWARDED');
+  });
+
+  it('409 when order already FORWARDED', () =>
+    request(app.getHttpServer())
+      .post(`/api/orders/${forwardedOrderId}/retry-fulfillment`)
+      .expect(409));
+});
+
+// ─── Bulk SKU availability toggle ────────────────────────────────────────────
+
+describe('PATCH /api/skus/availability/bulk', () => {
+  let pubId: string;
+  let gameId: string;
+  let skuInGame: string;
+  let skuOtherGame: string;
+
+  beforeAll(async () => {
+    const pub = await prisma.publisher.create({ data: { name: 'Bulk Pub', slug: 'bulk-pub' } });
+    const game = await prisma.game.create({ data: { name: 'Bulk Game', slug: 'bulk-game', publisherId: pub.id } });
+    const otherGame = await prisma.game.create({ data: { name: 'Other Game', slug: 'bulk-other-game', publisherId: pub.id } });
+    const p1 = await prisma.product.create({ data: { name: 'Bulk P1', gameId: game.id } });
+    const p2 = await prisma.product.create({ data: { name: 'Bulk P2', gameId: otherGame.id } });
+    const s1 = await prisma.sku.create({ data: { productId: p1.id, price: 10, available: true, attributes: {} } });
+    const s2 = await prisma.sku.create({ data: { productId: p2.id, price: 10, available: true, attributes: {} } });
+    pubId = pub.id;
+    gameId = game.id;
+    skuInGame = s1.id;
+    skuOtherGame = s2.id;
+  });
+
+  afterAll(async () => {
+    await prisma.sku.deleteMany({ where: { id: { in: [skuInGame, skuOtherGame] } } });
+    const gameIds = (await prisma.game.findMany({ where: { publisherId: pubId }, select: { id: true } })).map(g => g.id);
+    await prisma.product.deleteMany({ where: { gameId: { in: gameIds } } });
+    await prisma.game.deleteMany({ where: { publisherId: pubId } });
+    await prisma.publisher.delete({ where: { id: pubId } });
+  });
+
+  it('toggles available=false for all SKUs in the game', async () => {
+    await request(app.getHttpServer())
+      .patch('/api/skus/availability/bulk')
+      .send({ facet: 'game', facetId: gameId, available: false })
+      .expect(200);
+    const sku = await prisma.sku.findUnique({ where: { id: skuInGame } });
+    expect(sku?.available).toBe(false);
+  });
+
+  it('does not affect SKUs outside the facet', async () => {
+    const sku = await prisma.sku.findUnique({ where: { id: skuOtherGame } });
+    expect(sku?.available).toBe(true);
+  });
 });

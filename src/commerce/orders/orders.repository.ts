@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Order, Prisma } from '@prisma/client';
 import { PrismaService } from '../../prisma/prisma.service';
 import { BaseRepository } from '../../common';
+import { FilterOrdersDto } from './dto/filter-orders.dto';
 
 @Injectable()
 export class OrdersRepository extends BaseRepository<Order, Prisma.OrderUpdateInput> {
@@ -52,16 +53,43 @@ export class OrdersRepository extends BaseRepository<Order, Prisma.OrderUpdateIn
     });
   }
 
-  findAll() {
-    return this.prisma.order.findMany({
-      select: {
-        id: true,
-        accountId: true,
-        status: true,
-        createdAt: true,
-        items: { select: { id: true, quantity: true, skuId: true } },
-      },
-      orderBy: { createdAt: 'desc' },
+  async findAll(filters: FilterOrdersDto) {
+    const where: Prisma.OrderWhereInput = filters.status ? { status: filters.status } : {};
+    const skip = (filters.page - 1) * filters.limit;
+
+    const [items, total] = await Promise.all([
+      this.prisma.order.findMany({
+        where,
+        select: {
+          id: true,
+          accountId: true,
+          status: true,
+          supplierReference: true,
+          createdAt: true,
+          items: { select: { id: true, quantity: true, skuId: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: filters.limit,
+      }),
+      this.prisma.order.count({ where }),
+    ]);
+
+    return { items, total, page: filters.page, limit: filters.limit };
+  }
+
+  findOneForRetry(id: string) {
+    return this.prisma.order.findUnique({
+      where: { id },
+      select: { id: true, status: true, supplierReference: true, buyerEmail: true, shippingAddress: true, items: { select: { skuId: true, quantity: true, unitPrice: true } } },
+    });
+  }
+
+  markForwarded(id: string, supplierReference: string) {
+    return this.prisma.order.update({
+      where: { id },
+      data: { status: 'FORWARDED', supplierReference },
+      select: { id: true, status: true, supplierReference: true },
     });
   }
 }

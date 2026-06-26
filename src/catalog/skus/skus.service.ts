@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { SkusRepository } from './skus.repository';
 import { CreateSkuDto } from './dto/create-sku.dto';
+import { BulkAvailabilityDto } from './dto/bulk-availability.dto';
 
 @Injectable()
 export class SkusService {
@@ -23,6 +24,10 @@ export class SkusService {
 
   setAvailability(id: string, available: boolean) {
     return this.repo.setAvailability(id, available);
+  }
+
+  bulkSetAvailability(dto: BulkAvailabilityDto) {
+    return this.repo.bulkSetAvailability(dto.facet, dto.facetId, dto.available);
   }
 
   remove(id: string) {
