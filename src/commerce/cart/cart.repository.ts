@@ -63,7 +63,7 @@ export class CartRepository extends BaseRepository<Cart, Prisma.CartUpdateInput>
     return this.prisma.cartItem.upsert({
       where: { cartId_skuId: { cartId, skuId } },
       create: { cartId, skuId, quantity },
-      update: { quantity },
+      update: {},
     });
   }
 }

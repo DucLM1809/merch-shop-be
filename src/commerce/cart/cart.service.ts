@@ -5,6 +5,7 @@ import { AddToCartDto } from './dto/add-to-cart.dto';
 import { ConfigService } from '@nestjs/config';
 import { SkuNotFoundException } from '../exceptions/sku-not-found.exception';
 import { SkuUnavailableException } from '../exceptions/sku-unavailable.exception';
+import { AccountService } from '../../account/account.service';
 
 @Injectable()
 export class CartService {
@@ -12,20 +13,26 @@ export class CartService {
 
   constructor(
     private readonly repo: CartRepository,
+    private readonly accountService: AccountService,
     config: ConfigService,
   ) {
     this.guestTtlDays = Number(config.get('GUEST_CART_TTL_DAYS') ?? 7);
   }
 
   async getOrCreateCart(ctx: CartSessionContext) {
-    const where = ctx.type === 'account' ? { accountId: ctx.id } : { sessionId: ctx.id };
-    const existing = await this.repo.findWithItems(where);
-    if (existing) return existing;
+    if (ctx.type === 'account') {
+      const account = await this.accountService.upsertFromClerk({ userId: ctx.id, email: ctx.email ?? '' });
+      const existing = await this.repo.findWithItems({ accountId: account.id });
+      if (existing) return existing;
+      return this.repo.createCart({ accountId: account.id, sessionId: null, expiresAt: null });
+    }
 
+    const existing = await this.repo.findWithItems({ sessionId: ctx.id });
+    if (existing) return existing;
     return this.repo.createCart({
-      accountId: ctx.type === 'account' ? ctx.id : null,
-      sessionId: ctx.type === 'guest' ? ctx.id : null,
-      expiresAt: ctx.type === 'guest' ? new Date(Date.now() + this.guestTtlDays * 86_400_000) : null,
+      accountId: null,
+      sessionId: ctx.id,
+      expiresAt: new Date(Date.now() + this.guestTtlDays * 86_400_000),
     });
   }
 
@@ -44,11 +51,11 @@ export class CartService {
     return this.repo.clearItems(cartId);
   }
 
-  async mergeGuestCart(sessionId: string, accountId: string) {
+  async mergeGuestCart(sessionId: string, clerkUser: { userId: string; email: string }) {
     const guestCart = await this.repo.findGuestCart(sessionId);
     if (!guestCart) return;
 
-    const accountCart = await this.getOrCreateCart({ type: 'account', id: accountId });
+    const accountCart = await this.getOrCreateCart({ type: 'account', id: clerkUser.userId, email: clerkUser.email });
 
     for (const item of guestCart.items) {
       await this.repo.upsertMergedItem(accountCart.id, item.skuId, item.quantity);

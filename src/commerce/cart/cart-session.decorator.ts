@@ -6,13 +6,14 @@ import { AuthUser } from '../../auth/current-user.decorator';
 export interface CartSessionContext {
   type: 'guest' | 'account';
   id: string;
+  email?: string;
 }
 
 export const CartSession = createParamDecorator(
   (_data: unknown, ctx: ExecutionContext): CartSessionContext => {
     const req = ctx.switchToHttp().getRequest<Request & { user?: AuthUser }>();
 
-    if (req.user) return { type: 'account', id: req.user.userId };
+    if (req.user) return { type: 'account', id: req.user.userId, email: req.user.email };
 
     let sessionId = req.cookies?.['cart_session'] as string | undefined;
     if (!sessionId) {

@@ -12,6 +12,7 @@ import { CartService } from './cart.service';
 import { CartSession, CartSessionContext } from './cart-session.decorator';
 import { AddToCartDto } from './dto/add-to-cart.dto';
 import { ClerkGuard } from '../../auth/clerk.guard';
+import { OptionalClerkGuard } from '../../auth/optional-clerk.guard';
 import { CurrentUser, AuthUser } from '../../auth/current-user.decorator';
 
 @ApiTags('cart')
@@ -20,17 +21,20 @@ export class CartController {
   constructor(private readonly cart: CartService) {}
 
   @Get()
+  @UseGuards(OptionalClerkGuard)
   get(@CartSession() session: CartSessionContext) {
     return this.cart.getOrCreateCart(session);
   }
 
   @Post('items')
+  @UseGuards(OptionalClerkGuard)
   async addItem(@CartSession() session: CartSessionContext, @Body() dto: AddToCartDto) {
     const cartObj = await this.cart.getOrCreateCart(session);
     return this.cart.addItem(cartObj.id, dto);
   }
 
   @Delete('items/:skuId')
+  @UseGuards(OptionalClerkGuard)
   async removeItem(@CartSession() session: CartSessionContext, @Param('skuId') skuId: string) {
     const cartObj = await this.cart.getOrCreateCart(session);
     return this.cart.removeItem(cartObj.id, skuId);
@@ -40,6 +44,6 @@ export class CartController {
   @UseGuards(ClerkGuard)
   @ApiBearerAuth()
   mergeGuestCart(@CurrentUser() user: AuthUser, @Body('sessionId') sessionId: string) {
-    return this.cart.mergeGuestCart(sessionId, user.userId);
+    return this.cart.mergeGuestCart(sessionId, { userId: user.userId, email: user.email });
   }
 }
