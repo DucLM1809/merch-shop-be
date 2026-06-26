@@ -6,6 +6,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { PrismaModule } from './prisma/prisma.module';
 import { CommonModule } from './common';
 import { AuthModule } from './auth/auth.module';
+import { AccountModule } from './account/account.module';
 import { CatalogModule } from './catalog/catalog.module';
 import { CommerceModule } from './commerce/commerce.module';
 import { FulfillmentModule } from './fulfillment/fulfillment.module';
@@ -25,6 +26,7 @@ import { NotificationsModule } from './notifications/notifications.module';
     PrismaModule,
     CommonModule,
     AuthModule,
+    AccountModule,
     CatalogModule,
     CommerceModule,
     FulfillmentModule,

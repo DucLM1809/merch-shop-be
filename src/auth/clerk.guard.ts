@@ -25,7 +25,8 @@ export class ClerkGuard implements CanActivate {
       const payload = await verifyToken(token, {
         secretKey: this.config.getOrThrow('CLERK_SECRET_KEY'),
       });
-      req.user = { userId: payload.sub };
+      const p = payload as typeof payload & { email?: string; email_address?: string };
+      req.user = { userId: payload.sub, email: p.email ?? p.email_address ?? '' };
       return true;
     } catch {
       throw new UnauthorizedException();
