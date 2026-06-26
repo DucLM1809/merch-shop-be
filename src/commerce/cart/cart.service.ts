@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { BadRequestException } from '@nestjs/common';
 import { CartRepository } from './cart.repository';
+import { CartSessionContext } from './cart-session.decorator';
 import { AddToCartDto } from './dto/add-to-cart.dto';
 import { ConfigService } from '@nestjs/config';
 import { SkuNotFoundException } from '../exceptions/sku-not-found.exception';
@@ -17,21 +17,15 @@ export class CartService {
     this.guestTtlDays = Number(config.get('GUEST_CART_TTL_DAYS') ?? 7);
   }
 
-  async getOrCreateCart(params: { accountId?: string; sessionId?: string }) {
-    const { accountId, sessionId } = params;
-
-    if (!accountId && !sessionId) {
-      throw new BadRequestException('accountId or sessionId required');
-    }
-
-    const where = accountId ? { accountId } : { sessionId };
+  async getOrCreateCart(ctx: CartSessionContext) {
+    const where = ctx.type === 'account' ? { accountId: ctx.id } : { sessionId: ctx.id };
     const existing = await this.repo.findWithItems(where);
     if (existing) return existing;
 
     return this.repo.createCart({
-      accountId: accountId ?? null,
-      sessionId: sessionId ?? null,
-      expiresAt: accountId ? null : new Date(Date.now() + this.guestTtlDays * 86_400_000),
+      accountId: ctx.type === 'account' ? ctx.id : null,
+      sessionId: ctx.type === 'guest' ? ctx.id : null,
+      expiresAt: ctx.type === 'guest' ? new Date(Date.now() + this.guestTtlDays * 86_400_000) : null,
     });
   }
 
@@ -54,7 +48,7 @@ export class CartService {
     const guestCart = await this.repo.findGuestCart(sessionId);
     if (!guestCart) return;
 
-    const accountCart = await this.getOrCreateCart({ accountId });
+    const accountCart = await this.getOrCreateCart({ type: 'account', id: accountId });
 
     for (const item of guestCart.items) {
       await this.repo.upsertMergedItem(accountCart.id, item.skuId, item.quantity);
