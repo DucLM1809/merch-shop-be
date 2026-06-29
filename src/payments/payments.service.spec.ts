@@ -26,7 +26,7 @@ describe('PaymentsService', () => {
     (Stripe as jest.MockedClass<typeof Stripe>).mockImplementation(() => ({
       paymentIntents: { create: jest.fn() },
       webhooks: { constructEvent },
-    }) as any);
+    }) as unknown as InstanceType<typeof Stripe>);
 
     const module = await Test.createTestingModule({
       providers: [

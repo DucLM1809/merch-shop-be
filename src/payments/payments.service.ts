@@ -1,10 +1,11 @@
 import { Injectable, Inject, Logger, BadRequestException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
-import { PrismaService } from '../prisma/prisma.service';
-import { SUPPLIER_PORT, SupplierPort } from '../fulfillment/supplier.port';
-import { NOTIFICATION_PORT, NotificationPort } from '../notifications/notification.port';
-import { CATALOG_READ_PORT, CatalogReadPort } from '../catalog/catalog-read.port';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../prisma';
+import { SUPPLIER_PORT, SupplierPort } from '../fulfillment';
+import { NOTIFICATION_PORT, NotificationPort } from '../notifications';
+import { CATALOG_READ_PORT, CatalogReadPort } from '../catalog';
 
 @Injectable()
 export class PaymentsService {
@@ -87,7 +88,8 @@ export class PaymentsService {
         buyerEmail: intent.receipt_email ?? '',
         status: 'CONFIRMED',
         stripePaymentIntentId: intent.id,
-        shippingAddress: ((intent.shipping ?? {}) as any),
+        // external trust boundary: Stripe webhook → Prisma Json field
+        shippingAddress: (intent.shipping ?? {}) as Prisma.InputJsonValue,
         items: {
           create: cart.items.map((item) => ({
             skuId: item.skuId,
