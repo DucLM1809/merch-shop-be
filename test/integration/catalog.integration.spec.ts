@@ -178,7 +178,10 @@ describe('GET /api/products (facet filters)', () => {
     productIds = [p1.id, p2.id, p3.id];
   });
 
-  afterAll(() => cleanupCatalog(prisma, pubId));
+  afterAll(async () => {
+    await prisma.product.delete({ where: { id: productIds[2] } });
+    await cleanupCatalog(prisma, pubId);
+  });
 
   it('filters by single facet (gameId)', async () => {
     const { body } = await request(app.getHttpServer())
