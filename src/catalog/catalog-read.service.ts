@@ -5,9 +5,10 @@ import { ProductsService } from './products/products.service';
 import { PublishersService } from './publishers/publishers.service';
 import { FilterProductsDto } from './products/dto/filter-products.dto';
 import { SkuNotFoundException } from './exceptions/sku-not-found.exception';
+import { CatalogReadPort } from './catalog-read.port';
 
 @Injectable()
-export class CatalogReadService {
+export class CatalogReadService implements CatalogReadPort {
   constructor(
     private readonly skusRepo: SkusRepository,
     private readonly productsService: ProductsService,

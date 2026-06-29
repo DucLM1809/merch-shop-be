@@ -6,7 +6,7 @@ import { PaymentsService } from './payments.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { SUPPLIER_PORT } from '../fulfillment/supplier.port';
 import { NOTIFICATION_PORT } from '../notifications/notification.port';
-import { CatalogReadService } from '../catalog/catalog-read.service';
+import { CATALOG_READ_PORT } from '../catalog/catalog-read.port';
 
 const mockPrisma = { cart: { findUniqueOrThrow: jest.fn(), findUnique: jest.fn() }, order: { findUnique: jest.fn() } };
 const mockSupplier = { submitOrder: jest.fn() };
@@ -34,7 +34,7 @@ describe('PaymentsService', () => {
         { provide: PrismaService, useValue: mockPrisma },
         { provide: SUPPLIER_PORT, useValue: mockSupplier },
         { provide: NOTIFICATION_PORT, useValue: mockNotifications },
-        { provide: CatalogReadService, useValue: mockCatalogRead },
+        { provide: CATALOG_READ_PORT, useValue: mockCatalogRead },
         {
           provide: ConfigService,
           useValue: { getOrThrow: (key: string) => (key === 'STRIPE_SECRET_KEY' ? 'sk_test_fake' : 'whsec_fake') },

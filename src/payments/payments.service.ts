@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 import { PrismaService } from '../prisma/prisma.service';
 import { SUPPLIER_PORT, SupplierPort } from '../fulfillment/supplier.port';
 import { NOTIFICATION_PORT, NotificationPort } from '../notifications/notification.port';
-import { CatalogReadService } from '../catalog/catalog-read.service';
+import { CATALOG_READ_PORT, CatalogReadPort } from '../catalog/catalog-read.port';
 
 @Injectable()
 export class PaymentsService {
@@ -16,7 +16,7 @@ export class PaymentsService {
     private readonly prisma: PrismaService,
     @Inject(SUPPLIER_PORT) private readonly supplier: SupplierPort,
     @Inject(NOTIFICATION_PORT) private readonly notifications: NotificationPort,
-    private readonly catalogRead: CatalogReadService,
+    @Inject(CATALOG_READ_PORT) private readonly catalogRead: CatalogReadPort,
     config: ConfigService,
   ) {
     this.stripe = new Stripe(config.getOrThrow('STRIPE_SECRET_KEY'));

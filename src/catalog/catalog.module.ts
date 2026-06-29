@@ -19,6 +19,7 @@ import { SkusController } from './skus/skus.controller';
 import { SkusService } from './skus/skus.service';
 import { SkusRepository } from './skus/skus.repository';
 import { CatalogReadService } from './catalog-read.service';
+import { CATALOG_READ_PORT } from './catalog-read.port';
 
 @Module({
   imports: [PrismaModule],
@@ -38,7 +39,8 @@ import { CatalogReadService } from './catalog-read.service';
     ProductsService, ProductsRepository,
     SkusService, SkusRepository,
     CatalogReadService,
+    { provide: CATALOG_READ_PORT, useClass: CatalogReadService },
   ],
-  exports: [CatalogReadService],
+  exports: [CATALOG_READ_PORT],
 })
 export class CatalogModule {}
