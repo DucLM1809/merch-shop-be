@@ -11,9 +11,8 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CartService } from './cart.service';
 import { CartSession, CartSessionContext } from './cart-session.decorator';
 import { AddToCartDto } from './dto/add-to-cart.dto';
-import { ClerkGuard } from '../../auth/clerk.guard';
-import { OptionalClerkGuard } from '../../auth/optional-clerk.guard';
-import { CurrentUser, AuthUser } from '../../auth/current-user.decorator';
+import { SyncCartDto } from './dto/sync-cart.dto';
+import { ClerkGuard, OptionalClerkGuard, CurrentUser, AuthUser } from '../../auth';
 
 @ApiTags('cart')
 @Controller('cart')
@@ -38,6 +37,13 @@ export class CartController {
   async removeItem(@CartSession() session: CartSessionContext, @Param('skuId') skuId: string) {
     const cartObj = await this.cart.getOrCreateCart(session);
     return this.cart.removeItem(cartObj.id, skuId);
+  }
+
+  @Post('sync')
+  @UseGuards(ClerkGuard)
+  @ApiBearerAuth()
+  syncCart(@CartSession() session: CartSessionContext, @Body() dto: SyncCartDto) {
+    return this.cart.syncCart(session, dto);
   }
 
   @Post('merge')

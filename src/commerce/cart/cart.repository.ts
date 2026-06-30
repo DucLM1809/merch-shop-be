@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Cart, Prisma } from '@prisma/client';
-import { PrismaService } from '../../prisma/prisma.service';
+import { PrismaService } from '../../prisma';
 import { BaseRepository } from '../../common';
 
 @Injectable()
@@ -56,6 +56,21 @@ export class CartRepository extends BaseRepository<Cart, Prisma.CartUpdateInput>
     return this.prisma.cart.findUnique({
       where: { sessionId },
       include: { items: true },
+    });
+  }
+
+  findSkusBatch(ids: string[]) {
+    return this.prisma.sku.findMany({
+      where: { id: { in: ids }, available: true },
+      select: { id: true },
+    });
+  }
+
+  upsertSyncItem(cartId: string, skuId: string, quantity: number) {
+    return this.prisma.cartItem.upsert({
+      where: { cartId_skuId: { cartId, skuId } },
+      create: { cartId, skuId, quantity },
+      update: { quantity: { increment: quantity } },
     });
   }
 

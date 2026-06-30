@@ -2,10 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { CartRepository } from './cart.repository';
 import { CartSessionContext } from './cart-session.decorator';
 import { AddToCartDto } from './dto/add-to-cart.dto';
+import { SyncCartDto } from './dto/sync-cart.dto';
 import { ConfigService } from '@nestjs/config';
 import { SkuNotFoundException } from '../exceptions/sku-not-found.exception';
 import { SkuUnavailableException } from '../exceptions/sku-unavailable.exception';
-import { AccountService } from '../../account/account.service';
+import { AccountService } from '../../account';
 
 @Injectable()
 export class CartService {
@@ -49,6 +50,23 @@ export class CartService {
 
   clearCart(cartId: string) {
     return this.repo.clearItems(cartId);
+  }
+
+  async syncCart(ctx: CartSessionContext, dto: SyncCartDto) {
+    const cart = await this.getOrCreateCart(ctx);
+    if (dto.items.length === 0) return cart;
+
+    const validSkus = await this.repo.findSkusBatch(dto.items.map((i) => i.skuId));
+    const validIds = new Set(validSkus.map((s) => s.id));
+
+    for (const item of dto.items) {
+      if (validIds.has(item.skuId)) {
+        await this.repo.upsertSyncItem(cart.id, item.skuId, item.quantity);
+      }
+    }
+
+    const where = cart.accountId ? { accountId: cart.accountId } : { sessionId: cart.sessionId ?? undefined };
+    return this.repo.findWithItems(where);
   }
 
   async mergeGuestCart(sessionId: string, clerkUser: { userId: string; email: string }) {
