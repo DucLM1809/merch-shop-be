@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FilterProductsDto } from './dto/filter-products.dto';
-import { AdminGuard } from '../../auth/admin.guard';
+import { AdminGuard } from '../../auth';
 
 @ApiTags('products')
 @Controller('products')

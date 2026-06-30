@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { SkusService } from './skus.service';
 import { CreateSkuDto } from './dto/create-sku.dto';
 import { BulkAvailabilityDto } from './dto/bulk-availability.dto';
-import { AdminGuard } from '../../auth/admin.guard';
+import { AdminGuard } from '../../auth';
 
 @ApiTags('skus')
 @Controller('skus')

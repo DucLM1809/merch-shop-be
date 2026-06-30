@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
 import { ClerkGuard } from './clerk.guard';
-import { AccountService } from '../account/account.service';
+import { AccountService } from '../account';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()

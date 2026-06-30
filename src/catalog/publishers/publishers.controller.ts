@@ -2,7 +2,7 @@ import { Controller, Get, Post, Patch, Delete, Body, Param, UseGuards } from '@n
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { PublishersService } from './publishers.service';
 import { CreatePublisherDto } from './dto/create-publisher.dto';
-import { AdminGuard } from '../../auth/admin.guard';
+import { AdminGuard } from '../../auth';
 
 @ApiTags('publishers')
 @Controller('publishers')

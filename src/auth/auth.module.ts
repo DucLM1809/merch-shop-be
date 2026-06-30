@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common';
-import { AccountModule } from '../account/account.module';
+import { AccountModule } from '../account';
 import { ClerkGuard } from './clerk.guard';
 import { AdminGuard } from './admin.guard';
 

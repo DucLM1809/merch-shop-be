@@ -2,7 +2,7 @@ import { Controller, Post, Body, Headers, RawBodyRequest, Req, UseGuards } from 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { PaymentsService } from './payments.service';
-import { ClerkGuard } from '../auth/clerk.guard';
+import { ClerkGuard } from '../auth';
 
 @ApiTags('payments')
 @Controller('payments')

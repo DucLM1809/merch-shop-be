@@ -1,9 +1,7 @@
 import { Controller, Get, HttpCode, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { OrdersService } from './orders.service';
-import { ClerkGuard } from '../../auth/clerk.guard';
-import { AdminGuard } from '../../auth/admin.guard';
-import { CurrentUser, AuthUser } from '../../auth/current-user.decorator';
+import { ClerkGuard, AdminGuard, CurrentUser, AuthUser } from '../../auth';
 import { FilterOrdersDto } from './dto/filter-orders.dto';
 
 @ApiTags('orders')

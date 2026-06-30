@@ -2,7 +2,7 @@ import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards } f
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { GamesService } from './games.service';
 import { CreateGameDto } from './dto/create-game.dto';
-import { AdminGuard } from '../../auth/admin.guard';
+import { AdminGuard } from '../../auth';
 
 @ApiTags('games')
 @Controller('games')

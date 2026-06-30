@@ -2,7 +2,7 @@ import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards } f
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CharactersService } from './characters.service';
 import { CreateCharacterDto } from './dto/create-character.dto';
-import { AdminGuard } from '../../auth/admin.guard';
+import { AdminGuard } from '../../auth';
 
 @ApiTags('characters')
 @Controller('characters')

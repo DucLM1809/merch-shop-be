@@ -1,7 +1,7 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { Request } from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import { AuthUser } from '../../auth/current-user.decorator';
+import { AuthUser } from '../../auth';
 
 export interface CartSessionContext {
   type: 'guest' | 'account';

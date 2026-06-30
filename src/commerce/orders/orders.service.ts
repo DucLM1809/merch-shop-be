@@ -1,9 +1,9 @@
 import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import { OrdersRepository } from './orders.repository';
 import { OrderNotFoundException } from '../exceptions/order-not-found.exception';
-import { SUPPLIER_PORT, SupplierPort } from '../../fulfillment/supplier.port';
+import { SUPPLIER_PORT, SupplierPort } from '../../fulfillment';
 import { FilterOrdersDto } from './dto/filter-orders.dto';
-import { PagedResult } from '../../common/types/paged-result.type';
+import { PagedResult } from '../../common';
 
 @Injectable()
 export class OrdersService {
