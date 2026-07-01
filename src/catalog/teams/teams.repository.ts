@@ -15,15 +15,15 @@ export class TeamsRepository extends BaseRepository<Team, Prisma.TeamUpdateInput
 
   findAll(gameId?: string) {
     return this.prisma.team.findMany({
-      where: gameId ? { gameId } : undefined,
+      where: { deletedAt: null, ...(gameId && { gameId }) },
       select: { id: true, name: true, slug: true, gameId: true },
       orderBy: { name: 'asc' },
     });
   }
 
   findBySlug(slug: string) {
-    return this.prisma.team.findUnique({
-      where: { slug },
+    return this.prisma.team.findFirst({
+      where: { slug, deletedAt: null },
       select: { id: true, name: true, slug: true, gameId: true },
     });
   }

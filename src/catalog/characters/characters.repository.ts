@@ -15,15 +15,15 @@ export class CharactersRepository extends BaseRepository<Character, Prisma.Chara
 
   findAll(gameId?: string) {
     return this.prisma.character.findMany({
-      where: gameId ? { gameId } : undefined,
+      where: { deletedAt: null, ...(gameId && { gameId }) },
       select: { id: true, name: true, slug: true, gameId: true },
       orderBy: { name: 'asc' },
     });
   }
 
   findBySlug(slug: string) {
-    return this.prisma.character.findUnique({
-      where: { slug },
+    return this.prisma.character.findFirst({
+      where: { slug, deletedAt: null },
       select: { id: true, name: true, slug: true, gameId: true },
     });
   }

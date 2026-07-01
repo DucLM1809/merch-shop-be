@@ -24,4 +24,12 @@ export class AccountService {
   async findById(id: string) {
     return this.prisma.account.findUnique({ where: { id } });
   }
+
+  async findByClerkId(clerkUserId: string) {
+    return this.prisma.account.findUnique({ where: { clerkUserId } });
+  }
+
+  remove(id: string) {
+    return this.prisma.account.update({ where: { id }, data: { deletedAt: new Date() } });
+  }
 }

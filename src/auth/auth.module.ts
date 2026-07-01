@@ -1,11 +1,11 @@
 import { Global, Module } from '@nestjs/common';
-import { AccountModule } from '../account';
+import { PrismaModule } from '../prisma';
 import { ClerkGuard } from './clerk.guard';
 import { AdminGuard } from './admin.guard';
 
 @Global()
 @Module({
-  imports: [AccountModule],
+  imports: [PrismaModule],
   providers: [ClerkGuard, AdminGuard],
   exports: [ClerkGuard, AdminGuard],
 })

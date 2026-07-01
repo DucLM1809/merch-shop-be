@@ -129,6 +129,7 @@ describe('Teams admin write', () => {
   });
 
   afterAll(async () => {
+    await prisma.team.deleteMany({ where: { gameId } });
     await prisma.game.delete({ where: { id: gameId } });
     await prisma.publisher.delete({ where: { id: pubId } });
   });
@@ -169,6 +170,7 @@ describe('Characters admin write', () => {
   });
 
   afterAll(async () => {
+    await prisma.character.deleteMany({ where: { gameId } });
     await prisma.game.delete({ where: { id: gameId } });
     await prisma.publisher.delete({ where: { id: pubId } });
   });

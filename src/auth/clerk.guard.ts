@@ -6,10 +6,14 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { verifyToken } from '@clerk/backend';
+import { PrismaService } from '../prisma';
 
 @Injectable()
 export class ClerkGuard implements CanActivate {
-  constructor(private readonly config: ConfigService) {}
+  constructor(
+    private readonly config: ConfigService,
+    private readonly prisma: PrismaService,
+  ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const req = context.switchToHttp().getRequest();
@@ -27,9 +31,16 @@ export class ClerkGuard implements CanActivate {
       });
       const p = payload as typeof payload & { email?: string; email_address?: string };
       req.user = { userId: payload.sub, email: p.email ?? p.email_address ?? '' };
-      return true;
     } catch {
       throw new UnauthorizedException();
     }
+
+    const account = await this.prisma.account.findUnique({
+      where: { clerkUserId: req.user.userId },
+      select: { deletedAt: true },
+    });
+    if (account?.deletedAt) throw new UnauthorizedException();
+
+    return true;
   }
 }
