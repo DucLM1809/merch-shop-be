@@ -17,6 +17,7 @@ export class ProductsRepository extends BaseRepository<Product, Prisma.ProductUp
   findAll(filters: FilterProductsDto) {
     return this.prisma.product.findMany({
       where: {
+        deletedAt: null,
         ...(filters.gameId && { gameId: filters.gameId }),
         ...(filters.teamId && { teamId: filters.teamId }),
         ...(filters.characterId && { characterId: filters.characterId }),
@@ -36,8 +37,8 @@ export class ProductsRepository extends BaseRepository<Product, Prisma.ProductUp
   }
 
   findOneWithRelations(id: string) {
-    return this.prisma.product.findUnique({
-      where: { id },
+    return this.prisma.product.findFirst({
+      where: { id, deletedAt: null },
       include: { game: true, team: true, character: true, skus: true },
     });
   }

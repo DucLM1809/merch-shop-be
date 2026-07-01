@@ -251,7 +251,9 @@ describe('SKUs admin write', () => {
 
   afterAll(async () => {
     const gameIds = (await prisma.game.findMany({ where: { publisherId: pubId }, select: { id: true } })).map(g => g.id);
-    await prisma.product.deleteMany({ where: { gameId: { in: gameIds } } });
+    const productIds = (await prisma.product.findMany({ where: { gameId: { in: gameIds } }, select: { id: true } })).map(p => p.id);
+    await prisma.sku.deleteMany({ where: { productId: { in: productIds } } });
+    await prisma.product.deleteMany({ where: { id: { in: productIds } } });
     await prisma.game.deleteMany({ where: { id: { in: gameIds } } });
     await prisma.publisher.delete({ where: { id: pubId } });
   });

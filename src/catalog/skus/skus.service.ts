@@ -31,6 +31,6 @@ export class SkusService {
   }
 
   remove(id: string) {
-    return this.repo.remove(id);
+    return this.repo.softRemove(id);
   }
 }

@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { ProductsRepository } from './products.repository';
+import { SkusRepository } from '../skus/skus.repository';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FilterProductsDto } from './dto/filter-products.dto';
 import { ProductNotFoundException } from '../exceptions/product-not-found.exception';
 
 @Injectable()
 export class ProductsService {
-  constructor(private readonly repo: ProductsRepository) {}
+  constructor(
+    private readonly repo: ProductsRepository,
+    private readonly skusRepo: SkusRepository,
+  ) {}
 
   findAll(filters: FilterProductsDto) {
     return this.repo.findAll(filters);
@@ -26,7 +30,8 @@ export class ProductsService {
     return this.repo.update(id, dto);
   }
 
-  remove(id: string) {
-    return this.repo.remove(id);
+  async remove(id: string) {
+    await this.skusRepo.softRemoveByProduct(id);
+    return this.repo.softRemove(id);
   }
 }

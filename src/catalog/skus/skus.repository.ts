@@ -15,7 +15,7 @@ export class SkusRepository extends BaseRepository<Sku, Prisma.SkuUpdateInput> {
 
   findByProduct(productId: string) {
     return this.prisma.sku.findMany({
-      where: { productId },
+      where: { productId, deletedAt: null },
       select: { id: true, productId: true, price: true, available: true, attributes: true },
     });
   }
@@ -38,5 +38,9 @@ export class SkusRepository extends BaseRepository<Sku, Prisma.SkuUpdateInput> {
       where: { product: { [facetKey]: facetId } },
       data: { available },
     });
+  }
+
+  softRemoveByProduct(productId: string) {
+    return this.prisma.sku.updateMany({ where: { productId }, data: { deletedAt: new Date() } });
   }
 }
