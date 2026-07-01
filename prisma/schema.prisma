@@ -10,12 +10,13 @@ datasource db {
 // ─── Catalog ─────────────────────────────────────────────────────────────────
 
 model Publisher {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   name      String
-  slug      String   @unique
+  slug      String    @unique
   logoUrl   String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
   games     Game[]
 }
 
@@ -27,6 +28,7 @@ model Game {
   imageUrl    String?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
   publisher   Publisher   @relation(fields: [publisherId], references: [id])
   teams       Team[]
   characters  Character[]
@@ -41,6 +43,7 @@ model Team {
   logoUrl   String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
   game      Game      @relation(fields: [gameId], references: [id])
   products  Product[]
 }
@@ -53,6 +56,7 @@ model Character {
   imageUrl  String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
   game      Game      @relation(fields: [gameId], references: [id])
   products  Product[]
 }
@@ -67,6 +71,7 @@ model Product {
   characterId String?
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
+  deletedAt   DateTime?
   game        Game?      @relation(fields: [gameId], references: [id])
   team        Team?      @relation(fields: [teamId], references: [id])
   character   Character? @relation(fields: [characterId], references: [id])
@@ -81,6 +86,7 @@ model Sku {
   attributes Json        // e.g. { "size": "L", "color": "Black" }
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
+  deletedAt  DateTime?
   product    Product     @relation(fields: [productId], references: [id])
   cartItems  CartItem[]
   orderItems OrderItem[]
@@ -89,12 +95,13 @@ model Sku {
 // ─── Commerce ────────────────────────────────────────────────────────────────
 
 model Account {
-  id          String   @id @default(cuid())
-  clerkUserId String   @unique
-  email       String   @unique
-  role        Role     @default(BUYER)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id          String    @id @default(cuid())
+  clerkUserId String    @unique
+  email       String    @unique
+  role        Role      @default(BUYER)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
   cart        Cart?
   orders      Order[]
 }

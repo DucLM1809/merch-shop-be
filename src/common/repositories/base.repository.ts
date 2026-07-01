@@ -17,4 +17,9 @@ export abstract class BaseRepository<T, UpdateDto = Partial<T>> {
   remove(id: string): Promise<T> {
     return this.delegate.delete({ where: { id } });
   }
+
+  softRemove(id: string): Promise<T> {
+    // ponytail: cast safe — all soft-delete entities have deletedAt from migration
+    return this.delegate.update({ where: { id }, data: { deletedAt: new Date() } as unknown as UpdateDto });
+  }
 }
