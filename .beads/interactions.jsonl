@@ -21,3 +21,6 @@
 {"id":"int-b0c664f9","kind":"field_change","created_at":"2026-06-30T02:43:53.706679Z","actor":"admin","issue_id":"merch-shop-BE-j3g","extra":{"field":"status","new_value":"closed","old_value":"in_progress","reason":"Closed"}}
 {"id":"int-1501e3ae","kind":"field_change","created_at":"2026-07-01T03:16:19.055694Z","actor":"admin","issue_id":"merch-shop-BE-58m","extra":{"field":"status","new_value":"closed","old_value":"in_progress","reason":"Closed"}}
 {"id":"int-d052617d","kind":"field_change","created_at":"2026-07-01T03:34:14.461322Z","actor":"admin","issue_id":"merch-shop-BE-8di","extra":{"field":"status","new_value":"closed","old_value":"in_progress","reason":"Closed"}}
+{"id":"int-d576b48f","kind":"field_change","created_at":"2026-07-01T04:31:32.208224Z","actor":"DucLM1809","issue_id":"merch-shop-BE-rhj","extra":{"field":"status","new_value":"closed","old_value":"in_progress","reason":"Closed"}}
+{"id":"int-5d0c8fa9","kind":"field_change","created_at":"2026-07-01T04:31:32.382197Z","actor":"DucLM1809","issue_id":"merch-shop-BE-qw8","extra":{"field":"status","new_value":"closed","old_value":"open","reason":"Closed"}}
+{"id":"int-37963c06","kind":"field_change","created_at":"2026-07-01T04:31:32.567472Z","actor":"DucLM1809","issue_id":"merch-shop-BE-md6","extra":{"field":"status","new_value":"closed","old_value":"in_progress","reason":"Closed"}}

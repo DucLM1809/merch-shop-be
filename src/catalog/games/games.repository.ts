@@ -15,7 +15,7 @@ export class GamesRepository extends BaseRepository<Game, Prisma.GameUpdateInput
 
   findAll(publisherId?: string) {
     return this.prisma.game.findMany({
-      where: publisherId ? { publisherId } : undefined,
+      where: { deletedAt: null, ...(publisherId && { publisherId }) },
       select: {
         id: true,
         name: true,
@@ -28,8 +28,8 @@ export class GamesRepository extends BaseRepository<Game, Prisma.GameUpdateInput
   }
 
   findBySlug(slug: string) {
-    return this.prisma.game.findUnique({
-      where: { slug },
+    return this.prisma.game.findFirst({
+      where: { slug, deletedAt: null },
       include: { publisher: true },
     });
   }
