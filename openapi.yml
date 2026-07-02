@@ -140,6 +140,27 @@ components:
         shippingAddress:
           $ref: '#/components/schemas/ShippingAddressDto'
 
+    SyncCartDto:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddToCartDto'
+
+    BulkAvailabilityDto:
+      type: object
+      required: [facet, facetId, available]
+      properties:
+        facet:
+          type: string
+          enum: [game, team, character]
+        facetId:
+          type: string
+        available:
+          type: boolean
+
 paths:
   # --- Publishers ---
   /publishers:
@@ -596,6 +617,22 @@ paths:
         '200':
           description: OK
 
+  /skus/availability/bulk:
+    patch:
+      tags: [skus]
+      summary: Set availability for all SKUs under a facet (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkAvailabilityDto'
+      responses:
+        '200':
+          description: OK
+
   /skus/{id}:
     delete:
       tags: [skus]
@@ -649,6 +686,22 @@ paths:
         '200':
           description: OK
 
+  /cart/sync:
+    post:
+      tags: [cart]
+      summary: Replace authenticated user's cart contents
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyncCartDto'
+      responses:
+        '201':
+          description: Synced
+
   /cart/merge:
     post:
       tags: [cart]
@@ -676,6 +729,25 @@ paths:
       summary: List all orders (admin)
       security:
         - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [PENDING, CONFIRMED, FORWARDED, CANCELLED]
       responses:
         '200':
           description: OK
@@ -707,6 +779,49 @@ paths:
           description: OK
         '404':
           description: Not found
+
+  /orders/{id}/retry-fulfillment:
+    post:
+      tags: [orders]
+      summary: Retry fulfillment forwarding for an order (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+
+  # --- Account ---
+  /account/me:
+    get:
+      tags: [account]
+      summary: Get or create account for authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: OK
+
+  /account/{id}:
+    delete:
+      tags: [account]
+      summary: Delete account (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
 
   # --- Payments ---
   /payments/payment-intent:
