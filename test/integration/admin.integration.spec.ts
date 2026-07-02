@@ -58,6 +58,8 @@ describe('Admin harness (AdminGuard bypassed)', () => {
 describe('Publishers admin write', () => {
   let pubId: string;
 
+  afterAll(() => prisma.publisher.deleteMany({ where: { slug: 'adm-pub-test' } }));
+
   it('POST /api/publishers → 201 creates publisher', async () => {
     const { body } = await request(app.getHttpServer())
       .post('/api/publishers')
@@ -91,7 +93,7 @@ describe('Games admin write', () => {
     pubId = pub.id;
   });
 
-  afterAll(() => prisma.publisher.delete({ where: { id: pubId } }));
+  afterAll(() => cleanupCatalog(prisma, pubId));
 
   it('POST /api/games → 201 creates game', async () => {
     const { body } = await request(app.getHttpServer())
