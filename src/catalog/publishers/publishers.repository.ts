@@ -15,14 +15,15 @@ export class PublishersRepository extends BaseRepository<Publisher, Prisma.Publi
 
   findAll() {
     return this.prisma.publisher.findMany({
+      where: { deletedAt: null },
       select: { id: true, name: true, slug: true },
       orderBy: { name: 'asc' },
     });
   }
 
   findBySlug(slug: string) {
-    return this.prisma.publisher.findUnique({
-      where: { slug },
+    return this.prisma.publisher.findFirst({
+      where: { slug, deletedAt: null },
       select: { id: true, name: true, slug: true },
     });
   }

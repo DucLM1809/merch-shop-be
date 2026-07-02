@@ -2,10 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { PublishersRepository } from './publishers.repository';
 import { CreatePublisherDto } from './dto/create-publisher.dto';
 import { PublisherNotFoundException } from '../exceptions/publisher-not-found.exception';
+import { GamesRepository } from '../games/games.repository';
+import { GamesService } from '../games/games.service';
 
 @Injectable()
 export class PublishersService {
-  constructor(private readonly repo: PublishersRepository) {}
+  constructor(
+    private readonly repo: PublishersRepository,
+    private readonly gamesRepo: GamesRepository,
+    private readonly gamesService: GamesService,
+  ) {}
 
   findAll() {
     return this.repo.findAll();
@@ -25,7 +31,9 @@ export class PublishersService {
     return this.repo.update(id, dto);
   }
 
-  remove(id: string) {
-    return this.repo.remove(id);
+  async remove(id: string) {
+    const games = await this.gamesRepo.findAll(id);
+    await Promise.all(games.map(g => this.gamesService.remove(g.id)));
+    return this.repo.softRemove(id);
   }
 }
