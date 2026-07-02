@@ -1,7 +1,7 @@
 import { Controller, Get, Delete, Param, UseGuards } from '@nestjs/common';
-import { ClerkGuard } from '../auth/clerk.guard';
-import { AdminGuard } from '../auth/admin.guard';
-import { CurrentUser } from '../auth/current-user.decorator';
+import { ClerkGuard } from '../auth';
+import { AdminGuard } from '../auth';
+import { CurrentUser } from '../auth';
 import { AccountService } from './account.service';
 
 @Controller('account')
