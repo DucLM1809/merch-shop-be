@@ -169,7 +169,7 @@ describe('POST /api/payments/webhook — payment_intent.succeeded', () => {
 
   afterAll(() => cleanupAll(prisma, pubId, accountId));
 
-  it('creates Order FORWARDED and deletes Cart', async () => {
+  it('creates Order FORWARDED and clears Cart items', async () => {
     mockNotifications.sendOrderConfirmation.mockResolvedValue(undefined);
     stripeConstructEvent.mockReturnValue({
       type: 'payment_intent.succeeded',
@@ -197,8 +197,9 @@ describe('POST /api/payments/webhook — payment_intent.succeeded', () => {
     expect(order!.status).toBe('FORWARDED');
     expect(order!.supplierReference).toBe(`MOCK-${order!.id}`);
 
-    const deletedCart = await prisma.cart.findUnique({ where: { id: cartId } });
-    expect(deletedCart).toBeNull();
+    const clearedCart = await prisma.cart.findUnique({ where: { id: cartId }, include: { items: true } });
+    expect(clearedCart).not.toBeNull();
+    expect(clearedCart!.items).toHaveLength(0);
 
     expect(mockNotifications.sendOrderConfirmation).toHaveBeenCalledWith(
       expect.objectContaining({ to: TEST_EMAIL, orderId: order!.id }),
@@ -251,7 +252,7 @@ describe('POST /api/payments/webhook — duplicate PaymentIntentId', () => {
   });
 
   it('second identical webhook is a no-op — still only one Order', async () => {
-    // Cart is gone after first webhook; service must handle missing cart gracefully
+    // Idempotency check short-circuits before touching the cart
     stripeConstructEvent.mockReturnValue({
       type: 'payment_intent.succeeded',
       data: {

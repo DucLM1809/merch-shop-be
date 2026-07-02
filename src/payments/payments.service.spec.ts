@@ -4,13 +4,11 @@ import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
 import { PaymentsService } from './payments.service';
 import { PrismaService } from '../prisma/prisma.service';
-import { SUPPLIER_PORT } from '../fulfillment/supplier.port';
-import { NOTIFICATION_PORT } from '../notifications/notification.port';
 import { CATALOG_READ_PORT } from '../catalog/catalog-read.port';
+import { OrdersService } from '../commerce';
 
 const mockPrisma = { cart: { findUniqueOrThrow: jest.fn(), findUnique: jest.fn() }, order: { findUnique: jest.fn() } };
-const mockSupplier = { submitOrder: jest.fn() };
-const mockNotifications = { sendOrderConfirmation: jest.fn() };
+const mockOrders = { confirm: jest.fn() };
 const mockCatalogRead = { getSkuPrice: jest.fn() };
 
 jest.mock('stripe');
@@ -32,8 +30,7 @@ describe('PaymentsService', () => {
       providers: [
         PaymentsService,
         { provide: PrismaService, useValue: mockPrisma },
-        { provide: SUPPLIER_PORT, useValue: mockSupplier },
-        { provide: NOTIFICATION_PORT, useValue: mockNotifications },
+        { provide: OrdersService, useValue: mockOrders },
         { provide: CATALOG_READ_PORT, useValue: mockCatalogRead },
         {
           provide: ConfigService,

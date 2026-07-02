@@ -1,22 +1,18 @@
-import { Injectable, Inject, Logger, BadRequestException } from '@nestjs/common';
+import { Injectable, Inject, BadRequestException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
-import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma';
-import { SUPPLIER_PORT, SupplierPort } from '../fulfillment';
-import { NOTIFICATION_PORT, NotificationPort } from '../notifications';
 import { CATALOG_READ_PORT, CatalogReadPort } from '../catalog';
+import { OrdersService } from '../commerce';
 
 @Injectable()
 export class PaymentsService {
   private readonly stripe: Stripe;
   private readonly webhookSecret: string;
-  private readonly logger = new Logger(PaymentsService.name);
 
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(SUPPLIER_PORT) private readonly supplier: SupplierPort,
-    @Inject(NOTIFICATION_PORT) private readonly notifications: NotificationPort,
+    private readonly orders: OrdersService,
     @Inject(CATALOG_READ_PORT) private readonly catalogRead: CatalogReadPort,
     config: ConfigService,
   ) {
@@ -59,76 +55,15 @@ export class PaymentsService {
     if (event.type !== 'payment_intent.succeeded') return;
 
     const intent = event.data.object as Stripe.PaymentIntent;
-    await this.confirmOrder(intent);
-  }
-
-  private async confirmOrder(intent: Stripe.PaymentIntent): Promise<void> {
     const cartId = intent.metadata['cartId'];
     if (!cartId) return;
 
-    const cart = await this.prisma.cart.findUnique({
-      where: { id: cartId },
-      include: { items: { include: { sku: { include: { product: true } } } } },
+    await this.orders.confirm({
+      stripePaymentIntentId: intent.id,
+      cartId,
+      buyerEmail: intent.receipt_email ?? '',
+      // external trust boundary: Stripe webhook → Prisma Json field
+      shippingAddress: (intent.shipping ?? {}) as Record<string, unknown>,
     });
-
-    if (!cart) {
-      this.logger.warn(`Cart ${cartId} not found for intent ${intent.id}`);
-      return;
-    }
-
-    // Idempotency: skip if order already created for this intent
-    const existing = await this.prisma.order.findUnique({
-      where: { stripePaymentIntentId: intent.id },
-    });
-    if (existing) return;
-
-    const order = await this.prisma.order.create({
-      data: {
-        accountId: cart.accountId ?? null,
-        buyerEmail: intent.receipt_email ?? '',
-        status: 'CONFIRMED',
-        stripePaymentIntentId: intent.id,
-        // external trust boundary: Stripe webhook → Prisma Json field
-        shippingAddress: (intent.shipping ?? {}) as Prisma.InputJsonValue,
-        items: {
-          create: cart.items.map((item) => ({
-            skuId: item.skuId,
-            quantity: item.quantity,
-            unitPrice: item.sku.price,
-          })),
-        },
-      },
-      include: { items: { include: { sku: { include: { product: true } } } } },
-    });
-
-    const supplierResult = await this.supplier.submitOrder({
-      orderId: order.id,
-      buyerEmail: order.buyerEmail,
-      shippingAddress: order.shippingAddress as Record<string, unknown>,
-      items: order.items.map((i) => ({
-        skuId: i.skuId,
-        quantity: i.quantity,
-        unitPrice: Number(i.unitPrice),
-      })),
-    });
-
-    await this.prisma.order.update({
-      where: { id: order.id },
-      data: { status: 'FORWARDED', supplierReference: supplierResult.reference },
-    });
-
-    await this.notifications.sendOrderConfirmation({
-      to: order.buyerEmail,
-      orderId: order.id,
-      items: order.items.map((i) => ({
-        name: i.sku.product.name,
-        quantity: i.quantity,
-        unitPrice: Number(i.unitPrice),
-      })),
-    });
-
-    await this.prisma.cart.delete({ where: { id: cartId } });
-
-    this.logger.log(`Order ${order.id} confirmed and forwarded (ref: ${supplierResult.reference})`);
   }
 }

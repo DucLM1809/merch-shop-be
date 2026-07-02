@@ -20,6 +20,13 @@ export class CartRepository extends BaseRepository<Cart, Prisma.CartUpdateInput>
     });
   }
 
+  findByIdWithItems(id: string) {
+    return this.prisma.cart.findUnique({
+      where: { id },
+      include: { items: { include: { sku: { include: { product: true } } } } },
+    });
+  }
+
   createCart(data: Prisma.CartUncheckedCreateInput) {
     return this.prisma.cart.create({
       data,

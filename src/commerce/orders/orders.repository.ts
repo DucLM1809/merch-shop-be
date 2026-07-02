@@ -78,6 +78,17 @@ export class OrdersRepository extends BaseRepository<Order, Prisma.OrderUpdateIn
     return { items, total, page: filters.page, limit: filters.limit };
   }
 
+  findByPaymentIntentId(stripePaymentIntentId: string) {
+    return this.prisma.order.findUnique({ where: { stripePaymentIntentId } });
+  }
+
+  createConfirmed(data: Prisma.OrderUncheckedCreateInput) {
+    return this.prisma.order.create({
+      data,
+      include: { items: { include: { sku: { include: { product: true } } } } },
+    });
+  }
+
   findOneForRetry(id: string) {
     return this.prisma.order.findUnique({
       where: { id },

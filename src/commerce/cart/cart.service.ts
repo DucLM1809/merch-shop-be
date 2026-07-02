@@ -44,6 +44,10 @@ export class CartService {
     return this.repo.upsertItem(cartId, dto.skuId, dto.quantity);
   }
 
+  findById(cartId: string) {
+    return this.repo.findByIdWithItems(cartId);
+  }
+
   removeItem(cartId: string, skuId: string) {
     return this.repo.removeItem(cartId, skuId);
   }
