@@ -187,7 +187,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "account_account_module",
-      "community": 2,
+      "community": 14,
       "norm_label": "account.module.ts"
     },
     {
@@ -197,7 +197,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "account_account_module_accountmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "accountmodule"
     },
     {
@@ -287,7 +287,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "account_index",
-      "community": 2,
+      "community": 14,
       "norm_label": "index.ts"
     },
     {
@@ -297,17 +297,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_module",
-      "community": 2,
+      "community": 14,
       "norm_label": "app.module.ts"
     },
     {
       "label": "AppModule",
       "file_type": "code",
       "source_file": "src/app.module.ts",
-      "source_location": "L37",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "src_app_module_appmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "appmodule"
     },
     {
@@ -357,7 +357,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auth_auth_module",
-      "community": 2,
+      "community": 14,
       "norm_label": "auth.module.ts"
     },
     {
@@ -367,7 +367,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "auth_auth_module_authmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "authmodule"
     },
     {
@@ -587,7 +587,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "catalog_catalog_module_catalogmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "catalogmodule"
     },
     {
@@ -2747,7 +2747,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "commerce_commerce_module",
-      "community": 2,
+      "community": 14,
       "norm_label": "commerce.module.ts"
     },
     {
@@ -2757,7 +2757,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "commerce_commerce_module_commercemodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "commercemodule"
     },
     {
@@ -2957,7 +2957,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "dto_filter_orders_dto_filterordersdto",
-      "community": 4,
+      "community": 8,
       "norm_label": "filterordersdto"
     },
     {
@@ -2977,7 +2977,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller",
-      "community": 4,
+      "community": 12,
       "norm_label": "orderscontroller"
     },
     {
@@ -2987,7 +2987,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_constructor",
-      "community": 4,
+      "community": 12,
       "norm_label": ".constructor()"
     },
     {
@@ -2997,7 +2997,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_findmine",
-      "community": 4,
+      "community": 12,
       "norm_label": ".findmine()"
     },
     {
@@ -3007,7 +3007,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_findall",
-      "community": 4,
+      "community": 12,
       "norm_label": ".findall()"
     },
     {
@@ -3017,7 +3017,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_findone",
-      "community": 4,
+      "community": 12,
       "norm_label": ".findone()"
     },
     {
@@ -3027,7 +3027,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_retryfulfillment",
-      "community": 4,
+      "community": 12,
       "norm_label": ".retryfulfillment()"
     },
     {
@@ -3154,7 +3154,7 @@
       "label": "OrdersService",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice",
       "community": 14,
@@ -3164,27 +3164,27 @@
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_constructor",
       "community": 14,
       "norm_label": ".constructor()"
     },
     {
-      "label": ".findByAccount()",
+      "label": ".findMine()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
-      "id": "orders_orders_service_ordersservice_findbyaccount",
+      "id": "orders_orders_service_ordersservice_findmine",
       "community": 14,
-      "norm_label": ".findbyaccount()"
+      "norm_label": ".findmine()"
     },
     {
       "label": ".findOne()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L27",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_findone",
       "community": 14,
@@ -3194,17 +3194,17 @@
       "label": ".findAll()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L33",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_findall",
-      "community": 4,
+      "community": 8,
       "norm_label": ".findall()"
     },
     {
       "label": ".confirm()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L38",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_confirm",
       "community": 14,
@@ -3214,7 +3214,7 @@
       "label": ".retryFulfillment()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L93",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_retryfulfillment",
       "community": 14,
@@ -3517,7 +3517,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "fulfillment_fulfillment_module_fulfillmentmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "fulfillmentmodule"
     },
     {
@@ -3627,7 +3627,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 2,
+      "community": 14,
       "norm_label": "main.ts"
     },
     {
@@ -3637,7 +3637,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_bootstrap",
-      "community": 2,
+      "community": 14,
       "norm_label": "bootstrap()"
     },
     {
@@ -3727,7 +3727,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "notifications_notifications_module_notificationsmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "notificationsmodule"
     },
     {
@@ -3777,7 +3777,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "payments_index",
-      "community": 2,
+      "community": 14,
       "norm_label": "index.ts"
     },
     {
@@ -3794,40 +3794,40 @@
       "label": "PaymentsController",
       "file_type": "code",
       "source_file": "src/payments/payments.controller.ts",
-      "source_location": "L9",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller",
-      "community": 2,
+      "community": 14,
       "norm_label": "paymentscontroller"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/payments/payments.controller.ts",
-      "source_location": "L10",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller_constructor",
-      "community": 2,
+      "community": 14,
       "norm_label": ".constructor()"
     },
     {
       "label": ".createPaymentIntent()",
       "file_type": "code",
       "source_file": "src/payments/payments.controller.ts",
-      "source_location": "L15",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller_createpaymentintent",
-      "community": 2,
+      "community": 14,
       "norm_label": ".createpaymentintent()"
     },
     {
       "label": ".webhook()",
       "file_type": "code",
       "source_file": "src/payments/payments.controller.ts",
-      "source_location": "L20",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller_webhook",
-      "community": 2,
+      "community": 14,
       "norm_label": ".webhook()"
     },
     {
@@ -3837,7 +3837,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "payments_payments_module",
-      "community": 2,
+      "community": 14,
       "norm_label": "payments.module.ts"
     },
     {
@@ -3847,7 +3847,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "payments_payments_module_paymentsmodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "paymentsmodule"
     },
     {
@@ -3987,7 +3987,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "prisma_prisma_module",
-      "community": 2,
+      "community": 14,
       "norm_label": "prisma.module.ts"
     },
     {
@@ -3997,7 +3997,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "prisma_prisma_module_prismamodule",
-      "community": 2,
+      "community": 14,
       "norm_label": "prismamodule"
     },
     {
@@ -5725,6 +5725,28 @@
       "target": "account_account_service_accountservice"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commerce/orders/orders.service.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "orders_orders_service",
+      "target": "account_account_service_accountservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commerce/orders/orders.service.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "orders_orders_service_ordersservice_constructor",
+      "target": "account_account_service_accountservice",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -5745,6 +5767,17 @@
       "confidence_score": 1.0,
       "source": "cart_cart_service",
       "target": "account_index"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commerce/orders/orders.service.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "orders_orders_service",
+      "target": "account_index",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -6725,6 +6758,17 @@
       "confidence_score": 1.0,
       "source": "orders_orders_controller_orderscontroller_findmine",
       "target": "auth_current_user_decorator_authuser"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commerce/orders/orders.controller.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "orders_orders_controller_orderscontroller_findone",
+      "target": "auth_current_user_decorator_authuser",
+      "confidence_score": 1.0
     },
     {
       "relation": "re_exports",
@@ -12121,9 +12165,9 @@
       "source_file": "src/commerce/cart/cart.repository.ts",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "cart_cart_repository_cartrepository",
-      "target": "cart_cart_repository_cartrepository_findbyidwithitems",
-      "confidence_score": 1.0
+      "target": "cart_cart_repository_cartrepository_findbyidwithitems"
     },
     {
       "relation": "method",
@@ -12376,9 +12420,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "cart_cart_service",
-      "confidence_score": 1.0
+      "target": "cart_cart_service"
     },
     {
       "relation": "method",
@@ -12416,9 +12460,9 @@
       "source_file": "src/commerce/cart/cart.service.ts",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "cart_cart_service_cartservice",
-      "target": "cart_cart_service_cartservice_findbyid",
-      "confidence_score": 1.0
+      "target": "cart_cart_service_cartservice_findbyid"
     },
     {
       "relation": "method",
@@ -12478,9 +12522,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "cart_cart_service_cartservice",
-      "confidence_score": 1.0
+      "target": "cart_cart_service_cartservice"
     },
     {
       "relation": "references",
@@ -12489,9 +12533,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice_constructor",
-      "target": "cart_cart_service_cartservice",
-      "confidence_score": 1.0
+      "target": "cart_cart_service_cartservice"
     },
     {
       "relation": "references",
@@ -12651,9 +12695,9 @@
       "source_file": "src/commerce/commerce.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "commerce_commerce_module",
-      "target": "notifications_index",
-      "confidence_score": 1.0
+      "target": "notifications_index"
     },
     {
       "relation": "imports",
@@ -12662,9 +12706,9 @@
       "source_file": "src/commerce/commerce.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "commerce_commerce_module",
-      "target": "notifications_notifications_module_notificationsmodule",
-      "confidence_score": 1.0
+      "target": "notifications_notifications_module_notificationsmodule"
     },
     {
       "relation": "imports_from",
@@ -12783,9 +12827,9 @@
       "source_file": "src/payments/payments.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_module",
-      "target": "commerce_commerce_module",
-      "confidence_score": 1.0
+      "target": "commerce_commerce_module"
     },
     {
       "relation": "re_exports",
@@ -12805,9 +12849,9 @@
       "source_file": "src/payments/payments.module.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_module",
-      "target": "commerce_commerce_module_commercemodule",
-      "confidence_score": 1.0
+      "target": "commerce_commerce_module_commercemodule"
     },
     {
       "relation": "contains",
@@ -13028,9 +13072,9 @@
       "source_file": "src/payments/payments.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_service",
-      "target": "commerce_index",
-      "confidence_score": 1.0
+      "target": "commerce_index"
     },
     {
       "relation": "imports_from",
@@ -13039,9 +13083,9 @@
       "source_file": "src/payments/payments.service.spec.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_service_spec",
-      "target": "commerce_index",
-      "confidence_score": 1.0
+      "target": "commerce_index"
     },
     {
       "relation": "contains",
@@ -13049,9 +13093,9 @@
       "source_file": "src/commerce/orders/confirmed-payment-intent.type.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_confirmed_payment_intent_type",
-      "target": "orders_confirmed_payment_intent_type_confirmedpaymentintent",
-      "confidence_score": 1.0
+      "target": "orders_confirmed_payment_intent_type_confirmedpaymentintent"
     },
     {
       "relation": "imports_from",
@@ -13060,9 +13104,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "orders_confirmed_payment_intent_type",
-      "confidence_score": 1.0
+      "target": "orders_confirmed_payment_intent_type"
     },
     {
       "relation": "imports",
@@ -13071,9 +13115,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "orders_confirmed_payment_intent_type_confirmedpaymentintent",
-      "confidence_score": 1.0
+      "target": "orders_confirmed_payment_intent_type_confirmedpaymentintent"
     },
     {
       "relation": "references",
@@ -13082,9 +13126,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice_confirm",
-      "target": "orders_confirmed_payment_intent_type_confirmedpaymentintent",
-      "confidence_score": 1.0
+      "target": "orders_confirmed_payment_intent_type_confirmedpaymentintent"
     },
     {
       "relation": "contains",
@@ -13444,9 +13488,9 @@
       "source_file": "src/commerce/orders/orders.repository.ts",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_repository_ordersrepository",
-      "target": "orders_orders_repository_ordersrepository_createconfirmed",
-      "confidence_score": 1.0
+      "target": "orders_orders_repository_ordersrepository_createconfirmed"
     },
     {
       "relation": "method",
@@ -13484,9 +13528,9 @@
       "source_file": "src/commerce/orders/orders.repository.ts",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_repository_ordersrepository",
-      "target": "orders_orders_repository_ordersrepository_findbypaymentintentid",
-      "confidence_score": 1.0
+      "target": "orders_orders_repository_ordersrepository_findbypaymentintentid"
     },
     {
       "relation": "method",
@@ -13624,9 +13668,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "notifications_index",
-      "confidence_score": 1.0
+      "target": "notifications_index"
     },
     {
       "relation": "imports",
@@ -13635,9 +13679,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "notifications_notification_port_notification_port",
-      "confidence_score": 1.0
+      "target": "notifications_notification_port_notification_port"
     },
     {
       "relation": "imports",
@@ -13646,9 +13690,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "notifications_notification_port_notificationport",
-      "confidence_score": 1.0
+      "target": "notifications_notification_port_notificationport"
     },
     {
       "relation": "contains",
@@ -13710,9 +13754,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice",
-      "target": "orders_orders_service_ordersservice_confirm",
-      "confidence_score": 1.0
+      "target": "orders_orders_service_ordersservice_confirm"
     },
     {
       "relation": "method",
@@ -13738,11 +13782,11 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L8",
+      "source_location": "L25",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice",
-      "target": "orders_orders_service_ordersservice_findbyaccount"
+      "target": "orders_orders_service_ordersservice_findmine",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -13771,9 +13815,9 @@
       "source_file": "src/payments/payments.service.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_service",
-      "target": "orders_orders_service_ordersservice",
-      "confidence_score": 1.0
+      "target": "orders_orders_service_ordersservice"
     },
     {
       "relation": "references",
@@ -13782,9 +13826,9 @@
       "source_file": "src/payments/payments.service.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_service_paymentsservice_constructor",
-      "target": "orders_orders_service_ordersservice",
-      "confidence_score": 1.0
+      "target": "orders_orders_service_ordersservice"
     },
     {
       "relation": "imports",
@@ -13793,9 +13837,9 @@
       "source_file": "src/payments/payments.service.spec.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_service_spec",
-      "target": "orders_orders_service_ordersservice",
-      "confidence_score": 1.0
+      "target": "orders_orders_service_ordersservice"
     },
     {
       "relation": "references",
@@ -13815,9 +13859,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice_constructor",
-      "target": "notifications_notification_port_notificationport",
-      "confidence_score": 1.0
+      "target": "notifications_notification_port_notificationport"
     },
     {
       "relation": "references",
@@ -15346,9 +15390,9 @@
       "source_file": "src/payments/payments.service.spec.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "payments_payments_service_spec",
-      "target": "payments_payments_service_spec_mockorders",
-      "confidence_score": 1.0
+      "target": "payments_payments_service_spec_mockorders"
     },
     {
       "relation": "contains",
@@ -16949,5 +16993,5 @@
       "source_file": "docs/adr/0006-server-side-guest-cart.md"
     }
   ],
-  "built_at_commit": "7076f4fab23c3e34b3235010a6bc27c90e15b17c"
+  "built_at_commit": "c59cdc368db291fbb7f06624a559704006783e5e"
 }

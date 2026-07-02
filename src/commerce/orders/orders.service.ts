@@ -5,6 +5,7 @@ import { OrderNotFoundException } from '../exceptions/order-not-found.exception'
 import { SUPPLIER_PORT, SupplierPort } from '../../fulfillment';
 import { NOTIFICATION_PORT, NotificationPort } from '../../notifications';
 import { CartService } from '../cart/cart.service';
+import { AccountService } from '../../account';
 import { FilterOrdersDto } from './dto/filter-orders.dto';
 import { PagedResult } from '../../common';
 import { ConfirmedPaymentIntent } from './confirmed-payment-intent.type';
@@ -16,17 +17,25 @@ export class OrdersService {
   constructor(
     private readonly repo: OrdersRepository,
     private readonly cartService: CartService,
+    private readonly accountService: AccountService,
     @Inject(SUPPLIER_PORT) private readonly supplier: SupplierPort,
     @Inject(NOTIFICATION_PORT) private readonly notifications: NotificationPort,
   ) {}
 
-  findByAccount(accountId: string) {
-    return this.repo.findByAccount(accountId);
+  async findMine(clerkUserId: string) {
+    const account = await this.accountService.findByClerkId(clerkUserId);
+    if (!account) return [];
+    return this.repo.findByAccount(account.id);
   }
 
-  async findOne(id: string) {
-    const order = await this.repo.findOneWithItems(id);
-    if (!order) throw new OrderNotFoundException(id);
+  async findOne(id: string, clerkUserId: string) {
+    const [order, account] = await Promise.all([
+      this.repo.findOneWithItems(id),
+      this.accountService.findByClerkId(clerkUserId),
+    ]);
+    if (!order || !account || order.accountId !== account.id) {
+      throw new OrderNotFoundException(id);
+    }
     return order;
   }
 

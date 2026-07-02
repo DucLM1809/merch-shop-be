@@ -13,7 +13,7 @@ export class OrdersController {
   @UseGuards(ClerkGuard)
   @ApiBearerAuth()
   findMine(@CurrentUser() user: AuthUser) {
-    return this.orders.findByAccount(user.userId);
+    return this.orders.findMine(user.userId);
   }
 
   @Get()
@@ -26,8 +26,8 @@ export class OrdersController {
   @Get(':id')
   @UseGuards(ClerkGuard)
   @ApiBearerAuth()
-  findOne(@Param('id') id: string) {
-    return this.orders.findOne(id);
+  findOne(@Param('id') id: string, @CurrentUser() user: AuthUser) {
+    return this.orders.findOne(id, user.userId);
   }
 
   @Post(':id/retry-fulfillment')
