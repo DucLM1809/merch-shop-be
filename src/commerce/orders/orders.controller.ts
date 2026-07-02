@@ -30,6 +30,13 @@ export class OrdersController {
     return this.orders.findOne(id, user.userId);
   }
 
+  @Get('by-payment-intent/:intentId')
+  @UseGuards(ClerkGuard)
+  @ApiBearerAuth()
+  findByPaymentIntent(@Param('intentId') intentId: string, @CurrentUser() user: AuthUser) {
+    return this.orders.findByPaymentIntent(intentId, user.userId);
+  }
+
   @Post(':id/retry-fulfillment')
   @HttpCode(200)
   @UseGuards(AdminGuard)

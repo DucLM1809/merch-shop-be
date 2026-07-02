@@ -780,6 +780,24 @@ paths:
         '404':
           description: Not found
 
+  /orders/by-payment-intent/{intentId}:
+    get:
+      tags: [orders]
+      summary: Get authenticated user's order by Stripe payment intent id
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: intentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not found
+
   /orders/{id}/retry-fulfillment:
     post:
       tags: [orders]

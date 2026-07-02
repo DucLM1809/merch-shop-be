@@ -39,6 +39,17 @@ export class OrdersService {
     return order;
   }
 
+  async findByPaymentIntent(stripePaymentIntentId: string, clerkUserId: string) {
+    const [order, account] = await Promise.all([
+      this.repo.findByPaymentIntentIdWithItems(stripePaymentIntentId),
+      this.accountService.findByClerkId(clerkUserId),
+    ]);
+    if (!order || !account || order.accountId !== account.id) {
+      throw new OrderNotFoundException(stripePaymentIntentId);
+    }
+    return order;
+  }
+
   async findAll(filters: FilterOrdersDto) {
     const { items, total, page, limit } = await this.repo.findAll(filters);
     return new PagedResult(items, { total, page, limit });
