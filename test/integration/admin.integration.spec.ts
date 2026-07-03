@@ -10,16 +10,11 @@ import { AdminGuard } from '../../src/auth/admin.guard';
 
 let app: INestApplication;
 export let prisma: PrismaService;
-export const mockClerkClient = {
-  signInTokens: { createSignInToken: jest.fn() },
-};
 
 beforeAll(async () => {
   const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
     .overrideGuard(AdminGuard)
     .useValue({ canActivate: () => true })
-    .overrideProvider('CLERK_CLIENT')
-    .useValue(mockClerkClient)
     .compile();
   app = moduleRef.createNestApplication();
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
@@ -456,49 +451,6 @@ describe('Admin guard role enforcement (403)', () => {
 
   it('POST /api/orders/:id/retry-fulfillment → 403', () =>
     request(guardApp.getHttpServer()).post('/api/orders/any-id/retry-fulfillment').send({}).expect(403));
-
-  it('POST /api/account/:id/sign-in-token → 403', () =>
-    request(guardApp.getHttpServer()).post('/api/account/any-id/sign-in-token').expect(403));
-});
-
-// ─── Sign-in token issuance ───────────────────────────────────────────────────
-
-describe('POST /api/account/:id/sign-in-token', () => {
-  let accountId: string;
-
-  beforeAll(async () => {
-    const account = await prisma.account.create({
-      data: { clerkUserId: 'clerk_sit_user', email: 'sit@test.com' },
-    });
-    accountId = account.id;
-  });
-
-  afterAll(() => prisma.account.delete({ where: { id: accountId } }));
-
-  beforeEach(() => mockClerkClient.signInTokens.createSignInToken.mockReset());
-
-  it('201 + token, calls Clerk with the account clerkUserId', async () => {
-    mockClerkClient.signInTokens.createSignInToken.mockResolvedValue({
-      id: 'sit_123',
-      token: 'one-time-token',
-      status: 'pending',
-    });
-
-    const { body } = await request(app.getHttpServer())
-      .post(`/api/account/${accountId}/sign-in-token`)
-      .expect(201);
-
-    expect(body.data.token).toBe('one-time-token');
-    expect(mockClerkClient.signInTokens.createSignInToken).toHaveBeenCalledWith({
-      userId: 'clerk_sit_user',
-      expiresInSeconds: 60,
-    });
-  });
-
-  it('404 when account id is unknown', () =>
-    request(app.getHttpServer())
-      .post('/api/account/does-not-exist/sign-in-token')
-      .expect(404));
 });
 
 // ─── Order list: status filter + pagination ───────────────────────────────────

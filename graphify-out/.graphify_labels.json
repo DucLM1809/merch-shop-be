@@ -1,7 +1,6 @@
 {
   "0": "Auth & Commerce Modules",
   "1": "Architecture Decision Records",
-  "2": "Community 2",
   "3": "Skill Framework & Design Patterns",
   "4": "Fulfillment & Supplier Port",
   "5": "Issue Triage & Workflow Skills",
@@ -19,6 +18,5 @@
   "17": "HITL Diagnostics Script",
   "18": "Beads Issue Tracker",
   "19": "Order DTOs",
-  "20": "Community 20",
   "23": "Docker Compose"
 }

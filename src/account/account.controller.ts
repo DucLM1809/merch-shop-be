@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, Delete, Param, UseGuards } from '@nestjs/common';
 import { ClerkGuard, AdminGuard, CurrentUser } from '../auth';
 import { AccountService } from './account.service';
 
@@ -16,11 +16,5 @@ export class AccountController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.accountService.remove(id);
-  }
-
-  @UseGuards(AdminGuard)
-  @Post(':id/sign-in-token')
-  createSignInToken(@Param('id') id: string) {
-    return this.accountService.createSignInToken(id);
   }
 }
