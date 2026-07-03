@@ -144,51 +144,41 @@
       "label": "AccountController",
       "file_type": "code",
       "source_file": "src/account/account.controller.ts",
-      "source_location": "L6",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "account_account_controller_accountcontroller",
-      "community": 12,
+      "community": 0,
       "norm_label": "accountcontroller"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/account/account.controller.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "account_account_controller_accountcontroller_constructor",
-      "community": 12,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
       "label": ".me()",
       "file_type": "code",
       "source_file": "src/account/account.controller.ts",
-      "source_location": "L11",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "account_account_controller_accountcontroller_me",
-      "community": 12,
+      "community": 0,
       "norm_label": ".me()"
     },
     {
       "label": ".remove()",
       "file_type": "code",
       "source_file": "src/account/account.controller.ts",
-      "source_location": "L17",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "account_account_controller_accountcontroller_remove",
-      "community": 12,
+      "community": 0,
       "norm_label": ".remove()"
-    },
-    {
-      "label": ".createSignInToken()",
-      "file_type": "code",
-      "source_file": "src/account/account.controller.ts",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "account_account_controller_accountcontroller_createsignintoken",
-      "community": 12,
-      "norm_label": ".createsignintoken()"
     },
     {
       "label": "account.module.ts",
@@ -197,17 +187,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "account_account_module",
-      "community": 7,
+      "community": 14,
       "norm_label": "account.module.ts"
     },
     {
       "label": "AccountModule",
       "file_type": "code",
       "source_file": "src/account/account.module.ts",
-      "source_location": "L23",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "account_account_module_accountmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "accountmodule"
     },
     {
@@ -224,111 +214,71 @@
       "label": "AccountService",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L7",
+      "source_location": "L5",
       "_origin": "ast",
       "id": "account_account_service_accountservice",
-      "community": 12,
+      "community": 0,
       "norm_label": "accountservice"
     },
     {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L8",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "account_account_service_accountservice_constructor",
-      "community": 12,
+      "community": 0,
       "norm_label": ".constructor()"
     },
     {
       "label": ".upsertFromClerk()",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L13",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "account_account_service_accountservice_upsertfromclerk",
-      "community": 12,
+      "community": 0,
       "norm_label": ".upsertfromclerk()"
     },
     {
       "label": ".hasRole()",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L21",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "account_account_service_accountservice_hasrole",
-      "community": 12,
+      "community": 0,
       "norm_label": ".hasrole()"
     },
     {
       "label": ".findById()",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L29",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "account_account_service_accountservice_findbyid",
-      "community": 12,
+      "community": 0,
       "norm_label": ".findbyid()"
     },
     {
       "label": ".findByClerkId()",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L33",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "account_account_service_accountservice_findbyclerkid",
-      "community": 12,
+      "community": 0,
       "norm_label": ".findbyclerkid()"
     },
     {
       "label": ".remove()",
       "file_type": "code",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L37",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "account_account_service_accountservice_remove",
-      "community": 12,
+      "community": 0,
       "norm_label": ".remove()"
-    },
-    {
-      "label": ".createSignInToken()",
-      "file_type": "code",
-      "source_file": "src/account/account.service.ts",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "account_account_service_accountservice_createsignintoken",
-      "community": 12,
-      "norm_label": ".createsignintoken()"
-    },
-    {
-      "label": "account-not-found.exception.ts",
-      "file_type": "code",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "exceptions_account_not_found_exception",
-      "community": 8,
-      "norm_label": "account-not-found.exception.ts"
-    },
-    {
-      "label": "AccountNotFoundException",
-      "file_type": "code",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "exceptions_account_not_found_exception_accountnotfoundexception",
-      "community": 8,
-      "norm_label": "accountnotfoundexception"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "exceptions_account_not_found_exception_accountnotfoundexception_constructor",
-      "community": 8,
-      "norm_label": ".constructor()"
     },
     {
       "label": "index.ts",
@@ -337,7 +287,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "account_index",
-      "community": 7,
+      "community": 14,
       "norm_label": "index.ts"
     },
     {
@@ -347,7 +297,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_module",
-      "community": 7,
+      "community": 14,
       "norm_label": "app.module.ts"
     },
     {
@@ -357,7 +307,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_app_module_appmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "appmodule"
     },
     {
@@ -407,7 +357,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auth_auth_module",
-      "community": 7,
+      "community": 14,
       "norm_label": "auth.module.ts"
     },
     {
@@ -417,7 +367,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "auth_auth_module_authmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "authmodule"
     },
     {
@@ -607,7 +557,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "catalog_catalog_read_service_catalogreadservice_findproducts",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findproducts()"
     },
     {
@@ -637,7 +587,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "catalog_catalog_module_catalogmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "catalogmodule"
     },
     {
@@ -737,7 +687,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "characters_characters_repository_charactersrepository",
-      "community": 6,
+      "community": 7,
       "norm_label": "charactersrepository"
     },
     {
@@ -747,7 +697,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "characters_characters_repository_charactersrepository_constructor",
-      "community": 6,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -757,7 +707,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "characters_characters_repository_charactersrepository_delegate",
-      "community": 6,
+      "community": 7,
       "norm_label": ".delegate()"
     },
     {
@@ -767,7 +717,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "characters_characters_repository_charactersrepository_findall",
-      "community": 6,
+      "community": 7,
       "norm_label": ".findall()"
     },
     {
@@ -777,7 +727,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "characters_characters_repository_charactersrepository_findbyslug",
-      "community": 6,
+      "community": 7,
       "norm_label": ".findbyslug()"
     },
     {
@@ -787,7 +737,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "characters_characters_repository_charactersrepository_create",
-      "community": 6,
+      "community": 7,
       "norm_label": ".create()"
     },
     {
@@ -797,7 +747,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "characters_characters_service",
-      "community": 6,
+      "community": 7,
       "norm_label": "characters.service.ts"
     },
     {
@@ -817,7 +767,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "characters_characters_service_charactersservice_constructor",
-      "community": 6,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -897,7 +847,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "exceptions_character_not_found_exception",
-      "community": 6,
+      "community": 8,
       "norm_label": "character-not-found.exception.ts"
     },
     {
@@ -907,7 +857,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "exceptions_character_not_found_exception_characternotfoundexception",
-      "community": 6,
+      "community": 8,
       "norm_label": "characternotfoundexception"
     },
     {
@@ -917,7 +867,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "exceptions_character_not_found_exception_characternotfoundexception_constructor",
-      "community": 6,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -1097,7 +1047,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "games_games_controller",
-      "community": 9,
+      "community": 12,
       "norm_label": "games.controller.ts"
     },
     {
@@ -1247,7 +1197,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "games_games_service",
-      "community": 9,
+      "community": 7,
       "norm_label": "games.service.ts"
     },
     {
@@ -1337,7 +1287,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dto_create_product_dto",
-      "community": 2,
+      "community": 7,
       "norm_label": "create-product.dto.ts"
     },
     {
@@ -1347,7 +1297,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "dto_create_product_dto_createproductdto",
-      "community": 2,
+      "community": 7,
       "norm_label": "createproductdto"
     },
     {
@@ -1357,7 +1307,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dto_filter_products_dto",
-      "community": 2,
+      "community": 7,
       "norm_label": "filter-products.dto.ts"
     },
     {
@@ -1367,7 +1317,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "dto_filter_products_dto_filterproductsdto",
-      "community": 2,
+      "community": 7,
       "norm_label": "filterproductsdto"
     },
     {
@@ -1377,7 +1327,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "products_products_controller",
-      "community": 2,
+      "community": 7,
       "norm_label": "products.controller.ts"
     },
     {
@@ -1387,7 +1337,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller",
-      "community": 2,
+      "community": 7,
       "norm_label": "productscontroller"
     },
     {
@@ -1397,7 +1347,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller_constructor",
-      "community": 2,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -1407,7 +1357,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller_findall",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findall()"
     },
     {
@@ -1417,7 +1367,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller_findone",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findone()"
     },
     {
@@ -1427,7 +1377,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller_create",
-      "community": 2,
+      "community": 7,
       "norm_label": ".create()"
     },
     {
@@ -1437,7 +1387,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller_update",
-      "community": 2,
+      "community": 7,
       "norm_label": ".update()"
     },
     {
@@ -1447,7 +1397,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "products_products_controller_productscontroller_remove",
-      "community": 2,
+      "community": 7,
       "norm_label": ".remove()"
     },
     {
@@ -1467,7 +1417,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "products_products_repository_productsrepository",
-      "community": 2,
+      "community": 7,
       "norm_label": "productsrepository"
     },
     {
@@ -1477,7 +1427,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "products_products_repository_productsrepository_constructor",
-      "community": 2,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -1487,7 +1437,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "products_products_repository_productsrepository_delegate",
-      "community": 2,
+      "community": 7,
       "norm_label": ".delegate()"
     },
     {
@@ -1497,7 +1447,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "products_products_repository_productsrepository_findall",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findall()"
     },
     {
@@ -1507,7 +1457,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "products_products_repository_productsrepository_findonewithrelations",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findonewithrelations()"
     },
     {
@@ -1517,7 +1467,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "products_products_repository_productsrepository_create",
-      "community": 2,
+      "community": 7,
       "norm_label": ".create()"
     },
     {
@@ -1527,7 +1477,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "products_products_service",
-      "community": 2,
+      "community": 7,
       "norm_label": "products.service.ts"
     },
     {
@@ -1537,7 +1487,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "products_products_service_productsservice",
-      "community": 2,
+      "community": 7,
       "norm_label": "productsservice"
     },
     {
@@ -1547,7 +1497,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "products_products_service_productsservice_constructor",
-      "community": 2,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -1557,7 +1507,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "products_products_service_productsservice_findall",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findall()"
     },
     {
@@ -1567,7 +1517,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "products_products_service_productsservice_findone",
-      "community": 2,
+      "community": 7,
       "norm_label": ".findone()"
     },
     {
@@ -1577,7 +1527,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "products_products_service_productsservice_create",
-      "community": 2,
+      "community": 7,
       "norm_label": ".create()"
     },
     {
@@ -1587,7 +1537,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "products_products_service_productsservice_update",
-      "community": 2,
+      "community": 7,
       "norm_label": ".update()"
     },
     {
@@ -1597,7 +1547,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "products_products_service_productsservice_remove",
-      "community": 2,
+      "community": 7,
       "norm_label": ".remove()"
     },
     {
@@ -1987,7 +1937,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository",
-      "community": 13,
+      "community": 7,
       "norm_label": "skusrepository"
     },
     {
@@ -1997,7 +1947,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_constructor",
-      "community": 13,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -2007,7 +1957,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_delegate",
-      "community": 13,
+      "community": 7,
       "norm_label": ".delegate()"
     },
     {
@@ -2017,7 +1967,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_findbyproduct",
-      "community": 13,
+      "community": 7,
       "norm_label": ".findbyproduct()"
     },
     {
@@ -2027,7 +1977,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_create",
-      "community": 13,
+      "community": 7,
       "norm_label": ".create()"
     },
     {
@@ -2037,7 +1987,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_setavailability",
-      "community": 13,
+      "community": 7,
       "norm_label": ".setavailability()"
     },
     {
@@ -2047,7 +1997,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_bulksetavailability",
-      "community": 13,
+      "community": 7,
       "norm_label": ".bulksetavailability()"
     },
     {
@@ -2057,7 +2007,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "skus_skus_repository_skusrepository_softremovebyproduct",
-      "community": 13,
+      "community": 7,
       "norm_label": ".softremovebyproduct()"
     },
     {
@@ -2087,7 +2037,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "skus_skus_service_skusservice_constructor",
-      "community": 13,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -2167,7 +2117,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "teams_teams_controller",
-      "community": 11,
+      "community": 12,
       "norm_label": "teams.controller.ts"
     },
     {
@@ -2257,7 +2207,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "teams_teams_repository_teamsrepository",
-      "community": 11,
+      "community": 7,
       "norm_label": "teamsrepository"
     },
     {
@@ -2267,7 +2217,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "teams_teams_repository_teamsrepository_constructor",
-      "community": 11,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -2277,7 +2227,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "teams_teams_repository_teamsrepository_delegate",
-      "community": 11,
+      "community": 7,
       "norm_label": ".delegate()"
     },
     {
@@ -2287,7 +2237,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "teams_teams_repository_teamsrepository_findall",
-      "community": 11,
+      "community": 7,
       "norm_label": ".findall()"
     },
     {
@@ -2297,7 +2247,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "teams_teams_repository_teamsrepository_findbyslug",
-      "community": 11,
+      "community": 7,
       "norm_label": ".findbyslug()"
     },
     {
@@ -2307,7 +2257,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "teams_teams_repository_teamsrepository_create",
-      "community": 11,
+      "community": 7,
       "norm_label": ".create()"
     },
     {
@@ -2317,7 +2267,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "teams_teams_service",
-      "community": 11,
+      "community": 7,
       "norm_label": "teams.service.ts"
     },
     {
@@ -2337,7 +2287,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "teams_teams_service_teamsservice_constructor",
-      "community": 11,
+      "community": 7,
       "norm_label": ".constructor()"
     },
     {
@@ -2447,7 +2397,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "cart_cart_controller_cartcontroller_constructor",
-      "community": 0,
+      "community": 12,
       "norm_label": ".constructor()"
     },
     {
@@ -2667,7 +2617,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice",
-      "community": 0,
+      "community": 12,
       "norm_label": "cartservice"
     },
     {
@@ -2687,7 +2637,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_getorcreatecart",
-      "community": 0,
+      "community": 12,
       "norm_label": ".getorcreatecart()"
     },
     {
@@ -2697,7 +2647,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_additem",
-      "community": 0,
+      "community": 12,
       "norm_label": ".additem()"
     },
     {
@@ -2707,7 +2657,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_findbyid",
-      "community": 0,
+      "community": 12,
       "norm_label": ".findbyid()"
     },
     {
@@ -2717,7 +2667,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_removeitem",
-      "community": 0,
+      "community": 12,
       "norm_label": ".removeitem()"
     },
     {
@@ -2727,7 +2677,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_clearcart",
-      "community": 0,
+      "community": 12,
       "norm_label": ".clearcart()"
     },
     {
@@ -2737,7 +2687,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_synccart",
-      "community": 0,
+      "community": 12,
       "norm_label": ".synccart()"
     },
     {
@@ -2747,7 +2697,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "cart_cart_service_cartservice_mergeguestcart",
-      "community": 0,
+      "community": 12,
       "norm_label": ".mergeguestcart()"
     },
     {
@@ -2797,7 +2747,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "commerce_commerce_module",
-      "community": 7,
+      "community": 14,
       "norm_label": "commerce.module.ts"
     },
     {
@@ -2807,7 +2757,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "commerce_commerce_module_commercemodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "commercemodule"
     },
     {
@@ -2997,7 +2947,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dto_filter_orders_dto",
-      "community": 4,
+      "community": 8,
       "norm_label": "filter-orders.dto.ts"
     },
     {
@@ -3007,7 +2957,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "dto_filter_orders_dto_filterordersdto",
-      "community": 4,
+      "community": 8,
       "norm_label": "filterordersdto"
     },
     {
@@ -3057,7 +3007,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_findall",
-      "community": 4,
+      "community": 12,
       "norm_label": ".findall()"
     },
     {
@@ -3071,20 +3021,10 @@
       "norm_label": ".findone()"
     },
     {
-      "label": ".findByPaymentIntent()",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.controller.ts",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "orders_orders_controller_orderscontroller_findbypaymentintent",
-      "community": 12,
-      "norm_label": ".findbypaymentintent()"
-    },
-    {
       "label": ".retryFulfillment()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.controller.ts",
-      "source_location": "L44",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "orders_orders_controller_orderscontroller_retryfulfillment",
       "community": 12,
@@ -3171,20 +3111,10 @@
       "norm_label": ".findbypaymentintentid()"
     },
     {
-      "label": ".findByPaymentIntentIdWithItems()",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.repository.ts",
-      "source_location": "L85",
-      "_origin": "ast",
-      "id": "orders_orders_repository_ordersrepository_findbypaymentintentidwithitems",
-      "community": 4,
-      "norm_label": ".findbypaymentintentidwithitems()"
-    },
-    {
       "label": ".createConfirmed()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.repository.ts",
-      "source_location": "L104",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "orders_orders_repository_ordersrepository_createconfirmed",
       "community": 4,
@@ -3194,7 +3124,7 @@
       "label": ".findOneForRetry()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.repository.ts",
-      "source_location": "L111",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "orders_orders_repository_ordersrepository_findoneforretry",
       "community": 4,
@@ -3204,71 +3134,11 @@
       "label": ".markForwarded()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.repository.ts",
-      "source_location": "L118",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "orders_orders_repository_ordersrepository_markforwarded",
       "community": 4,
       "norm_label": ".markforwarded()"
-    },
-    {
-      "label": "orders.service.spec.ts",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "orders_orders_service_spec",
-      "community": 14,
-      "norm_label": "orders.service.spec.ts"
-    },
-    {
-      "label": "mockRepo",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "orders_orders_service_spec_mockrepo",
-      "community": 14,
-      "norm_label": "mockrepo"
-    },
-    {
-      "label": "mockCartService",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "orders_orders_service_spec_mockcartservice",
-      "community": 14,
-      "norm_label": "mockcartservice"
-    },
-    {
-      "label": "mockAccountService",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "orders_orders_service_spec_mockaccountservice",
-      "community": 14,
-      "norm_label": "mockaccountservice"
-    },
-    {
-      "label": "mockSupplier",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "orders_orders_service_spec_mocksupplier",
-      "community": 14,
-      "norm_label": "mocksupplier"
-    },
-    {
-      "label": "mockNotifications",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "orders_orders_service_spec_mocknotifications",
-      "community": 14,
-      "norm_label": "mocknotifications"
     },
     {
       "label": "orders.service.ts",
@@ -3321,30 +3191,20 @@
       "norm_label": ".findone()"
     },
     {
-      "label": ".findByPaymentIntent()",
+      "label": ".findAll()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "orders_orders_service_ordersservice_findbypaymentintent",
-      "community": 14,
-      "norm_label": ".findbypaymentintent()"
-    },
-    {
-      "label": ".findAll()",
-      "file_type": "code",
-      "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L53",
-      "_origin": "ast",
       "id": "orders_orders_service_ordersservice_findall",
-      "community": 4,
+      "community": 8,
       "norm_label": ".findall()"
     },
     {
       "label": ".confirm()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L58",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_confirm",
       "community": 14,
@@ -3354,7 +3214,7 @@
       "label": ".retryFulfillment()",
       "file_type": "code",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L113",
+      "source_location": "L102",
       "_origin": "ast",
       "id": "orders_orders_service_ordersservice_retryfulfillment",
       "community": 14,
@@ -3387,7 +3247,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dto_pagination_query_dto",
-      "community": 4,
+      "community": 8,
       "norm_label": "pagination-query.dto.ts"
     },
     {
@@ -3397,7 +3257,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "dto_pagination_query_dto_paginationquerydto",
-      "community": 4,
+      "community": 8,
       "norm_label": "paginationquerydto"
     },
     {
@@ -3657,7 +3517,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "fulfillment_fulfillment_module_fulfillmentmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "fulfillmentmodule"
     },
     {
@@ -3767,7 +3627,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 7,
+      "community": 14,
       "norm_label": "main.ts"
     },
     {
@@ -3777,7 +3637,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_bootstrap",
-      "community": 7,
+      "community": 14,
       "norm_label": "bootstrap()"
     },
     {
@@ -3867,7 +3727,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "notifications_notifications_module_notificationsmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "notificationsmodule"
     },
     {
@@ -3917,7 +3777,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "payments_index",
-      "community": 7,
+      "community": 14,
       "norm_label": "index.ts"
     },
     {
@@ -3937,7 +3797,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller",
-      "community": 20,
+      "community": 14,
       "norm_label": "paymentscontroller"
     },
     {
@@ -3947,7 +3807,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller_constructor",
-      "community": 20,
+      "community": 14,
       "norm_label": ".constructor()"
     },
     {
@@ -3957,7 +3817,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller_createpaymentintent",
-      "community": 20,
+      "community": 14,
       "norm_label": ".createpaymentintent()"
     },
     {
@@ -3967,7 +3827,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "payments_payments_controller_paymentscontroller_webhook",
-      "community": 20,
+      "community": 14,
       "norm_label": ".webhook()"
     },
     {
@@ -3977,7 +3837,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "payments_payments_module",
-      "community": 7,
+      "community": 14,
       "norm_label": "payments.module.ts"
     },
     {
@@ -3987,7 +3847,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "payments_payments_module_paymentsmodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "paymentsmodule"
     },
     {
@@ -4127,7 +3987,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "prisma_prisma_module",
-      "community": 7,
+      "community": 14,
       "norm_label": "prisma.module.ts"
     },
     {
@@ -4137,7 +3997,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "prisma_prisma_module_prismamodule",
-      "community": 7,
+      "community": 14,
       "norm_label": "prismamodule"
     },
     {
@@ -5483,17 +5343,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/account/account.controller.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "account_account_controller",
-      "target": "auth_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/account/account.module.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -5510,16 +5359,6 @@
       "confidence_score": 1.0,
       "source": "account_account_controller_accountcontroller",
       "target": "account_account_controller_accountcontroller_constructor"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/account.controller.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "account_account_controller_accountcontroller",
-      "target": "account_account_controller_accountcontroller_createsignintoken",
-      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -5709,28 +5548,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/account/account.service.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "account_account_service",
-      "target": "exceptions_account_not_found_exception",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/account.service.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "account_account_service",
-      "target": "exceptions_account_not_found_exception_accountnotfoundexception",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/account.service.ts",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5801,16 +5618,6 @@
       "confidence_score": 1.0,
       "source": "account_account_service_accountservice",
       "target": "account_account_service_accountservice_constructor"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/account.service.ts",
-      "source_location": "L41",
-      "weight": 1.0,
-      "source": "account_account_service_accountservice",
-      "target": "account_account_service_accountservice_createsignintoken",
-      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -5924,9 +5731,9 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L8",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "account_account_service_accountservice"
+      "target": "account_account_service_accountservice",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -5935,18 +5742,7 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L17",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice_constructor",
-      "target": "account_account_service_accountservice"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
       "target": "account_account_service_accountservice",
       "confidence_score": 1.0
     },
@@ -5960,59 +5756,6 @@
       "confidence_score": 1.0,
       "source": "account_account_service_accountservice_constructor",
       "target": "prisma_prisma_service_prismaservice"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "exceptions_account_not_found_exception",
-      "target": "common_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "exceptions_account_not_found_exception",
-      "target": "exceptions_account_not_found_exception_accountnotfoundexception",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "exceptions_account_not_found_exception",
-      "target": "exceptions_domain_exception_domainexception",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "exceptions_account_not_found_exception_accountnotfoundexception",
-      "target": "exceptions_account_not_found_exception_accountnotfoundexception_constructor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "context": "type",
-      "confidence": "EXTRACTED",
-      "source_file": "src/account/exceptions/account-not-found.exception.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "exceptions_account_not_found_exception_accountnotfoundexception",
-      "target": "exceptions_domain_exception_domainexception",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -6032,18 +5775,7 @@
       "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L8",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "orders_orders_service",
-      "target": "account_index"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
       "target": "account_index",
       "confidence_score": 1.0
     },
@@ -7021,17 +6753,6 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "src/commerce/orders/orders.controller.ts",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "orders_orders_controller_orderscontroller_findbypaymentintent",
-      "target": "auth_current_user_decorator_authuser",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.controller.ts",
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7045,9 +6766,9 @@
       "source_file": "src/commerce/orders/orders.controller.ts",
       "source_location": "L29",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "orders_orders_controller_orderscontroller_findone",
-      "target": "auth_current_user_decorator_authuser"
+      "target": "auth_current_user_decorator_authuser",
+      "confidence_score": 1.0
     },
     {
       "relation": "re_exports",
@@ -12704,17 +12425,6 @@
       "target": "cart_cart_service"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "cart_cart_service",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/commerce/cart/cart.service.ts",
@@ -12826,17 +12536,6 @@
       "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice_constructor",
       "target": "cart_cart_service_cartservice"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "cart_cart_service_cartservice",
-      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -13218,17 +12917,6 @@
       "target": "exceptions_order_not_found_exception"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "exceptions_order_not_found_exception",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "inherits",
       "context": "type",
       "confidence": "EXTRACTED",
@@ -13259,17 +12947,6 @@
       "confidence_score": 1.0,
       "source": "orders_orders_service",
       "target": "exceptions_order_not_found_exception_ordernotfoundexception"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "exceptions_order_not_found_exception_ordernotfoundexception",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -13682,16 +13359,6 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/commerce/orders/orders.controller.ts",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "orders_orders_controller_orderscontroller",
-      "target": "orders_orders_controller_orderscontroller_findbypaymentintent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.controller.ts",
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13806,17 +13473,6 @@
       "target": "orders_orders_repository"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_repository",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/commerce/orders/orders.repository.ts",
@@ -13875,16 +13531,6 @@
       "confidence_score": 1.0,
       "source": "orders_orders_repository_ordersrepository",
       "target": "orders_orders_repository_ordersrepository_findbypaymentintentid"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.repository.ts",
-      "source_location": "L85",
-      "weight": 1.0,
-      "source": "orders_orders_repository_ordersrepository",
-      "target": "orders_orders_repository_ordersrepository_findbypaymentintentidwithitems",
-      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -13950,17 +13596,6 @@
       "target": "orders_orders_repository_ordersrepository"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_repository_ordersrepository",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -13970,122 +13605,6 @@
       "confidence_score": 1.0,
       "source": "orders_orders_repository_ordersrepository_constructor",
       "target": "prisma_prisma_service_prismaservice"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "fulfillment_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "fulfillment_supplier_port_supplier_port",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "notifications_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "notifications_notification_port_notification_port",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service_ordersservice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service_spec_mockaccountservice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service_spec_mockcartservice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service_spec_mocknotifications",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service_spec_mockrepo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.spec.ts",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "orders_orders_service_spec",
-      "target": "orders_orders_service_spec_mocksupplier",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -14263,21 +13782,11 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/commerce/orders/orders.service.ts",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "orders_orders_service_ordersservice",
-      "target": "orders_orders_service_ordersservice_findbypaymentintent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/commerce/orders/orders.service.ts",
       "source_location": "L25",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "orders_orders_service_ordersservice",
-      "target": "orders_orders_service_ordersservice_findmine"
+      "target": "orders_orders_service_ordersservice_findmine",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -17484,5 +16993,5 @@
       "source_file": "docs/adr/0006-server-side-guest-cart.md"
     }
   ],
-  "built_at_commit": "8c1a60d6352e2c37061a72b5b2b98d78fa04ead9"
+  "built_at_commit": "c59cdc368db291fbb7f06624a559704006783e5e"
 }

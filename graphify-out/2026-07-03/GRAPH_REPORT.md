@@ -1,23 +1,22 @@
-# Graph Report - merch-shop-BE  (2026-07-03)
+# Graph Report - merch-shop-BE  (2026-07-02)
 
 ## Corpus Check
-- 96 files · ~8,067 words
+- 94 files · ~7,641 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 497 nodes · 1128 edges · 22 communities (16 shown, 6 thin omitted)
+- 483 nodes · 1095 edges · 20 communities (15 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8c1a60d6`
+- Built from commit: `c59cdc36`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Auth & Commerce Modules|Auth & Commerce Modules]]
 - [[_COMMUNITY_Architecture Decision Records|Architecture Decision Records]]
-- [[_COMMUNITY_Community 2|Community 2]]
 - [[_COMMUNITY_Skill Framework & Design Patterns|Skill Framework & Design Patterns]]
 - [[_COMMUNITY_Fulfillment & Supplier Port|Fulfillment & Supplier Port]]
 - [[_COMMUNITY_Issue Triage & Workflow Skills|Issue Triage & Workflow Skills]]
@@ -35,20 +34,19 @@
 - [[_COMMUNITY_HITL Diagnostics Script|HITL Diagnostics Script]]
 - [[_COMMUNITY_Beads Issue Tracker|Beads Issue Tracker]]
 - [[_COMMUNITY_Order DTOs|Order DTOs]]
-- [[_COMMUNITY_Community 20|Community 20]]
 - [[_COMMUNITY_Docker Compose|Docker Compose]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `PrismaService` - 45 edges
-2. `DomainException` - 22 edges
-3. `BaseRepository` - 22 edges
-4. `AccountService` - 19 edges
-5. `ProductsService` - 18 edges
-6. `CartRepository` - 18 edges
+2. `BaseRepository` - 22 edges
+3. `DomainException` - 20 edges
+4. `ProductsService` - 18 edges
+5. `CartRepository` - 18 edges
+6. `AccountService` - 17 edges
 7. `SkusRepository` - 16 edges
-8. `OrdersRepository` - 16 edges
-9. `OrdersService` - 16 edges
-10. `CartService` - 15 edges
+8. `AdminGuard` - 14 edges
+9. `ClerkGuard` - 14 edges
+10. `CartService` - 14 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Triage Skill` --conceptually_related_to--> `Issue Tracker Agent Guide`  [INFERRED]
@@ -63,7 +61,7 @@
   docs/adr/0007-rest-over-graphql.md → CONTEXT.md
 
 ## Import Cycles
-- 4-file cycle: `src/account/account.controller.ts -> src/auth/index.ts -> src/auth/auth.module.ts -> src/account/account.module.ts -> src/account/account.controller.ts`
+- None detected.
 
 ## Hyperedges (group relationships)
 - **Idea to Ship Skill Pipeline** — grill_with_docs_skill, prototype_skill, handoff_skill, improve_codebase_architecture_skill, ask_matt_skill [EXTRACTED 1.00]
@@ -76,42 +74,38 @@
 - **Product Catalog Hierarchy: Publisher → Game → Product** — merch_shop_be_context_publisher, merch_shop_be_context_game, merch_shop_be_context_product [EXTRACTED 1.00]
 - **Guest Checkout Flow: Guest + Cart + Order** — merch_shop_be_context_guest, merch_shop_be_context_cart, merch_shop_be_context_order [EXTRACTED 1.00]
 
-## Communities (22 total, 6 thin omitted)
+## Communities (20 total, 5 thin omitted)
+
+### Community 0 - "Auth & Commerce Modules"
+Cohesion: 0.08
+Nodes (3): AccountController, AccountService, CartRepository
 
 ### Community 1 - "Architecture Decision Records"
 Cohesion: 0.09
 Nodes (33): ADR-0001: Multi-Publisher Marketplace, ADR-0002: Orthogonal Product Facets, ADR-0003: Drop-Ship Fulfillment, ADR-0004: Clerk Auth Delegation, ADR-0005: Stripe Payment Gateway, ADR-0006: Server-Side Guest Cart, ADR-0007: REST Over GraphQL, ADR-0008: USD-Only Pricing (+25 more)
 
-### Community 2 - "Community 2"
-Cohesion: 0.12
-Nodes (5): CreateProductDto, FilterProductsDto, ProductsController, ProductsRepository, ProductsService
-
 ### Community 3 - "Skill Framework & Design Patterns"
 Cohesion: 0.13
 Nodes (24): Ask Matt Skill Router, Codebase Design Deepening Guide, Design It Twice Pattern, Codebase Design Skill, Architectural Decision Record, Deep Module Design Principle, Tight Feedback Loop (Bug Diagnosis Core Skill), Idea to Ship Main Flow (+16 more)
-
-### Community 4 - "Fulfillment & Supplier Port"
-Cohesion: 0.13
-Nodes (3): FilterOrdersDto, PaginationQueryDto, OrdersRepository
 
 ### Community 5 - "Issue Triage & Workflow Skills"
 Cohesion: 0.10
 Nodes (22): Five Canonical Triage Roles, Domain Docs Consumer Rules, Issue Tracker: GitHub Conventions, Issue Tracker: GitLab Conventions, Issue Tracker: Local Markdown Conventions, Setup Matt Pocock Skills, Triage Label Vocabulary Mapping, TDD Mocking Guidelines (+14 more)
 
 ### Community 6 - "Catalog & Characters API"
-Cohesion: 0.10
-Nodes (5): CharactersController, CharactersRepository, CharactersService, CreateCharacterDto, CharacterNotFoundException
+Cohesion: 0.16
+Nodes (3): CharactersController, CharactersService, CreateCharacterDto
 
 ### Community 7 - "Products & DTOs"
-Cohesion: 0.11
-Nodes (13): AccountModule, AuthModule, CatalogModule, CommerceModule, FulfillmentModule, GamesRepository, NotificationsModule, PaymentsModule (+5 more)
+Cohesion: 0.05
+Nodes (12): CharactersRepository, CreateProductDto, FilterProductsDto, GamesRepository, PrismaService, ProductsController, ProductsRepository, ProductsService (+4 more)
 
 ### Community 8 - "TypeScript Config"
 Cohesion: 0.07
-Nodes (17): CommonModule, AccountNotFoundException, DomainException, GameNotFoundException, OrderNotFoundException, ProductNotFoundException, PublisherNotFoundException, SkuUnavailableException (+9 more)
+Nodes (19): CommonModule, FilterOrdersDto, PaginationQueryDto, CharacterNotFoundException, DomainException, GameNotFoundException, OrderNotFoundException, ProductNotFoundException (+11 more)
 
 ### Community 9 - "Games API"
-Cohesion: 0.19
+Cohesion: 0.17
 Nodes (3): CreateGameDto, GamesController, GamesService
 
 ### Community 10 - "Publishers API"
@@ -119,20 +113,20 @@ Cohesion: 0.16
 Nodes (3): CreatePublisherDto, PublishersController, PublishersService
 
 ### Community 11 - "Teams API"
-Cohesion: 0.12
-Nodes (4): CreateTeamDto, TeamsController, TeamsRepository, TeamsService
+Cohesion: 0.17
+Nodes (3): CreateTeamDto, TeamsController, TeamsService
 
 ### Community 12 - "Runtime Dependencies"
-Cohesion: 0.08
-Nodes (13): AccountController, AccountService, AdminGuard, ClerkGuard, AuthUser, CurrentUser, OptionalClerkGuard, CartController (+5 more)
+Cohesion: 0.09
+Nodes (12): AdminGuard, ClerkGuard, AuthUser, CurrentUser, OptionalClerkGuard, CartController, CartService, CartSession (+4 more)
 
 ### Community 13 - "SKUs API"
-Cohesion: 0.11
-Nodes (5): BulkAvailabilityDto, CreateSkuDto, SkusController, SkusRepository, SkusService
+Cohesion: 0.18
+Nodes (4): BulkAvailabilityDto, CreateSkuDto, SkusController, SkusService
 
 ### Community 14 - "Build & Migration Scripts"
-Cohesion: 0.08
-Nodes (23): CATALOG_READ_PORT, CatalogReadPort, CatalogReadService, MockSupplierService, SUPPLIER_PORT, SupplierOrder, SupplierPort, SupplierResult (+15 more)
+Cohesion: 0.07
+Nodes (28): AccountModule, AuthModule, CatalogModule, CATALOG_READ_PORT, CatalogReadPort, CatalogReadService, CommerceModule, FulfillmentModule (+20 more)
 
 ### Community 15 - "Skill Writing Vocabulary"
 Cohesion: 0.33
@@ -143,24 +137,24 @@ Cohesion: 0.67
 Nodes (3): Beads Configuration, Beads Issue Tracker README, Beads Dolt Database Backend
 
 ## Knowledge Gaps
-- **37 isolated node(s):** `ShippingAddressDto`, `CreateOrderDto`, `mockRepo`, `mockCartService`, `mockAccountService` (+32 more)
+- **32 isolated node(s):** `ShippingAddressDto`, `CreateOrderDto`, `MUTATING`, `mockPrisma`, `mockOrders` (+27 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `PrismaService` connect `Products & DTOs` to `Auth & Commerce Modules`, `Community 2`, `Fulfillment & Supplier Port`, `Catalog & Characters API`, `Games API`, `Teams API`, `Runtime Dependencies`, `SKUs API`, `Build & Migration Scripts`?**
+- **Why does `PrismaService` connect `Products & DTOs` to `Auth & Commerce Modules`, `Fulfillment & Supplier Port`, `Catalog & Characters API`, `Runtime Dependencies`, `SKUs API`, `Build & Migration Scripts`?**
   _High betweenness centrality (0.074) - this node is a cross-community bridge._
-- **Why does `CartRepository` connect `Auth & Commerce Modules` to `Runtime Dependencies`, `Products & DTOs`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `BaseRepository` connect `Products & DTOs` to `Auth & Commerce Modules`, `Community 2`, `Fulfillment & Supplier Port`, `Catalog & Characters API`, `TypeScript Config`, `Teams API`, `SKUs API`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **What connects `ShippingAddressDto`, `CreateOrderDto`, `mockRepo` to the rest of the system?**
-  _37 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `CartRepository` connect `Auth & Commerce Modules` to `Runtime Dependencies`, `Build & Migration Scripts`, `Products & DTOs`?**
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **Why does `BaseRepository` connect `Products & DTOs` to `Auth & Commerce Modules`, `TypeScript Config`, `Fulfillment & Supplier Port`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+- **What connects `ShippingAddressDto`, `CreateOrderDto`, `MUTATING` to the rest of the system?**
+  _32 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Auth & Commerce Modules` be split into smaller, more focused modules?**
-  _Cohesion score 0.09057971014492754 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Architecture Decision Records` be split into smaller, more focused modules?**
   _Cohesion score 0.0946969696969697 - nodes in this community are weakly interconnected._
-- **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.11965811965811966 - nodes in this community are weakly interconnected._
+- **Should `Skill Framework & Design Patterns` be split into smaller, more focused modules?**
+  _Cohesion score 0.13043478260869565 - nodes in this community are weakly interconnected._

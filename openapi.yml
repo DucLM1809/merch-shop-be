@@ -841,6 +841,24 @@ paths:
         '200':
           description: OK
 
+  /account/{id}/sign-in-token:
+    post:
+      tags: [account]
+      summary: Issue a one-time Clerk sign-in token for the account (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Created
+        '404':
+          description: Account not found
+
   # --- Payments ---
   /payments/payment-intent:
     post:
