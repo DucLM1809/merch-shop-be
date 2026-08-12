@@ -4,21 +4,27 @@ import * as cookieParser from 'cookie-parser';
 import * as request from 'supertest';
 import { AppModule } from '../../src/app.module';
 import { PrismaService } from '../../src/prisma/prisma.service';
-import { ClerkGuard } from '../../src/auth/clerk.guard';
-import { OptionalClerkGuard } from '../../src/auth/optional-clerk.guard';
+import { AuthGuard } from '../../src/auth/auth-guard';
+import { OptionalAuthGuard } from '../../src/auth/optional-auth.guard';
 
-const TEST_CLERK_ID = 'account-cart-clerk-001';
 const TEST_EMAIL = 'account-cart@example.com';
+let authAccountId: string;
 
 const injectUser = {
   canActivate: (ctx: import('@nestjs/common').ExecutionContext) => {
-    ctx.switchToHttp().getRequest().user = { userId: TEST_CLERK_ID, email: TEST_EMAIL };
+    ctx.switchToHttp().getRequest().user = { userId: authAccountId, email: TEST_EMAIL };
     return true;
   },
 };
 
 let app: INestApplication;
 let prisma: PrismaService;
+
+async function seedTestAccount(p: PrismaService) {
+  const account = await p.account.create({ data: { email: TEST_EMAIL } });
+  authAccountId = account.id;
+  return account;
+}
 
 async function seedSku(p: PrismaService, prefix: string) {
   const pub = await p.publisher.create({ data: { name: `AC-Pub-${prefix}`, slug: `ac-pub-${prefix}` } });
@@ -39,8 +45,8 @@ async function cleanupCatalog(p: PrismaService, pubId: string) {
   await p.publisher.delete({ where: { id: pubId } });
 }
 
-async function cleanupAccount(p: PrismaService, clerkId: string) {
-  const account = await p.account.findUnique({ where: { clerkUserId: clerkId } });
+async function cleanupAccount(p: PrismaService, accountId: string) {
+  const account = await p.account.findUnique({ where: { id: accountId } });
   if (!account) return;
   const cart = await p.cart.findFirst({ where: { accountId: account.id } });
   if (cart) {
@@ -63,9 +69,9 @@ async function seedGuestCart(p: PrismaService, sessionId: string, skuId: string,
 
 beforeAll(async () => {
   const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
-    .overrideGuard(OptionalClerkGuard)
+    .overrideGuard(OptionalAuthGuard)
     .useValue(injectUser)
-    .overrideGuard(ClerkGuard)
+    .overrideGuard(AuthGuard)
     .useValue(injectUser)
     .compile();
   app = moduleRef.createNestApplication();
@@ -77,14 +83,14 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await cleanupAccount(prisma, TEST_CLERK_ID);
   await app.close();
 });
 
-// ─── Slice 1: GET /api/cart with Clerk JWT creates Account Cart ───────────────
+// ─── Slice 1: GET /api/cart with a Bearer token creates the Account Cart ─────
 
 describe('GET /api/cart — authenticated', () => {
-  afterAll(() => cleanupAccount(prisma, TEST_CLERK_ID));
+  beforeAll(() => seedTestAccount(prisma));
+  afterAll(() => cleanupAccount(prisma, authAccountId));
 
   it('creates Account Cart with no TTL and accountId set', async () => {
     const { body } = await request(app.getHttpServer()).get('/api/cart').expect(200);
@@ -96,10 +102,11 @@ describe('GET /api/cart — authenticated', () => {
   });
 });
 
-// ─── Slice 2: GET /api/cart same JWT returns same Cart ────────────────────────
+// ─── Slice 2: GET /api/cart same token returns same Cart ─────────────────────
 
 describe('GET /api/cart — idempotent for same account', () => {
-  afterAll(() => cleanupAccount(prisma, TEST_CLERK_ID));
+  beforeAll(() => seedTestAccount(prisma));
+  afterAll(() => cleanupAccount(prisma, authAccountId));
 
   it('returns same Cart id on repeated calls', async () => {
     const res1 = await request(app.getHttpServer()).get('/api/cart').expect(200);
@@ -115,13 +122,14 @@ describe('POST /api/cart/items — authenticated', () => {
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'acct-add');
     pubId = pub.id;
     skuId = sku.id;
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -142,6 +150,7 @@ describe('DELETE /api/cart/items/:skuId — authenticated', () => {
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'acct-del');
     pubId = pub.id;
     skuId = sku.id;
@@ -149,7 +158,7 @@ describe('DELETE /api/cart/items/:skuId — authenticated', () => {
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -167,13 +176,14 @@ describe('Account cart lifecycle — create → add → update qty → remove', 
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'acct-lifecycle');
     pubId = pub.id;
     skuId = sku.id;
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -214,6 +224,7 @@ describe('POST /api/cart/merge — moves guest items into Account Cart', () => {
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'merge-basic');
     pubId = pub.id;
     skuId = sku.id;
@@ -227,7 +238,7 @@ describe('POST /api/cart/merge — moves guest items into Account Cart', () => {
       await prisma.cartItem.deleteMany({ where: { cartId: guestCart.id } });
       await prisma.cart.delete({ where: { id: guestCart.id } });
     }
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -252,6 +263,7 @@ describe('POST /api/cart/merge — guest cart deleted after merge', () => {
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'merge-del');
     pubId = pub.id;
     skuId = sku.id;
@@ -259,7 +271,7 @@ describe('POST /api/cart/merge — guest cart deleted after merge', () => {
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -282,6 +294,7 @@ describe('POST /api/cart/merge — dedup preserves Account Cart quantity', () =>
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'merge-dedup');
     pubId = pub.id;
     skuId = sku.id;
@@ -297,7 +310,7 @@ describe('POST /api/cart/merge — dedup preserves Account Cart quantity', () =>
       await prisma.cartItem.deleteMany({ where: { cartId: guestCart.id } });
       await prisma.cart.delete({ where: { id: guestCart.id } });
     }
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -317,7 +330,8 @@ describe('POST /api/cart/merge — dedup preserves Account Cart quantity', () =>
 // ─── Slice 9: Merge non-existent sessionId is a no-op ────────────────────────
 
 describe('POST /api/cart/merge — non-existent sessionId is a no-op', () => {
-  afterAll(() => cleanupAccount(prisma, TEST_CLERK_ID));
+  beforeAll(() => seedTestAccount(prisma));
+  afterAll(() => cleanupAccount(prisma, authAccountId));
 
   it('returns success for non-existent sessionId', async () => {
     const { body } = await request(app.getHttpServer())

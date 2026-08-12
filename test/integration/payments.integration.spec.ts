@@ -6,16 +6,16 @@ import * as request from 'supertest';
 import Stripe from 'stripe';
 import { AppModule } from '../../src/app.module';
 import { PrismaService } from '../../src/prisma/prisma.service';
-import { ClerkGuard } from '../../src/auth/clerk.guard';
+import { AuthGuard } from '../../src/auth/auth-guard';
 import { PaymentsService } from '../../src/payments/payments.service';
 import { NOTIFICATION_PORT } from '../../src/notifications/notification.port';
 
-const TEST_CLERK_ID = 'payments-clerk-001';
 const TEST_EMAIL = 'buyer@example.com';
+let authAccountId: string;
 
 const injectUser = {
   canActivate: (ctx: import('@nestjs/common').ExecutionContext) => {
-    ctx.switchToHttp().getRequest().user = { userId: TEST_CLERK_ID, email: TEST_EMAIL };
+    ctx.switchToHttp().getRequest().user = { userId: authAccountId, email: TEST_EMAIL };
     return true;
   },
 };
@@ -29,11 +29,9 @@ let stripeCreateIntent: jest.SpyInstance;
 let stripeConstructEvent: jest.SpyInstance;
 
 async function seedAccount(p: PrismaService) {
-  return p.account.upsert({
-    where: { clerkUserId: TEST_CLERK_ID },
-    update: {},
-    create: { clerkUserId: TEST_CLERK_ID, email: TEST_EMAIL },
-  });
+  const account = await p.account.create({ data: { email: TEST_EMAIL } });
+  authAccountId = account.id;
+  return account;
 }
 
 async function seedSku(p: PrismaService, prefix: string) {
@@ -80,7 +78,7 @@ beforeAll(async () => {
   process.env.STRIPE_WEBHOOK_SECRET = 'whsec_fake';
 
   const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
-    .overrideGuard(ClerkGuard).useValue(injectUser)
+    .overrideGuard(AuthGuard).useValue(injectUser)
     .overrideProvider(NOTIFICATION_PORT).useValue(mockNotifications)
     .compile();
 

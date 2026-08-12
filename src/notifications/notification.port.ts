@@ -6,4 +6,8 @@ export interface NotificationPort {
     orderId: string;
     items: Array<{ name: string; quantity: number; unitPrice: number }>;
   }): Promise<void>;
+
+  sendPasswordReset(params: { to: string; resetUrl: string }): Promise<void>;
+
+  sendEmailVerification(params: { to: string; verifyUrl: string }): Promise<void>;
 }

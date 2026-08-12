@@ -15,9 +15,9 @@ let ordersService: OrdersService;
 
 async function seedAccount(p: PrismaService) {
   return p.account.upsert({
-    where: { clerkUserId: 'order-intake-clerk-001' },
+    where: { email: TEST_EMAIL },
     update: {},
-    create: { clerkUserId: 'order-intake-clerk-001', email: TEST_EMAIL },
+    create: { email: TEST_EMAIL },
   });
 }
 

@@ -33,4 +33,30 @@ export class ResendAdapter implements NotificationPort {
 
     this.logger.log(`Order confirmation sent to ${to} for order ${orderId}`);
   }
+
+  async sendPasswordReset(params: { to: string; resetUrl: string }): Promise<void> {
+    const { to, resetUrl } = params;
+
+    await this.resend.emails.send({
+      from: this.from,
+      to,
+      subject: 'Reset your password',
+      text: `Click the link below to reset your password. This link expires soon and can only be used once.\n\n${resetUrl}\n\nIf you didn't request this, you can ignore this email.`,
+    });
+
+    this.logger.log(`Password reset email sent to ${to}`);
+  }
+
+  async sendEmailVerification(params: { to: string; verifyUrl: string }): Promise<void> {
+    const { to, verifyUrl } = params;
+
+    await this.resend.emails.send({
+      from: this.from,
+      to,
+      subject: 'Verify your email',
+      text: `Click the link below to verify your email address.\n\n${verifyUrl}`,
+    });
+
+    this.logger.log(`Email verification sent to ${to}`);
+  }
 }

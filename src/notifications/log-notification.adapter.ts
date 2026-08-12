@@ -12,4 +12,12 @@ export class LogNotificationAdapter implements NotificationPort {
   }): Promise<void> {
     this.logger.log(`[TEST] sendOrderConfirmation to=${params.to} orderId=${params.orderId}`);
   }
+
+  async sendPasswordReset(params: { to: string; resetUrl: string }): Promise<void> {
+    this.logger.log(`[TEST] sendPasswordReset to=${params.to} resetUrl=${params.resetUrl}`);
+  }
+
+  async sendEmailVerification(params: { to: string; verifyUrl: string }): Promise<void> {
+    this.logger.log(`[TEST] sendEmailVerification to=${params.to} verifyUrl=${params.verifyUrl}`);
+  }
 }

@@ -1,16 +1,12 @@
-import {
-  Injectable,
-  CanActivate,
-  ExecutionContext,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { verifyToken } from '@clerk/backend';
 import { PrismaService } from '../prisma';
 
 @Injectable()
-export class ClerkGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
   constructor(
+    private readonly jwtService: JwtService,
     private readonly config: ConfigService,
     private readonly prisma: PrismaService,
   ) {}
@@ -26,20 +22,19 @@ export class ClerkGuard implements CanActivate {
     const token = auth.slice(7);
 
     try {
-      const payload = await verifyToken(token, {
-        secretKey: this.config.getOrThrow('CLERK_SECRET_KEY'),
+      const payload = await this.jwtService.verifyAsync(token, {
+        secret: this.config.getOrThrow('JWT_SECRET'),
       });
-      const p = payload as typeof payload & { email?: string; email_address?: string };
-      req.user = { userId: payload.sub, email: p.email ?? p.email_address ?? '' };
+      req.user = { userId: payload.sub, email: payload.email };
     } catch {
       throw new UnauthorizedException();
     }
 
     const account = await this.prisma.account.findUnique({
-      where: { clerkUserId: req.user.userId },
+      where: { id: req.user.userId },
       select: { deletedAt: true },
     });
-    if (account?.deletedAt) throw new UnauthorizedException();
+    if (!account || account.deletedAt) throw new UnauthorizedException();
 
     return true;
   }

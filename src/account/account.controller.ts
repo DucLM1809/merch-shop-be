@@ -1,15 +1,18 @@
-import { Controller, Get, Delete, Param, UseGuards } from '@nestjs/common';
-import { ClerkGuard, AdminGuard, CurrentUser } from '../auth';
+import { Controller, Get, Delete, Param, UseGuards, NotFoundException } from '@nestjs/common';
+import { AuthGuard, AdminGuard, CurrentUser, AuthUser } from '../auth';
 import { AccountService } from './account.service';
+import { AccountResponseDto } from './dto/account-response.dto';
 
 @Controller('account')
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 
-  @UseGuards(ClerkGuard)
+  @UseGuards(AuthGuard)
   @Get('me')
-  me(@CurrentUser() user: { userId: string; email: string }) {
-    return this.accountService.upsertFromClerk(user);
+  async me(@CurrentUser() user: AuthUser) {
+    const account = await this.accountService.findById(user.userId);
+    if (!account) throw new NotFoundException();
+    return new AccountResponseDto(account);
   }
 
   @UseGuards(AdminGuard)

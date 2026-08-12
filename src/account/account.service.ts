@@ -1,35 +1,43 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma';
+import { AccountRepository } from './account.repository';
 
 @Injectable()
 export class AccountService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly accountRepository: AccountRepository) {}
 
-  async upsertFromClerk(clerkUser: { userId: string; email: string }) {
-    return this.prisma.account.upsert({
-      where: { clerkUserId: clerkUser.userId },
-      create: { clerkUserId: clerkUser.userId, email: clerkUser.email },
-      update: {},
-    });
+  findById(id: string) {
+    return this.accountRepository.findById(id);
   }
 
-  async hasRole(clerkUserId: string, role: string): Promise<boolean> {
-    const account = await this.prisma.account.findUnique({
-      where: { clerkUserId },
-      select: { role: true },
-    });
-    return account?.role === role;
+  findByEmail(email: string) {
+    return this.accountRepository.findByEmail(email);
   }
 
-  async findById(id: string) {
-    return this.prisma.account.findUnique({ where: { id } });
+  findByEmailForAuth(email: string) {
+    return this.accountRepository.findByEmailForAuth(email);
   }
 
-  async findByClerkId(clerkUserId: string) {
-    return this.prisma.account.findUnique({ where: { clerkUserId } });
+  createBuyer(data: { email: string; passwordHash: string }) {
+    return this.accountRepository.createBuyer(data);
+  }
+
+  incrementFailedLogin(id: string, lockedUntil: Date | null) {
+    return this.accountRepository.incrementFailedLogin(id, lockedUntil);
+  }
+
+  resetFailedLogin(id: string) {
+    return this.accountRepository.resetFailedLogin(id);
+  }
+
+  markEmailVerified(id: string) {
+    return this.accountRepository.markEmailVerified(id);
+  }
+
+  setPasswordHash(id: string, passwordHash: string) {
+    return this.accountRepository.setPasswordHash(id, passwordHash);
   }
 
   remove(id: string) {
-    return this.prisma.account.update({ where: { id }, data: { deletedAt: new Date() } });
+    return this.accountRepository.softRemove(id);
   }
 }

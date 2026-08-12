@@ -4,9 +4,8 @@ import * as request from 'supertest';
 import { AppModule } from '../../src/app.module';
 import { PrismaService } from '../../src/prisma/prisma.service';
 import { AdminGuard } from '../../src/auth/admin.guard';
-import { ClerkGuard } from '../../src/auth/clerk.guard';
+import { AuthGuard } from '../../src/auth/auth-guard';
 
-const CLERK_ID = 'sd-acct-clerk-001';
 const EMAIL = 'sd-acct@example.com';
 
 function initApp(app: INestApplication) {
@@ -30,12 +29,12 @@ describe('DELETE /api/account/:id (soft delete)', () => {
     app = initApp(moduleRef.createNestApplication());
     await app.init();
     prisma = moduleRef.get(PrismaService);
-    const acct = await prisma.account.create({ data: { clerkUserId: `${CLERK_ID}-del`, email: EMAIL } });
+    const acct = await prisma.account.create({ data: { email: `del-${EMAIL}` } });
     accountId = acct.id;
   });
 
   afterAll(async () => {
-    await prisma.account.deleteMany({ where: { clerkUserId: `${CLERK_ID}-del` } });
+    await prisma.account.deleteMany({ where: { id: accountId } });
     await app.close();
   });
 
@@ -52,20 +51,21 @@ describe('DELETE /api/account/:id (soft delete)', () => {
 describe('GET /api/account/me after account soft-delete (lockout)', () => {
   let app: INestApplication;
   let prisma: PrismaService;
+  let deletedAccountId: string;
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
-      .overrideGuard(ClerkGuard)
+      .overrideGuard(AuthGuard)
       .useFactory({
         factory: (p: PrismaService): CanActivate => ({
           canActivate: async (ctx: ExecutionContext) => {
             const req = ctx.switchToHttp().getRequest();
-            req.user = { userId: `${CLERK_ID}-lock`, email: EMAIL };
+            req.user = { userId: deletedAccountId, email: EMAIL };
             const account = await p.account.findUnique({
-              where: { clerkUserId: `${CLERK_ID}-lock` },
+              where: { id: deletedAccountId },
               select: { deletedAt: true },
             });
-            if (account?.deletedAt) throw new UnauthorizedException();
+            if (!account || account.deletedAt) throw new UnauthorizedException();
             return true;
           },
         }),
@@ -75,13 +75,14 @@ describe('GET /api/account/me after account soft-delete (lockout)', () => {
     app = initApp(moduleRef.createNestApplication());
     await app.init();
     prisma = moduleRef.get(PrismaService);
-    await prisma.account.create({
-      data: { clerkUserId: `${CLERK_ID}-lock`, email: EMAIL, deletedAt: new Date() },
+    const acct = await prisma.account.create({
+      data: { email: `lock-${EMAIL}`, deletedAt: new Date() },
     });
+    deletedAccountId = acct.id;
   });
 
   afterAll(async () => {
-    await prisma.account.deleteMany({ where: { clerkUserId: `${CLERK_ID}-lock` } });
+    await prisma.account.deleteMany({ where: { id: deletedAccountId } });
     await app.close();
   });
 
@@ -94,14 +95,14 @@ describe('GET /api/account/me after account soft-delete (lockout)', () => {
 describe('DELETE /api/account/:id (non-admin → 403)', () => {
   let app: INestApplication;
   let prisma: PrismaService;
-  let accountId: string;
+  let nonAdminAccountId: string;
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
-      .overrideProvider(ClerkGuard)
+      .overrideProvider(AuthGuard)
       .useValue({
         canActivate: (ctx: ExecutionContext) => {
-          ctx.switchToHttp().getRequest().user = { userId: `${CLERK_ID}-nadmin`, email: EMAIL };
+          ctx.switchToHttp().getRequest().user = { userId: nonAdminAccountId, email: EMAIL };
           return true;
         },
       })
@@ -109,15 +110,15 @@ describe('DELETE /api/account/:id (non-admin → 403)', () => {
     app = initApp(moduleRef.createNestApplication());
     await app.init();
     prisma = moduleRef.get(PrismaService);
-    const acct = await prisma.account.create({ data: { clerkUserId: `${CLERK_ID}-nadmin`, email: EMAIL } });
-    accountId = acct.id;
+    const acct = await prisma.account.create({ data: { email: `nadmin-${EMAIL}` } });
+    nonAdminAccountId = acct.id;
   });
 
   afterAll(async () => {
-    await prisma.account.deleteMany({ where: { clerkUserId: `${CLERK_ID}-nadmin` } });
+    await prisma.account.deleteMany({ where: { id: nonAdminAccountId } });
     await app.close();
   });
 
   it('returns 403 when caller is not admin', () =>
-    request(app.getHttpServer()).delete(`/api/account/${accountId}`).expect(403));
+    request(app.getHttpServer()).delete(`/api/account/${nonAdminAccountId}`).expect(403));
 });

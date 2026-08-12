@@ -1,7 +1,7 @@
 import { Controller, Get, HttpCode, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { OrdersService } from './orders.service';
-import { ClerkGuard, AdminGuard, CurrentUser, AuthUser } from '../../auth';
+import { AuthGuard, AdminGuard, CurrentUser, AuthUser } from '../../auth';
 import { FilterOrdersDto } from './dto/filter-orders.dto';
 
 @ApiTags('orders')
@@ -10,7 +10,7 @@ export class OrdersController {
   constructor(private readonly orders: OrdersService) {}
 
   @Get('mine')
-  @UseGuards(ClerkGuard)
+  @UseGuards(AuthGuard)
   @ApiBearerAuth()
   findMine(@CurrentUser() user: AuthUser) {
     return this.orders.findMine(user.userId);
@@ -24,14 +24,14 @@ export class OrdersController {
   }
 
   @Get(':id')
-  @UseGuards(ClerkGuard)
+  @UseGuards(AuthGuard)
   @ApiBearerAuth()
   findOne(@Param('id') id: string, @CurrentUser() user: AuthUser) {
     return this.orders.findOne(id, user.userId);
   }
 
   @Get('by-payment-intent/:intentId')
-  @UseGuards(ClerkGuard)
+  @UseGuards(AuthGuard)
   @ApiBearerAuth()
   findByPaymentIntent(@Param('intentId') intentId: string, @CurrentUser() user: AuthUser) {
     return this.orders.findByPaymentIntent(intentId, user.userId);

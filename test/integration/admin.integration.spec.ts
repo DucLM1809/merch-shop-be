@@ -356,7 +356,7 @@ describe('Admin end-to-end create chain', () => {
 
 // ─── App B: AdminGuard does Prisma role check only — 403 role enforcement ─────
 
-// ponytail: AdminGuard re-created with Prisma check only (no Clerk JWT).
+// ponytail: AdminGuard re-created with Prisma check only (no JWT verification).
 // Sets req.user={userId:'nobody'}; no Account in DB → role check → 403.
 // Tests role enforcement, not JWT verification.
 describe('Admin guard role enforcement (403)', () => {
@@ -372,7 +372,7 @@ describe('Admin guard role enforcement (403)', () => {
             const req = ctx.switchToHttp().getRequest();
             req.user = { userId: 'nobody' };
             const account = await p.account.findUnique({
-              where: { clerkUserId: 'nobody' },
+              where: { id: 'nobody' },
               select: { role: true },
             });
             if (account?.role !== 'ADMIN') throw new ForbiddenException();

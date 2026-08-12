@@ -161,7 +161,150 @@ components:
         available:
           type: boolean
 
+    RegisterDto:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 12
+
+    LoginDto:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+
+    ForgotPasswordDto:
+      type: object
+      required: [email]
+      properties:
+        email:
+          type: string
+          format: email
+
+    ResetPasswordDto:
+      type: object
+      required: [token, newPassword]
+      properties:
+        token:
+          type: string
+        newPassword:
+          type: string
+          minLength: 12
+
+    VerifyEmailDto:
+      type: object
+      required: [token]
+      properties:
+        token:
+          type: string
+
 paths:
+  # --- Auth ---
+  /auth/register:
+    post:
+      tags: [auth]
+      summary: Register a new buyer account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterDto'
+      responses:
+        '201':
+          description: Created
+        '409':
+          description: Email already registered
+
+  /auth/login:
+    post:
+      tags: [auth]
+      summary: Log in and receive an access token (refresh token set as an HttpOnly cookie)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginDto'
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Invalid credentials
+
+  /auth/refresh:
+    post:
+      tags: [auth]
+      summary: Rotate the refresh-token cookie and issue a new access token
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Missing, invalid, or expired refresh token
+
+  /auth/logout:
+    post:
+      tags: [auth]
+      summary: Revoke the current refresh token and clear the cookie
+      responses:
+        '200':
+          description: OK
+
+  /auth/forgot-password:
+    post:
+      tags: [auth]
+      summary: Request a password-reset email (always returns a generic response)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordDto'
+      responses:
+        '200':
+          description: OK
+
+  /auth/reset-password:
+    post:
+      tags: [auth]
+      summary: Reset a password using a reset token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordDto'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid or expired token
+
+  /auth/verify-email:
+    post:
+      tags: [auth]
+      summary: Verify an account's email using a verification token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmailDto'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid or expired token
+
   # --- Publishers ---
   /publishers:
     get:

@@ -6,7 +6,6 @@ import { SyncCartDto } from './dto/sync-cart.dto';
 import { ConfigService } from '@nestjs/config';
 import { SkuNotFoundException } from '../exceptions/sku-not-found.exception';
 import { SkuUnavailableException } from '../exceptions/sku-unavailable.exception';
-import { AccountService } from '../../account';
 
 @Injectable()
 export class CartService {
@@ -14,7 +13,6 @@ export class CartService {
 
   constructor(
     private readonly repo: CartRepository,
-    private readonly accountService: AccountService,
     config: ConfigService,
   ) {
     this.guestTtlDays = Number(config.get('GUEST_CART_TTL_DAYS') ?? 7);
@@ -22,10 +20,9 @@ export class CartService {
 
   async getOrCreateCart(ctx: CartSessionContext) {
     if (ctx.type === 'account') {
-      const account = await this.accountService.upsertFromClerk({ userId: ctx.id, email: ctx.email ?? '' });
-      const existing = await this.repo.findWithItems({ accountId: account.id });
+      const existing = await this.repo.findWithItems({ accountId: ctx.id });
       if (existing) return existing;
-      return this.repo.createCart({ accountId: account.id, sessionId: null, expiresAt: null });
+      return this.repo.createCart({ accountId: ctx.id, sessionId: null, expiresAt: null });
     }
 
     const existing = await this.repo.findWithItems({ sessionId: ctx.id });
@@ -73,11 +70,11 @@ export class CartService {
     return this.repo.findWithItems(where);
   }
 
-  async mergeGuestCart(sessionId: string, clerkUser: { userId: string; email: string }) {
+  async mergeGuestCart(sessionId: string, accountId: string) {
     const guestCart = await this.repo.findGuestCart(sessionId);
     if (!guestCart) return;
 
-    const accountCart = await this.getOrCreateCart({ type: 'account', id: clerkUser.userId, email: clerkUser.email });
+    const accountCart = await this.getOrCreateCart({ type: 'account', id: accountId });
 
     for (const item of guestCart.items) {
       await this.repo.upsertMergedItem(accountCart.id, item.skuId, item.quantity);

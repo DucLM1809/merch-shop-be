@@ -95,20 +95,53 @@ model Sku {
 // ─── Commerce ────────────────────────────────────────────────────────────────
 
 model Account {
-  id          String    @id @default(cuid())
-  clerkUserId String    @unique
-  email       String    @unique
-  role        Role      @default(BUYER)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  deletedAt   DateTime?
-  cart        Cart?
-  orders      Order[]
+  id               String    @id @default(cuid())
+  email            String    @unique
+  passwordHash     String?
+  role             Role      @default(BUYER)
+  emailVerifiedAt  DateTime?
+  failedLoginCount Int       @default(0)
+  lockedUntil      DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime?
+  cart             Cart?
+  orders           Order[]
+  refreshTokens    RefreshToken[]
+  accountTokens    AccountToken[]
 }
 
 enum Role {
   BUYER
   ADMIN
+}
+
+model RefreshToken {
+  id        String    @id @default(cuid())
+  accountId String
+  tokenHash String    @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  account   Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+}
+
+enum AccountTokenPurpose {
+  PASSWORD_RESET
+  EMAIL_VERIFICATION
+}
+
+model AccountToken {
+  id        String              @id @default(cuid())
+  accountId String
+  purpose   AccountTokenPurpose
+  tokenHash String              @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime            @default(now())
+  account   Account             @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@index([accountId, purpose])
 }
 
 model Cart {

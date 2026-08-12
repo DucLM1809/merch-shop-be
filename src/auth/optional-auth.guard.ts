@@ -1,8 +1,8 @@
 import { Injectable, ExecutionContext } from '@nestjs/common';
-import { ClerkGuard } from './clerk.guard';
+import { AuthGuard } from './auth-guard';
 
 @Injectable()
-export class OptionalClerkGuard extends ClerkGuard {
+export class OptionalAuthGuard extends AuthGuard {
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const req = context.switchToHttp().getRequest();
     if (!req.headers.authorization?.startsWith('Bearer ')) return true;

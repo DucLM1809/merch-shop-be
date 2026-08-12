@@ -4,21 +4,27 @@ import * as cookieParser from 'cookie-parser';
 import * as request from 'supertest';
 import { AppModule } from '../../src/app.module';
 import { PrismaService } from '../../src/prisma/prisma.service';
-import { ClerkGuard } from '../../src/auth/clerk.guard';
-import { OptionalClerkGuard } from '../../src/auth/optional-clerk.guard';
+import { AuthGuard } from '../../src/auth/auth-guard';
+import { OptionalAuthGuard } from '../../src/auth/optional-auth.guard';
 
-const TEST_CLERK_ID = 'cart-sync-clerk-001';
 const TEST_EMAIL = 'cart-sync@example.com';
+let authAccountId: string;
 
 const injectUser = {
   canActivate: (ctx: import('@nestjs/common').ExecutionContext) => {
-    ctx.switchToHttp().getRequest().user = { userId: TEST_CLERK_ID, email: TEST_EMAIL };
+    ctx.switchToHttp().getRequest().user = { userId: authAccountId, email: TEST_EMAIL };
     return true;
   },
 };
 
 let app: INestApplication;
 let prisma: PrismaService;
+
+async function seedTestAccount(p: PrismaService) {
+  const account = await p.account.create({ data: { email: TEST_EMAIL } });
+  authAccountId = account.id;
+  return account;
+}
 
 async function seedSku(p: PrismaService, prefix: string, available = true) {
   const id = `${prefix}-${Date.now()}`;
@@ -43,22 +49,20 @@ async function cleanupCatalog(p: PrismaService, pubId: string) {
   await p.publisher.delete({ where: { id: pubId } });
 }
 
-async function cleanupAccount(p: PrismaService, clerkId: string) {
-  const account = await p.account.findUnique({ where: { clerkUserId: clerkId } });
-  if (!account) return;
-  const cart = await p.cart.findFirst({ where: { accountId: account.id } });
+async function cleanupAccount(p: PrismaService, accountId: string) {
+  const cart = await p.cart.findFirst({ where: { accountId } });
   if (cart) {
     await p.cartItem.deleteMany({ where: { cartId: cart.id } });
     await p.cart.delete({ where: { id: cart.id } });
   }
-  await p.account.delete({ where: { id: account.id } });
+  await p.account.delete({ where: { id: accountId } });
 }
 
 beforeAll(async () => {
   const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
-    .overrideGuard(OptionalClerkGuard)
+    .overrideGuard(OptionalAuthGuard)
     .useValue(injectUser)
-    .overrideGuard(ClerkGuard)
+    .overrideGuard(AuthGuard)
     .useValue(injectUser)
     .compile();
   app = moduleRef.createNestApplication();
@@ -80,13 +84,14 @@ describe('POST /api/cart/sync — syncs new items into empty account cart', () =
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'sync-new');
     pubId = pub.id;
     skuId = sku.id;
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -110,6 +115,7 @@ describe('POST /api/cart/sync — accumulates quantity on top of existing items'
   let pubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'sync-accum');
     pubId = pub.id;
     skuId = sku.id;
@@ -118,7 +124,7 @@ describe('POST /api/cart/sync — accumulates quantity on top of existing items'
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
   });
 
@@ -143,6 +149,7 @@ describe('POST /api/cart/sync — skips invalid or unavailable SKUs', () => {
   let unavailPubId: string;
 
   beforeAll(async () => {
+    await seedTestAccount(prisma);
     const { pub, sku } = await seedSku(prisma, 'sync-skip-valid');
     pubId = pub.id;
     validSkuId = sku.id;
@@ -152,7 +159,7 @@ describe('POST /api/cart/sync — skips invalid or unavailable SKUs', () => {
   });
 
   afterAll(async () => {
-    await cleanupAccount(prisma, TEST_CLERK_ID);
+    await cleanupAccount(prisma, authAccountId);
     await cleanupCatalog(prisma, pubId);
     await cleanupCatalog(prisma, unavailPubId);
   });
@@ -177,7 +184,8 @@ describe('POST /api/cart/sync — skips invalid or unavailable SKUs', () => {
 // ─── Slice 4: empty items array is a no-op ────────────────────────────────────
 
 describe('POST /api/cart/sync — empty items array is a no-op', () => {
-  afterAll(() => cleanupAccount(prisma, TEST_CLERK_ID));
+  beforeAll(() => seedTestAccount(prisma));
+  afterAll(() => cleanupAccount(prisma, authAccountId));
 
   it('returns empty cart when items array is empty', async () => {
     const { body } = await request(app.getHttpServer())

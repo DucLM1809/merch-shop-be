@@ -1,20 +1,20 @@
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
-import { ClerkGuard } from './clerk.guard';
+import { AuthGuard } from './auth-guard';
 import { PrismaService } from '../prisma';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
   constructor(
-    private readonly clerkGuard: ClerkGuard,
+    private readonly authGuard: AuthGuard,
     private readonly prisma: PrismaService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    await this.clerkGuard.canActivate(context);
+    await this.authGuard.canActivate(context);
 
     const req = context.switchToHttp().getRequest();
     const account = await this.prisma.account.findUnique({
-      where: { clerkUserId: req.user.userId },
+      where: { id: req.user.userId },
       select: { role: true },
     });
 
