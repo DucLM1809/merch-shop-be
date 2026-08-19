@@ -193,8 +193,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_account_account_repository",
-      "community": 21,
-      "community_name": "AccountService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "account.repository.ts"
     },
     {
@@ -534,15 +534,15 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 14,
+      "community_name": "Build & Migration Scripts",
       "norm_label": "app.module.ts"
     },
     {
       "label": "AppModule",
       "file_type": "code",
       "source_file": "src/app.module.ts",
-      "source_location": "L41",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "src_app_module_appmodule",
       "community": 14,
@@ -567,8 +567,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_auth_account_token_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "account-token.repository.ts"
     },
     {
@@ -578,8 +578,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_auth_account_token_repository_accounttokenrepository",
-      "community": 20,
-      "community_name": "auth.service.ts",
+      "community": 22,
+      "community_name": "AccountTokenRepository",
       "norm_label": "accounttokenrepository"
     },
     {
@@ -589,8 +589,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_account_token_repository_ts_injectable",
-      "community": 20,
-      "community_name": "auth.service.ts",
+      "community": 22,
+      "community_name": "AccountTokenRepository",
       "norm_label": "injectable"
     },
     {
@@ -600,8 +600,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_auth_account_token_repository_accounttokenrepository_constructor",
-      "community": 20,
-      "community_name": "auth.service.ts",
+      "community": 22,
+      "community_name": "AccountTokenRepository",
       "norm_label": ".constructor()"
     },
     {
@@ -611,8 +611,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_auth_account_token_repository_accounttokenrepository_delegate",
-      "community": 20,
-      "community_name": "auth.service.ts",
+      "community": 22,
+      "community_name": "AccountTokenRepository",
       "norm_label": ".delegate()"
     },
     {
@@ -622,8 +622,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_auth_account_token_repository_accounttokenrepository_create",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 22,
+      "community_name": "AccountTokenRepository",
       "norm_label": ".create()"
     },
     {
@@ -666,8 +666,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_auth_admin_guard_adminguard",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "adminguard"
     },
     {
@@ -677,8 +677,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_admin_guard_ts_injectable",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "injectable"
     },
     {
@@ -688,8 +688,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_auth_admin_guard_adminguard_constructor",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".constructor()"
     },
     {
@@ -743,8 +743,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_auth_auth_guard_authguard_constructor",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".constructor()"
     },
     {
@@ -1073,8 +1073,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_auth_service_ts_inject",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": "inject"
     },
     {
@@ -1084,8 +1084,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_auth_auth_service_authservice_constructor",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": ".constructor()"
     },
     {
@@ -1194,8 +1194,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_auth_current_user_decorator",
-      "community": 2,
-      "community_name": "CartRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "current-user.decorator.ts"
     },
     {
@@ -1205,8 +1205,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_auth_current_user_decorator_authuser",
-      "community": 2,
-      "community_name": "CartRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "authuser"
     },
     {
@@ -1216,8 +1216,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_auth_current_user_decorator_currentuser",
-      "community": 2,
-      "community_name": "CartRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "currentuser"
     },
     {
@@ -1271,8 +1271,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_auth_dto_login_dto",
-      "community": 42,
-      "community_name": "LoginDto",
+      "community": 6,
+      "community_name": "Catalog & Characters API",
       "norm_label": "login.dto.ts"
     },
     {
@@ -1282,8 +1282,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_auth_dto_login_dto_logindto",
-      "community": 42,
-      "community_name": "LoginDto",
+      "community": 6,
+      "community_name": "Catalog & Characters API",
       "norm_label": "logindto"
     },
     {
@@ -1293,8 +1293,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_dto_login_dto_ts_apiproperty",
-      "community": 42,
-      "community_name": "LoginDto",
+      "community": 6,
+      "community_name": "Catalog & Characters API",
       "norm_label": "apiproperty"
     },
     {
@@ -1304,8 +1304,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_dto_login_dto_ts_isemail",
-      "community": 42,
-      "community_name": "LoginDto",
+      "community": 6,
+      "community_name": "Catalog & Characters API",
       "norm_label": "isemail"
     },
     {
@@ -1315,8 +1315,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_dto_login_dto_ts_isstring",
-      "community": 42,
-      "community_name": "LoginDto",
+      "community": 6,
+      "community_name": "Catalog & Characters API",
       "norm_label": "isstring"
     },
     {
@@ -1590,8 +1590,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_auth_index",
-      "community": 2,
-      "community_name": "CartRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "auth/index.ts"
     },
     {
@@ -1722,8 +1722,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "refresh-token.repository.ts"
     },
     {
@@ -1733,8 +1733,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository_refreshtokenrepository",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": "refreshtokenrepository"
     },
     {
@@ -1744,8 +1744,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository_ts_injectable",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": "injectable"
     },
     {
@@ -1755,8 +1755,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository_refreshtokenrepository_constructor",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": ".constructor()"
     },
     {
@@ -1766,8 +1766,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository_refreshtokenrepository_delegate",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": ".delegate()"
     },
     {
@@ -1777,8 +1777,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository_refreshtokenrepository_create",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 30,
+      "community_name": "RefreshTokenRepository",
       "norm_label": ".create()"
     },
     {
@@ -1810,8 +1810,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_auth_refresh_token_repository_refreshtokenrepository_revokeallforaccount",
-      "community": 19,
-      "community_name": "Order DTOs",
+      "community": 22,
+      "community_name": "AccountTokenRepository",
       "norm_label": ".revokeallforaccount()"
     },
     {
@@ -1909,8 +1909,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_catalog_read_service",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 16,
+      "community_name": "NestJS CLI Config",
       "norm_label": "catalog-read.service.ts"
     },
     {
@@ -1920,8 +1920,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_catalog_catalog_read_service_catalogreadservice",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 16,
+      "community_name": "NestJS CLI Config",
       "norm_label": "catalogreadservice"
     },
     {
@@ -1931,8 +1931,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_catalog_read_service_ts_injectable",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 16,
+      "community_name": "NestJS CLI Config",
       "norm_label": "injectable"
     },
     {
@@ -1953,8 +1953,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_catalog_catalog_read_service_catalogreadservice_getskuprice",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": ".getskuprice()"
     },
     {
@@ -1964,8 +1964,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_catalog_catalog_read_service_catalogreadservice_findproducts",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findproducts()"
     },
     {
@@ -1986,8 +1986,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_catalog_module",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 16,
+      "community_name": "NestJS CLI Config",
       "norm_label": "catalog.module.ts"
     },
     {
@@ -1997,8 +1997,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_catalog_catalog_module_catalogmodule",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 16,
+      "community_name": "NestJS CLI Config",
       "norm_label": "catalogmodule"
     },
     {
@@ -2008,8 +2008,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_catalog_module_ts_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 16,
+      "community_name": "NestJS CLI Config",
       "norm_label": "module"
     },
     {
@@ -2019,8 +2019,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_controller",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "characters.controller.ts"
     },
     {
@@ -2228,8 +2228,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "characters.repository.ts"
     },
     {
@@ -2239,8 +2239,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository_charactersrepository",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "charactersrepository"
     },
     {
@@ -2250,8 +2250,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository_ts_injectable",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "injectable"
     },
     {
@@ -2261,8 +2261,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository_charactersrepository_constructor",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".constructor()"
     },
     {
@@ -2272,8 +2272,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository_charactersrepository_delegate",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".delegate()"
     },
     {
@@ -2283,8 +2283,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository_charactersrepository_findall",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".findall()"
     },
     {
@@ -2294,8 +2294,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_repository_charactersrepository_findbyslug",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".findbyslug()"
     },
     {
@@ -2316,8 +2316,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "characters.service.ts"
     },
     {
@@ -2327,8 +2327,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service_charactersservice",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "charactersservice"
     },
     {
@@ -2338,8 +2338,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service_ts_injectable",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "injectable"
     },
     {
@@ -2349,8 +2349,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service_charactersservice_constructor",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".constructor()"
     },
     {
@@ -2360,8 +2360,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service_charactersservice_findall",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".findall()"
     },
     {
@@ -2371,8 +2371,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service_charactersservice_findone",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".findone()"
     },
     {
@@ -2404,8 +2404,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_catalog_characters_characters_service_charactersservice_remove",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".remove()"
     },
     {
@@ -2415,8 +2415,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_characters_dto_create_character_dto",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "create-character.dto.ts"
     },
     {
@@ -2492,8 +2492,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_exceptions_character_not_found_exception",
-      "community": 3,
-      "community_name": "Skill Framework & Design Patterns",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "character-not-found.exception.ts"
     },
     {
@@ -2503,8 +2503,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_catalog_exceptions_character_not_found_exception_characternotfoundexception",
-      "community": 3,
-      "community_name": "Skill Framework & Design Patterns",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "characternotfoundexception"
     },
     {
@@ -2514,8 +2514,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_catalog_exceptions_character_not_found_exception_characternotfoundexception_constructor",
-      "community": 3,
-      "community_name": "Skill Framework & Design Patterns",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".constructor()"
     },
     {
@@ -2525,8 +2525,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_exceptions_game_not_found_exception",
-      "community": 44,
-      "community_name": "game-not-found.exception.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "game-not-found.exception.ts"
     },
     {
@@ -2536,8 +2536,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_catalog_exceptions_game_not_found_exception_gamenotfoundexception",
-      "community": 44,
-      "community_name": "game-not-found.exception.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "gamenotfoundexception"
     },
     {
@@ -2547,8 +2547,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_catalog_exceptions_game_not_found_exception_gamenotfoundexception_constructor",
-      "community": 44,
-      "community_name": "game-not-found.exception.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": ".constructor()"
     },
     {
@@ -2591,8 +2591,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_exceptions_publisher_not_found_exception",
-      "community": 3,
-      "community_name": "Skill Framework & Design Patterns",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "publisher-not-found.exception.ts"
     },
     {
@@ -2602,8 +2602,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_catalog_exceptions_publisher_not_found_exception_publishernotfoundexception",
-      "community": 3,
-      "community_name": "Skill Framework & Design Patterns",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "publishernotfoundexception"
     },
     {
@@ -2613,8 +2613,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_catalog_exceptions_publisher_not_found_exception_publishernotfoundexception_constructor",
-      "community": 3,
-      "community_name": "Skill Framework & Design Patterns",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": ".constructor()"
     },
     {
@@ -2778,8 +2778,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "gamescontroller"
     },
     {
@@ -2789,8 +2789,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_apitags",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "apitags"
     },
     {
@@ -2800,8 +2800,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_controller",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "controller"
     },
     {
@@ -2811,8 +2811,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_get",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "get"
     },
     {
@@ -2822,8 +2822,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_query",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "query"
     },
     {
@@ -2833,8 +2833,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_param",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "param"
     },
     {
@@ -2844,8 +2844,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_post",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "post"
     },
     {
@@ -2855,8 +2855,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_useguards",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "useguards"
     },
     {
@@ -2866,8 +2866,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_apibearerauth",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "apibearerauth"
     },
     {
@@ -2877,8 +2877,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_body",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "body"
     },
     {
@@ -2888,8 +2888,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_patch",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "patch"
     },
     {
@@ -2899,8 +2899,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_ts_delete",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": "delete"
     },
     {
@@ -2910,8 +2910,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller_constructor",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".constructor()"
     },
     {
@@ -2921,8 +2921,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller_findall",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".findall()"
     },
     {
@@ -2932,8 +2932,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller_findone",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".findone()"
     },
     {
@@ -2943,8 +2943,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller_create",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".create()"
     },
     {
@@ -2954,8 +2954,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller_update",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".update()"
     },
     {
@@ -2965,8 +2965,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_catalog_games_games_controller_gamescontroller_remove",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".remove()"
     },
     {
@@ -2976,8 +2976,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_games_games_repository",
-      "community": 8,
-      "community_name": "TypeScript Config",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "games.repository.ts"
     },
     {
@@ -3009,8 +3009,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_games_games_repository_gamesrepository_constructor",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".constructor()"
     },
     {
@@ -3031,8 +3031,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_catalog_games_games_repository_gamesrepository_findall",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".findall()"
     },
     {
@@ -3097,8 +3097,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_catalog_games_games_service_gamesservice_constructor",
-      "community": 32,
-      "community_name": "orders.service.spec.ts",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": ".constructor()"
     },
     {
@@ -3108,8 +3108,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_catalog_games_games_service_gamesservice_findall",
-      "community": 17,
-      "community_name": "HITL Diagnostics Script",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".findall()"
     },
     {
@@ -3152,8 +3152,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_catalog_games_games_service_gamesservice_remove",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".remove()"
     },
     {
@@ -3174,8 +3174,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_products_dto_create_product_dto",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "create-product.dto.ts"
     },
     {
@@ -3251,8 +3251,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_products_dto_filter_products_dto",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "filter-products.dto.ts"
     },
     {
@@ -3262,8 +3262,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_catalog_products_dto_filter_products_dto_filterproductsdto",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "filterproductsdto"
     },
     {
@@ -3273,8 +3273,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_dto_filter_products_dto_ts_apipropertyoptional",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "apipropertyoptional"
     },
     {
@@ -3284,8 +3284,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_dto_filter_products_dto_ts_isstring",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "isstring"
     },
     {
@@ -3295,8 +3295,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_dto_filter_products_dto_ts_isoptional",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "isoptional"
     },
     {
@@ -3306,8 +3306,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "transform",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "transform"
     },
     {
@@ -3317,8 +3317,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_dto_filter_products_dto_ts_isboolean",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "isboolean"
     },
     {
@@ -3328,8 +3328,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_products_products_controller",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "products.controller.ts"
     },
     {
@@ -3394,8 +3394,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_products_controller_ts_query",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "query"
     },
     {
@@ -3482,8 +3482,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_catalog_products_products_controller_productscontroller_findall",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findall()"
     },
     {
@@ -3537,8 +3537,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "products.repository.ts"
     },
     {
@@ -3548,8 +3548,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_productsrepository",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "productsrepository"
     },
     {
@@ -3559,8 +3559,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_ts_injectable",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "injectable"
     },
     {
@@ -3570,8 +3570,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_productsrepository_constructor",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".constructor()"
     },
     {
@@ -3581,8 +3581,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_productsrepository_delegate",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".delegate()"
     },
     {
@@ -3592,26 +3592,26 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_productsrepository_findall",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findall()"
     },
     {
       "label": ".findOneWithRelations()",
       "file_type": "code",
       "source_file": "src/catalog/products/products.repository.ts",
-      "source_location": "L45",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_productsrepository_findonewithrelations",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findonewithrelations()"
     },
     {
       "label": ".create()",
       "file_type": "code",
       "source_file": "src/catalog/products/products.repository.ts",
-      "source_location": "L57",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "src_catalog_products_products_repository_productsrepository_create",
       "community": 0,
@@ -3625,8 +3625,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_products_products_service",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "products.service.ts"
     },
     {
@@ -3636,8 +3636,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_products_products_service_productsservice",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "productsservice"
     },
     {
@@ -3647,8 +3647,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_products_products_service_ts_injectable",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 5,
+      "community_name": "Issue Triage & Workflow Skills",
       "norm_label": "injectable"
     },
     {
@@ -3658,8 +3658,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_catalog_products_products_service_productsservice_constructor",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".constructor()"
     },
     {
@@ -3669,8 +3669,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_catalog_products_products_service_productsservice_findall",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findall()"
     },
     {
@@ -3680,8 +3680,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_catalog_products_products_service_productsservice_findone",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findone()"
     },
     {
@@ -3713,8 +3713,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_catalog_products_products_service_productsservice_remove",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".remove()"
     },
     {
@@ -3724,8 +3724,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_publishers_dto_create_publisher_dto",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "create-publisher.dto.ts"
     },
     {
@@ -3801,8 +3801,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "publishers.controller.ts"
     },
     {
@@ -3812,8 +3812,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_publisherscontroller",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": "publisherscontroller"
     },
     {
@@ -3823,8 +3823,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_ts_apitags",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": "apitags"
     },
     {
@@ -3834,8 +3834,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_ts_controller",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": "controller"
     },
     {
@@ -3845,8 +3845,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_ts_get",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": "get"
     },
     {
@@ -3856,8 +3856,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_ts_param",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": "param"
     },
     {
@@ -3933,8 +3933,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_publisherscontroller_constructor",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": ".constructor()"
     },
     {
@@ -3944,8 +3944,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_publisherscontroller_findall",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": ".findall()"
     },
     {
@@ -3955,8 +3955,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_controller_publisherscontroller_findone",
-      "community": 12,
-      "community_name": "Runtime Dependencies",
+      "community": 28,
+      "community_name": "PublishersController",
       "norm_label": ".findone()"
     },
     {
@@ -3999,8 +3999,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "publishers.repository.ts"
     },
     {
@@ -4087,8 +4087,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_service",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "publishers.service.ts"
     },
     {
@@ -4098,8 +4098,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_service_publishersservice",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "publishersservice"
     },
     {
@@ -4109,8 +4109,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_service_ts_injectable",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 26,
+      "community_name": "publishers.service.ts",
       "norm_label": "injectable"
     },
     {
@@ -4120,8 +4120,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_service_publishersservice_constructor",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".constructor()"
     },
     {
@@ -4175,8 +4175,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_catalog_publishers_publishers_service_publishersservice_remove",
-      "community": 27,
-      "community_name": "PublishersRepository",
+      "community": 8,
+      "community_name": "TypeScript Config",
       "norm_label": ".remove()"
     },
     {
@@ -4549,8 +4549,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_repository",
-      "community": 30,
-      "community_name": "RefreshTokenRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "skus.repository.ts"
     },
     {
@@ -4560,8 +4560,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_repository_skusrepository",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": "skusrepository"
     },
     {
@@ -4571,8 +4571,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_repository_ts_injectable",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": "injectable"
     },
     {
@@ -4582,8 +4582,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_repository_skusrepository_constructor",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": ".constructor()"
     },
     {
@@ -4593,8 +4593,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_repository_skusrepository_delegate",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": ".delegate()"
     },
     {
@@ -4648,8 +4648,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_repository_skusrepository_softremovebyproduct",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": ".softremovebyproduct()"
     },
     {
@@ -4692,8 +4692,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_skus_skus_service_skusservice_constructor",
-      "community": 26,
-      "community_name": "publishers.service.ts",
+      "community": 4,
+      "community_name": "Fulfillment & Supplier Port",
       "norm_label": ".constructor()"
     },
     {
@@ -4758,8 +4758,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_teams_dto_create_team_dto",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "create-team.dto.ts"
     },
     {
@@ -4835,8 +4835,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_controller",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "teams.controller.ts"
     },
     {
@@ -5044,8 +5044,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "teams.repository.ts"
     },
     {
@@ -5055,8 +5055,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository_teamsrepository",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "teamsrepository"
     },
     {
@@ -5066,8 +5066,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository_ts_injectable",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "injectable"
     },
     {
@@ -5077,8 +5077,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository_teamsrepository_constructor",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".constructor()"
     },
     {
@@ -5088,8 +5088,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository_teamsrepository_delegate",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".delegate()"
     },
     {
@@ -5099,8 +5099,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository_teamsrepository_findall",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".findall()"
     },
     {
@@ -5110,8 +5110,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_repository_teamsrepository_findbyslug",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".findbyslug()"
     },
     {
@@ -5132,8 +5132,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "teams.service.ts"
     },
     {
@@ -5143,8 +5143,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service_teamsservice",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "teamsservice"
     },
     {
@@ -5154,8 +5154,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service_ts_injectable",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": "injectable"
     },
     {
@@ -5165,8 +5165,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service_teamsservice_constructor",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".constructor()"
     },
     {
@@ -5176,8 +5176,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service_teamsservice_findall",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".findall()"
     },
     {
@@ -5187,8 +5187,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service_teamsservice_findone",
-      "community": 28,
-      "community_name": "PublishersController",
+      "community": 9,
+      "community_name": "Games API",
       "norm_label": ".findone()"
     },
     {
@@ -5220,8 +5220,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_catalog_teams_teams_service_teamsservice_remove",
-      "community": 41,
-      "community_name": ".remove",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".remove()"
     },
     {
@@ -5451,8 +5451,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_cart_cart_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "cart.repository.ts"
     },
     {
@@ -5946,8 +5946,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_exceptions_order_not_found_exception",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "order-not-found.exception.ts"
     },
     {
@@ -5957,8 +5957,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_commerce_exceptions_order_not_found_exception_ordernotfoundexception",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "ordernotfoundexception"
     },
     {
@@ -5968,8 +5968,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_commerce_exceptions_order_not_found_exception_ordernotfoundexception_constructor",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": ".constructor()"
     },
     {
@@ -6045,8 +6045,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_index",
-      "community": 16,
-      "community_name": "NestJS CLI Config",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "commerce/index.ts"
     },
     {
@@ -6056,8 +6056,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_confirmed_payment_intent_type",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "confirmed-payment-intent.type.ts"
     },
     {
@@ -6067,8 +6067,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_confirmed_payment_intent_type_confirmedpaymentintent",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "confirmedpaymentintent"
     },
     {
@@ -6155,8 +6155,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_dto_filter_orders_dto",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "filter-orders.dto.ts"
     },
     {
@@ -6166,8 +6166,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_commerce_orders_dto_filter_orders_dto_filterordersdto",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "filterordersdto"
     },
     {
@@ -6177,8 +6177,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_dto_filter_orders_dto_ts_isoptional",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "isoptional"
     },
     {
@@ -6188,8 +6188,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "isenum",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "isenum"
     },
     {
@@ -6199,8 +6199,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller",
-      "community": 2,
-      "community_name": "CartRepository",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "orders.controller.ts"
     },
     {
@@ -6210,8 +6210,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "orderscontroller"
     },
     {
@@ -6221,8 +6221,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_apitags",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "apitags"
     },
     {
@@ -6232,8 +6232,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_controller",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "controller"
     },
     {
@@ -6243,8 +6243,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_get",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "get"
     },
     {
@@ -6254,8 +6254,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_useguards",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "useguards"
     },
     {
@@ -6265,8 +6265,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_apibearerauth",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "apibearerauth"
     },
     {
@@ -6276,8 +6276,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_query",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "query"
     },
     {
@@ -6287,8 +6287,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_param",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "param"
     },
     {
@@ -6298,8 +6298,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_post",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "post"
     },
     {
@@ -6309,8 +6309,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_ts_httpcode",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": "httpcode"
     },
     {
@@ -6320,8 +6320,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller_constructor",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".constructor()"
     },
     {
@@ -6331,8 +6331,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller_findmine",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findmine()"
     },
     {
@@ -6342,8 +6342,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller_findall",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findall()"
     },
     {
@@ -6353,8 +6353,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller_findone",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findone()"
     },
     {
@@ -6364,8 +6364,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller_findbypaymentintent",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".findbypaymentintent()"
     },
     {
@@ -6375,8 +6375,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_controller_orderscontroller_retryfulfillment",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 0,
+      "community_name": "Auth & Commerce Modules",
       "norm_label": ".retryfulfillment()"
     },
     {
@@ -6386,8 +6386,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_repository",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "orders.repository.ts"
     },
     {
@@ -6463,8 +6463,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_repository_ordersrepository_findall",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": ".findall()"
     },
     {
@@ -6529,8 +6529,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_spec",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 32,
+      "community_name": "orders.service.spec.ts",
       "norm_label": "orders.service.spec.ts"
     },
     {
@@ -6540,8 +6540,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_spec_mockrepo",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 32,
+      "community_name": "orders.service.spec.ts",
       "norm_label": "mockrepo"
     },
     {
@@ -6551,8 +6551,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_spec_mockcartservice",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 32,
+      "community_name": "orders.service.spec.ts",
       "norm_label": "mockcartservice"
     },
     {
@@ -6562,8 +6562,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_spec_mocksupplier",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 32,
+      "community_name": "orders.service.spec.ts",
       "norm_label": "mocksupplier"
     },
     {
@@ -6573,8 +6573,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_spec_mocknotifications",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 32,
+      "community_name": "orders.service.spec.ts",
       "norm_label": "mocknotifications"
     },
     {
@@ -6584,8 +6584,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "orders.service.ts"
     },
     {
@@ -6595,8 +6595,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_ordersservice",
-      "community": 16,
-      "community_name": "NestJS CLI Config",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "ordersservice"
     },
     {
@@ -6606,8 +6606,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_ts_injectable",
-      "community": 16,
-      "community_name": "NestJS CLI Config",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": "injectable"
     },
     {
@@ -6617,8 +6617,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_ts_inject",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 13,
+      "community_name": "SKUs API",
       "norm_label": "inject"
     },
     {
@@ -6628,8 +6628,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_ordersservice_constructor",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 13,
+      "community_name": "SKUs API",
       "norm_label": ".constructor()"
     },
     {
@@ -6672,8 +6672,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_commerce_orders_orders_service_ordersservice_findall",
-      "community": 13,
-      "community_name": "SKUs API",
+      "community": 15,
+      "community_name": "Skill Writing Vocabulary",
       "norm_label": ".findall()"
     },
     {
@@ -6705,8 +6705,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_common_module",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "common.module.ts"
     },
     {
@@ -6716,8 +6716,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_common_common_module_commonmodule",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "commonmodule"
     },
     {
@@ -6727,8 +6727,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_common_module_ts_global",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "global"
     },
     {
@@ -6738,8 +6738,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_common_module_ts_module",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "module"
     },
     {
@@ -6749,8 +6749,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_dto_pagination_query_dto",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "pagination-query.dto.ts"
     },
     {
@@ -6760,8 +6760,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_common_dto_pagination_query_dto_paginationquerydto",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "paginationquerydto"
     },
     {
@@ -6771,8 +6771,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_dto_pagination_query_dto_ts_isoptional",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "isoptional"
     },
     {
@@ -6782,8 +6782,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_dto_pagination_query_dto_ts_type",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "type"
     },
     {
@@ -6793,8 +6793,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_dto_pagination_query_dto_ts_isint",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "isint"
     },
     {
@@ -6804,8 +6804,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_dto_pagination_query_dto_ts_min",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "min"
     },
     {
@@ -6815,8 +6815,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "max",
-      "community": 40,
-      "community_name": "PaginationQueryDto",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "max"
     },
     {
@@ -6826,8 +6826,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_exceptions_domain_exception",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "domain.exception.ts"
     },
     {
@@ -6848,8 +6848,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_filters_all_exceptions_filter",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "all-exceptions.filter.ts"
     },
     {
@@ -6859,8 +6859,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_common_filters_all_exceptions_filter_allexceptionsfilter",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "allexceptionsfilter"
     },
     {
@@ -6870,8 +6870,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_filters_all_exceptions_filter_ts_catch",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "catch"
     },
     {
@@ -6881,97 +6881,9 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_common_filters_all_exceptions_filter_allexceptionsfilter_catch",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": ".catch()"
-    },
-    {
-      "label": "localhost-bypass-throttler.guard.ts",
-      "file_type": "code",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_common_guards_localhost_bypass_throttler_guard",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": "localhost-bypass-throttler.guard.ts"
-    },
-    {
-      "label": "LOOPBACK_IPS",
-      "file_type": "code",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "src_common_guards_localhost_bypass_throttler_guard_loopback_ips",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": "loopback_ips"
-    },
-    {
-      "label": "LocalhostBypassThrottlerGuard",
-      "file_type": "code",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": "localhostbypassthrottlerguard"
-    },
-    {
-      "label": "Injectable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_common_guards_localhost_bypass_throttler_guard_ts_injectable",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": "injectable"
-    },
-    {
-      "label": "InjectThrottlerOptions",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "injectthrottleroptions",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": "injectthrottleroptions"
-    },
-    {
-      "label": "InjectThrottlerStorage",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "injectthrottlerstorage",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": "injectthrottlerstorage"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_constructor",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": ".constructor()"
-    },
-    {
-      "label": ".shouldSkip()",
-      "file_type": "code",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_shouldskip",
-      "community": 39,
-      "community_name": "LocalhostBypassThrottlerGuard",
-      "norm_label": ".shouldskip()"
     },
     {
       "label": "common/index.ts",
@@ -6980,8 +6892,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_index",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "common/index.ts"
     },
     {
@@ -6991,8 +6903,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_interceptors_audit_interceptor",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "audit.interceptor.ts"
     },
     {
@@ -7002,8 +6914,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_common_interceptors_audit_interceptor_mutating",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "mutating"
     },
     {
@@ -7013,8 +6925,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_common_interceptors_audit_interceptor_auditinterceptor",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "auditinterceptor"
     },
     {
@@ -7024,8 +6936,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_interceptors_audit_interceptor_ts_injectable",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "injectable"
     },
     {
@@ -7035,8 +6947,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_common_interceptors_audit_interceptor_auditinterceptor_intercept",
-      "community": 36,
-      "community_name": "common.module.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": ".intercept()"
     },
     {
@@ -7046,8 +6958,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_interceptors_response_interceptor",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "response.interceptor.ts"
     },
     {
@@ -7057,8 +6969,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_common_interceptors_response_interceptor_responseinterceptor",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "responseinterceptor"
     },
     {
@@ -7068,8 +6980,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_common_interceptors_response_interceptor_ts_injectable",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "injectable"
     },
     {
@@ -7079,8 +6991,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_common_interceptors_response_interceptor_responseinterceptor_intercept",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": ".intercept()"
     },
     {
@@ -7090,8 +7002,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository",
-      "community": 43,
-      "community_name": "base.repository.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "base.repository.ts"
     },
     {
@@ -7101,8 +7013,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_baserepository",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "baserepository"
     },
     {
@@ -7112,8 +7024,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_findunique",
-      "community": 43,
-      "community_name": "base.repository.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "findunique()"
     },
     {
@@ -7123,8 +7035,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_update",
-      "community": 43,
-      "community_name": "base.repository.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "update()"
     },
     {
@@ -7134,8 +7046,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_delete",
-      "community": 43,
-      "community_name": "base.repository.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "delete()"
     },
     {
@@ -7145,8 +7057,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_baserepository_findbyid",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".findbyid()"
     },
     {
@@ -7156,8 +7068,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_baserepository_update",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".update()"
     },
     {
@@ -7167,8 +7079,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_baserepository_remove",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".remove()"
     },
     {
@@ -7178,8 +7090,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_common_repositories_base_repository_baserepository_softremove",
-      "community": 37,
-      "community_name": "BaseRepository",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".softremove()"
     },
     {
@@ -7189,8 +7101,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_types_paged_result_type",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "paged-result.type.ts"
     },
     {
@@ -7200,8 +7112,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_common_types_paged_result_type_pagedresult",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "pagedresult"
     },
     {
@@ -7211,8 +7123,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_common_types_paged_result_type_pagedresult_constructor",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": ".constructor()"
     },
     {
@@ -7222,8 +7134,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_types_pagination_meta_type",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "pagination-meta.type.ts"
     },
     {
@@ -7233,8 +7145,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_common_types_pagination_meta_type_paginationmeta",
-      "community": 38,
-      "community_name": "common/index.ts",
+      "community": 3,
+      "community_name": "Skill Framework & Design Patterns",
       "norm_label": "paginationmeta"
     },
     {
@@ -7244,8 +7156,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_fulfillment_fulfillment_module",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "fulfillment.module.ts"
     },
     {
@@ -7255,8 +7167,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_fulfillment_fulfillment_module_fulfillmentmodule",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "fulfillmentmodule"
     },
     {
@@ -7266,8 +7178,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_fulfillment_fulfillment_module_ts_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "module"
     },
     {
@@ -7277,8 +7189,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_fulfillment_index",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "fulfillment/index.ts"
     },
     {
@@ -7288,8 +7200,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_fulfillment_mock_supplier_service",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "mock-supplier.service.ts"
     },
     {
@@ -7299,8 +7211,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_fulfillment_mock_supplier_service_mocksupplierservice",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "mocksupplierservice"
     },
     {
@@ -7310,8 +7222,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_fulfillment_mock_supplier_service_ts_injectable",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "injectable"
     },
     {
@@ -7321,8 +7233,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_fulfillment_mock_supplier_service_mocksupplierservice_submitorder",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": ".submitorder()"
     },
     {
@@ -7332,8 +7244,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_fulfillment_mock_supplier_service_mocksupplierservice_checkavailability",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": ".checkavailability()"
     },
     {
@@ -7343,8 +7255,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "supplier.port.ts"
     },
     {
@@ -7354,8 +7266,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port_supplierorder",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "supplierorder"
     },
     {
@@ -7365,8 +7277,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port_supplierresult",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "supplierresult"
     },
     {
@@ -7376,8 +7288,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port_supplier_port",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "supplier_port"
     },
     {
@@ -7387,8 +7299,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port_supplierport",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": "supplierport"
     },
     {
@@ -7398,8 +7310,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port_supplierport_submitorder",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": ".submitorder()"
     },
     {
@@ -7409,8 +7321,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_fulfillment_supplier_port_supplierport_checkavailability",
-      "community": 11,
-      "community_name": "Teams API",
+      "community": 17,
+      "community_name": "HITL Diagnostics Script",
       "norm_label": ".checkavailability()"
     },
     {
@@ -7596,8 +7508,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_notifications_notifications_module_notificationsmodule",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 11,
+      "community_name": "Teams API",
       "norm_label": "notificationsmodule"
     },
     {
@@ -7607,8 +7519,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_notifications_notifications_module_ts_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 11,
+      "community_name": "Teams API",
       "norm_label": "module"
     },
     {
@@ -7695,8 +7607,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_payments_index",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 10,
+      "community_name": "Publishers API",
       "norm_label": "payments/index.ts"
     },
     {
@@ -7860,8 +7772,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_payments_payments_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 10,
+      "community_name": "Publishers API",
       "norm_label": "payments.module.ts"
     },
     {
@@ -7871,8 +7783,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_payments_payments_module_paymentsmodule",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 10,
+      "community_name": "Publishers API",
       "norm_label": "paymentsmodule"
     },
     {
@@ -7882,8 +7794,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_payments_payments_module_ts_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 10,
+      "community_name": "Publishers API",
       "norm_label": "module"
     },
     {
@@ -7970,8 +7882,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_payments_payments_service_ts_inject",
-      "community": 16,
-      "community_name": "NestJS CLI Config",
+      "community": 10,
+      "community_name": "Publishers API",
       "norm_label": "inject"
     },
     {
@@ -7981,8 +7893,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_payments_payments_service_paymentsservice_constructor",
-      "community": 16,
-      "community_name": "NestJS CLI Config",
+      "community": 10,
+      "community_name": "Publishers API",
       "norm_label": ".constructor()"
     },
     {
@@ -8014,8 +7926,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_prisma_index",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "prisma/index.ts"
     },
     {
@@ -8069,8 +7981,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_prisma_prisma_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "prisma.module.ts"
     },
     {
@@ -8080,8 +7992,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_prisma_prisma_module_prismamodule",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "prismamodule"
     },
     {
@@ -8091,8 +8003,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_prisma_prisma_module_ts_module",
-      "community": 15,
-      "community_name": "Skill Writing Vocabulary",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "module"
     },
     {
@@ -8102,8 +8014,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_prisma_prisma_service",
-      "community": 16,
-      "community_name": "NestJS CLI Config",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "prisma.service.ts"
     },
     {
@@ -8113,8 +8025,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_prisma_prisma_service_prismaservice",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "prismaservice"
     },
     {
@@ -8124,8 +8036,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_prisma_prisma_service_ts_injectable",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": "injectable"
     },
     {
@@ -8135,8 +8047,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_prisma_prisma_service_prismaservice_onmoduleinit",
-      "community": 35,
-      "community_name": "PrismaService",
+      "community": 7,
+      "community_name": "Products & DTOs",
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -8150,8 +8062,8 @@
       "contributor": null,
       "community": 18,
       "norm_label": "beads issue tracker readme",
-      "community_name": "Beads Issue Tracker",
-      "id": "beads_readme"
+      "id": "beads_readme",
+      "community_name": "Beads Issue Tracker"
     },
     {
       "label": "Beads Configuration",
@@ -8164,8 +8076,8 @@
       "contributor": null,
       "community": 18,
       "norm_label": "beads configuration",
-      "community_name": "Beads Issue Tracker",
-      "id": "beads_config"
+      "id": "beads_config",
+      "community_name": "Beads Issue Tracker"
     },
     {
       "label": "Beads Dolt Database Backend",
@@ -8178,8 +8090,8 @@
       "contributor": null,
       "community": 18,
       "norm_label": "beads dolt database backend",
-      "community_name": "Beads Issue Tracker",
-      "id": "concept_beads_dolt"
+      "id": "concept_beads_dolt",
+      "community_name": "Beads Issue Tracker"
     },
     {
       "label": "Agent Instructions (AGENTS.md)",
@@ -8192,8 +8104,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "agent instructions (agents.md)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_agents"
+      "id": "merch_shop_be_agents",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Project Claude Config (CLAUDE.md)",
@@ -8206,8 +8118,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "project claude config (claude.md)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_claude"
+      "id": "merch_shop_be_claude",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Domain Context (CONTEXT.md)",
@@ -8220,8 +8132,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "domain context (context.md)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context"
+      "id": "merch_shop_be_context",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Docker Compose Test Config",
@@ -8234,8 +8146,8 @@
       "contributor": null,
       "community": 23,
       "norm_label": "docker compose test config",
-      "community_name": "Docker Compose",
-      "id": "merch_shop_be_docker_compose_test"
+      "id": "merch_shop_be_docker_compose_test",
+      "community_name": "Docker Compose"
     },
     {
       "label": "Docker Compose Config",
@@ -8248,8 +8160,8 @@
       "contributor": null,
       "community": 23,
       "norm_label": "docker compose config",
-      "community_name": "Docker Compose",
-      "id": "merch_shop_be_docker_compose"
+      "id": "merch_shop_be_docker_compose",
+      "community_name": "Docker Compose"
     },
     {
       "label": "ADR-0001: Multi-Publisher Marketplace",
@@ -8262,8 +8174,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0001: multi-publisher marketplace",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0001_multi_publisher_marketplace"
+      "id": "docs_adr_0001_multi_publisher_marketplace",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0002: Orthogonal Product Facets",
@@ -8276,8 +8188,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0002: orthogonal product facets",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0002_orthogonal_product_facets"
+      "id": "docs_adr_0002_orthogonal_product_facets",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0003: Drop-Ship Fulfillment",
@@ -8290,8 +8202,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0003: drop-ship fulfillment",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0003_drop_ship_fulfillment"
+      "id": "docs_adr_0003_drop_ship_fulfillment",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0004: Clerk Auth Delegation",
@@ -8304,8 +8216,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0004: clerk auth delegation",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0004_clerk_auth_delegation"
+      "id": "docs_adr_0004_clerk_auth_delegation",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0005: Stripe Payment Gateway",
@@ -8318,8 +8230,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0005: stripe payment gateway",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0005_stripe_payment_gateway"
+      "id": "docs_adr_0005_stripe_payment_gateway",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0006: Server-Side Guest Cart",
@@ -8332,8 +8244,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0006: server-side guest cart",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0006_server_side_guest_cart"
+      "id": "docs_adr_0006_server_side_guest_cart",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0007: REST Over GraphQL",
@@ -8346,8 +8258,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0007: rest over graphql",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0007_rest_over_graphql"
+      "id": "docs_adr_0007_rest_over_graphql",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "ADR-0008: USD-Only Pricing",
@@ -8360,8 +8272,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "adr-0008: usd-only pricing",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_adr_0008_usd_only_pricing"
+      "id": "docs_adr_0008_usd_only_pricing",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Domain Docs Agent Guide",
@@ -8374,8 +8286,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "domain docs agent guide",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_agents_domain"
+      "id": "docs_agents_domain",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Issue Tracker Agent Guide",
@@ -8388,8 +8300,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "issue tracker agent guide",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_agents_issue_tracker"
+      "id": "docs_agents_issue_tracker",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Triage Labels Config",
@@ -8402,8 +8314,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "triage labels config",
-      "community_name": "Architecture Decision Records",
-      "id": "docs_agents_triage_labels"
+      "id": "docs_agents_triage_labels",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Publisher (Domain Entity)",
@@ -8416,8 +8328,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "publisher (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_publisher"
+      "id": "merch_shop_be_context_publisher",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Game (Domain Entity)",
@@ -8430,8 +8342,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "game (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_game"
+      "id": "merch_shop_be_context_game",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Team (Domain Entity)",
@@ -8444,8 +8356,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "team (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_team"
+      "id": "merch_shop_be_context_team",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Character (Domain Entity)",
@@ -8458,8 +8370,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "character (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_character"
+      "id": "merch_shop_be_context_character",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Product (Domain Entity)",
@@ -8472,8 +8384,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "product (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_product"
+      "id": "merch_shop_be_context_product",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "SKU (Domain Entity)",
@@ -8486,8 +8398,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "sku (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_sku"
+      "id": "merch_shop_be_context_sku",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Facet (Domain Entity)",
@@ -8500,8 +8412,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "facet (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_facet"
+      "id": "merch_shop_be_context_facet",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Cart (Domain Entity)",
@@ -8514,8 +8426,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "cart (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_cart"
+      "id": "merch_shop_be_context_cart",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Order (Domain Entity)",
@@ -8528,8 +8440,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "order (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_order"
+      "id": "merch_shop_be_context_order",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Buyer (Domain Entity)",
@@ -8542,8 +8454,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "buyer (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_buyer"
+      "id": "merch_shop_be_context_buyer",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Guest (Domain Entity)",
@@ -8556,8 +8468,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "guest (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_guest"
+      "id": "merch_shop_be_context_guest",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Account (Domain Entity)",
@@ -8570,8 +8482,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "account (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_account"
+      "id": "merch_shop_be_context_account",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Admin (Domain Entity)",
@@ -8584,8 +8496,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "admin (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_admin"
+      "id": "merch_shop_be_context_admin",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Drop-ship (Fulfillment Model)",
@@ -8598,8 +8510,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "drop-ship (fulfillment model)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_dropship"
+      "id": "merch_shop_be_context_dropship",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Supplier (Domain Entity)",
@@ -8612,8 +8524,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "supplier (domain entity)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_supplier"
+      "id": "merch_shop_be_context_supplier",
+      "community_name": "Architecture Decision Records"
     },
     {
       "label": "Availability (SKU Boolean Flag)",
@@ -8626,8 +8538,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "availability (sku boolean flag)",
-      "community_name": "Architecture Decision Records",
-      "id": "merch_shop_be_context_availability"
+      "id": "merch_shop_be_context_availability",
+      "community_name": "Architecture Decision Records"
     }
   ],
   "links": [
@@ -9039,7 +8951,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L11",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9087,7 +8999,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L11",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9855,19 +9767,19 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L41",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_module",
-      "target": "src_app_module_appmodule",
-      "confidence_score": 1.0
+      "target": "src_app_module_appmodule"
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L10",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9879,7 +9791,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L10",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9891,7 +9803,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9903,7 +9815,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9915,7 +9827,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9927,7 +9839,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9939,7 +9851,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9951,31 +9863,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_module",
-      "target": "src_common_guards_localhost_bypass_throttler_guard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app.module.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_app_module",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app.module.ts",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9987,7 +9875,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -9999,7 +9887,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10011,7 +9899,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10023,7 +9911,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10035,7 +9923,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10047,7 +9935,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10059,7 +9947,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10071,7 +9959,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_module",
@@ -10086,15 +9974,15 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_main",
-      "target": "src_app_module",
-      "confidence_score": 1.0
+      "target": "src_app_module"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/app.module.ts",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -10110,9 +9998,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_main",
-      "target": "src_app_module_appmodule",
-      "confidence_score": 1.0
+      "target": "src_app_module_appmodule"
     },
     {
       "relation": "indirect_call",
@@ -18454,7 +18342,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/catalog/products/products.repository.ts",
-      "source_location": "L57",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_catalog_products_products_repository_productsrepository",
@@ -18487,7 +18375,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/catalog/products/products.repository.ts",
-      "source_location": "L45",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_catalog_products_products_repository_productsrepository",
@@ -25476,7 +25364,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L10",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25512,7 +25400,7 @@
       "context": "re-export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L10",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25535,7 +25423,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25607,7 +25495,7 @@
       "context": "re-export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25732,122 +25620,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_loopback_ips",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "re_exports",
-      "context": "export",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/index.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_index",
-      "target": "src_common_guards_localhost_bypass_throttler_guard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L34",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_shouldskip",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_loopback_ips"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_constructor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_shouldskip",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_ts_injectable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "re_exports",
-      "context": "re-export",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/index.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_common_index",
-      "target": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L17",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_constructor",
-      "target": "injectthrottleroptions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/common/guards/localhost-bypass-throttler.guard.ts",
-      "source_location": "L18",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "src_common_guards_localhost_bypass_throttler_guard_localhostbypassthrottlerguard_constructor",
-      "target": "injectthrottlerstorage",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "re_exports",
       "context": "export",
       "confidence": "EXTRACTED",
@@ -25900,7 +25672,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25912,7 +25684,7 @@
       "context": "re-export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25924,7 +25696,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25936,7 +25708,7 @@
       "context": "re-export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25948,7 +25720,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -25960,7 +25732,7 @@
       "context": "re-export",
       "confidence": "EXTRACTED",
       "source_file": "src/common/index.ts",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_common_index",
@@ -26596,9 +26368,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_main",
-      "target": "src_main_bootstrap",
-      "confidence_score": 1.0
+      "target": "src_main_bootstrap"
     },
     {
       "relation": "re_exports",
@@ -28205,5 +27977,5 @@
       "source_file": "docs/adr/0006-server-side-guest-cart.md"
     }
   ],
-  "built_at_commit": "68a3fcf3263163cd51599e6b2c4f64a840641341"
+  "built_at_commit": "bc2b9b6a18fdc7e2fac4760ef66f86e8868c10e5"
 }

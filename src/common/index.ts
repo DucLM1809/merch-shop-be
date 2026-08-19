@@ -2,6 +2,7 @@ export { DomainException } from './exceptions/domain.exception';
 export { AllExceptionsFilter } from './filters/all-exceptions.filter';
 export { ResponseInterceptor } from './interceptors/response.interceptor';
 export { AuditInterceptor } from './interceptors/audit.interceptor';
+export { LocalhostBypassThrottlerGuard } from './guards/localhost-bypass-throttler.guard';
 export { BaseRepository } from './repositories/base.repository';
 export { PaginationQueryDto } from './dto/pagination-query.dto';
 export { PaginationMeta } from './types/pagination-meta.type';

@@ -50,7 +50,7 @@ describe('CORS', () => {
 });
 
 describe('Rate limiting (ThrottlerModule)', () => {
-  it('returns at least one 429 across 11 rapid requests to a throttled endpoint', async () => {
+  it('does not throttle requests from localhost outside production', async () => {
     const statuses: number[] = [];
     for (let i = 0; i < 11; i++) {
       const res = await request(app.getHttpServer())
@@ -58,6 +58,58 @@ describe('Rate limiting (ThrottlerModule)', () => {
         .send({ cartId: 'does-not-matter-for-throttling' });
       statuses.push(res.status);
     }
-    expect(statuses).toContain(429);
+    expect(statuses).not.toContain(429);
+  });
+
+  it('still throttles a non-loopback client', async () => {
+    // A dedicated app instance with trust proxy enabled so X-Forwarded-For
+    // determines req.ip, letting the test simulate a real remote client
+    // without changing the production bootstrap in src/main.ts.
+    const moduleRef = await Test.createTestingModule({ imports: [AppModule] }).compile();
+    const remoteApp = moduleRef.createNestApplication();
+    remoteApp.getHttpAdapter().getInstance().set('trust proxy', true);
+    remoteApp.setGlobalPrefix('api');
+    await remoteApp.init();
+
+    try {
+      const statuses: number[] = [];
+      for (let i = 0; i < 11; i++) {
+        const res = await request(remoteApp.getHttpServer())
+          .post('/api/payments/payment-intent')
+          .set('X-Forwarded-For', '203.0.113.7')
+          .send({ cartId: 'does-not-matter-for-throttling' });
+        statuses.push(res.status);
+      }
+      expect(statuses).toContain(429);
+    } finally {
+      await remoteApp.close();
+    }
+  });
+
+  it('still throttles localhost when NODE_ENV is production', async () => {
+    // Guards against a same-host reverse proxy making all production
+    // traffic look like it originates from loopback.
+    const originalNodeEnv = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'production';
+    let prodApp: INestApplication;
+
+    try {
+      const moduleRef = await Test.createTestingModule({ imports: [AppModule] }).compile();
+      prodApp = moduleRef.createNestApplication();
+      prodApp.setGlobalPrefix('api');
+      await prodApp.init();
+
+      const statuses: number[] = [];
+      for (let i = 0; i < 11; i++) {
+        const res = await request(prodApp.getHttpServer())
+          .post('/api/payments/payment-intent')
+          .send({ cartId: 'does-not-matter-for-throttling' });
+        statuses.push(res.status);
+      }
+      expect(statuses).toContain(429);
+    } finally {
+      process.env.NODE_ENV = originalNodeEnv;
+      await prodApp!.close();
+    }
   });
 });

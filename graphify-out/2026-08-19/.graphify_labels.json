@@ -33,15 +33,5 @@
   "31": "CreateOrderDto",
   "32": "orders.service.spec.ts",
   "33": "PrismaExceptionFilter",
-  "34": "OrderPlacedEvent",
-  "35": "PrismaService",
-  "36": "common.module.ts",
-  "37": "BaseRepository",
-  "38": "common/index.ts",
-  "39": "LocalhostBypassThrottlerGuard",
-  "40": "PaginationQueryDto",
-  "41": ".remove",
-  "42": "LoginDto",
-  "43": "base.repository.ts",
-  "44": "game-not-found.exception.ts"
+  "34": "OrderPlacedEvent"
 }
