@@ -31,7 +31,13 @@ export class ProductsRepository extends BaseRepository<Product, Prisma.ProductUp
         game: { select: { id: true, name: true, slug: true } },
         team: { select: { id: true, name: true, slug: true } },
         character: { select: { id: true, name: true, slug: true } },
-        skus: { where: { available: true }, select: { id: true, price: true, attributes: true } },
+        skus: {
+          where: {
+            deletedAt: null,
+            ...(filters.includeUnavailable ? {} : { available: true }),
+          },
+          select: { id: true, price: true, attributes: true, available: true },
+        },
       },
     });
   }
@@ -39,7 +45,12 @@ export class ProductsRepository extends BaseRepository<Product, Prisma.ProductUp
   findOneWithRelations(id: string) {
     return this.prisma.product.findFirst({
       where: { id, deletedAt: null },
-      include: { game: true, team: true, character: true, skus: true },
+      include: {
+        game: true,
+        team: true,
+        character: true,
+        skus: { where: { deletedAt: null } },
+      },
     });
   }
 

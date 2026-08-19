@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FilterProductsDto } from './dto/filter-products.dto';
-import { AdminGuard } from '../../auth';
+import { AdminGuard, OptionalAuthGuard, CurrentUser, AuthUser } from '../../auth';
 
 @ApiTags('products')
 @Controller('products')
@@ -11,8 +11,12 @@ export class ProductsController {
   constructor(private readonly products: ProductsService) {}
 
   @Get()
-  findAll(@Query() filters: FilterProductsDto) {
-    return this.products.findAll(filters);
+  @UseGuards(OptionalAuthGuard)
+  findAll(@Query() filters: FilterProductsDto, @CurrentUser() user: AuthUser | undefined) {
+    return this.products.findAll({
+      ...filters,
+      includeUnavailable: filters.includeUnavailable && user?.role === 'ADMIN',
+    });
   }
 
   @Get(':id')

@@ -625,6 +625,9 @@ paths:
     get:
       tags: [products]
       summary: List all products
+      description: >-
+        Public by default. An optional Bearer token is accepted; when it
+        belongs to an admin account, `includeUnavailable` takes effect.
       parameters:
         - name: gameId
           in: query
@@ -638,6 +641,13 @@ paths:
           in: query
           schema:
             type: string
+        - name: includeUnavailable
+          in: query
+          description: >-
+            Include skus with available: false. Requires an admin Bearer
+            token; ignored otherwise.
+          schema:
+            type: boolean
       responses:
         '200':
           description: OK
