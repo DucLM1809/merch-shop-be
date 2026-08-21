@@ -1,7 +1,7 @@
-# Graph Report - merch-shop-be  (2026-08-21)
+# Graph Report - merch-shop-be  (2026-08-19)
 
 ## Corpus Check
-- 117 files · ~11,148 words
+- 117 files · ~11,142 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a189ea5a`
+- Built from commit: `68a3fcf3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

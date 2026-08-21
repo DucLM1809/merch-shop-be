@@ -22,7 +22,7 @@ services:
       - /app/node_modules
     depends_on:
       - db
-    command: pnpm run start:dev
+    command: npm run start:dev
 
 volumes:
   postgres_data:

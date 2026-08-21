@@ -93,8 +93,10 @@ beforeAll(async () => {
   prisma = moduleRef.get(PrismaService);
   paymentsService = moduleRef.get(PaymentsService);
 
-  stripeCreateIntent = jest.spyOn((paymentsService as any).stripe.paymentIntents, 'create');
-  stripeConstructEvent = jest.spyOn((paymentsService as any).stripe.webhooks, 'constructEvent');
+  // Trust boundary: reaching into PaymentsService's private Stripe client to spy on it.
+  const stripeClient = (paymentsService as unknown as { stripe: Stripe }).stripe;
+  stripeCreateIntent = jest.spyOn(stripeClient.paymentIntents, 'create');
+  stripeConstructEvent = jest.spyOn(stripeClient.webhooks, 'constructEvent');
 });
 
 afterAll(() => app.close());
@@ -118,7 +120,8 @@ describe('POST /api/payments/payment-intent', () => {
   afterAll(() => cleanupAll(prisma, pubId, accountId));
 
   it('returns clientSecret for valid cartId', async () => {
-    stripeCreateIntent.mockResolvedValueOnce({ client_secret: 'pi_test_secret_123' } as any);
+    // Trust boundary: partial Stripe.PaymentIntent mock, only the fields this code path reads.
+    stripeCreateIntent.mockResolvedValueOnce({ client_secret: 'pi_test_secret_123' } as unknown as Stripe.PaymentIntent);
 
     const res = await request(app.getHttpServer())
       .post('/api/payments/payment-intent')
@@ -132,7 +135,8 @@ describe('POST /api/payments/payment-intent', () => {
   });
 
   it('amount equals SKU price × quantity in cents', async () => {
-    stripeCreateIntent.mockResolvedValueOnce({ client_secret: 'pi_test_secret_456' } as any);
+    // Trust boundary: partial Stripe.PaymentIntent mock, only the fields this code path reads.
+    stripeCreateIntent.mockResolvedValueOnce({ client_secret: 'pi_test_secret_456' } as unknown as Stripe.PaymentIntent);
 
     await request(app.getHttpServer())
       .post('/api/payments/payment-intent')

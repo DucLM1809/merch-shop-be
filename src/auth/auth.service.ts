@@ -3,7 +3,9 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 // Imported via direct paths (not the `../account` barrel) to avoid a module-load
 // cycle: the barrel re-exports AccountController, which imports guards from `../auth`.
+// eslint-disable-next-line no-restricted-imports
 import { AccountService } from '../account/account.service';
+// eslint-disable-next-line no-restricted-imports
 import { AccountResponseDto } from '../account/dto/account-response.dto';
 import { NOTIFICATION_PORT, NotificationPort } from '../notifications';
 import { RefreshTokenRepository } from './refresh-token.repository';

@@ -71,6 +71,8 @@ Each module exposes a **barrel** at `src/<module>/index.ts` exporting only:
 
 ESLint enforces this. Importing from `src/<module>/**` (bypassing `index.ts`) is a lint error and CI failure.
 
+**Escape hatch**: a barrel import can itself introduce a module-load cycle (e.g. importing `account`'s barrel pulls in `AccountController`, which imports guards from `auth`, which needs `AccountService` — a cycle). When that happens, import the specific file directly instead of the barrel, and pair it with both: a comment explaining which cycle is being avoided, and `// eslint-disable-next-line no-restricted-imports` on the import line so the boundary rule still catches *accidental* deep imports elsewhere. See `src/auth/auth.service.ts` for the reference example.
+
 ---
 
 ## 5. Error Handling
@@ -223,7 +225,23 @@ Modules extend `BaseRepository` and override only what's custom.
 
 ---
 
-## 12. DRY Rules
+## 12. Testing
+
+This codebase favors **integration tests as the default**, with **unit tests reserved for real branching logic** — algorithms, state transitions, and edge-case-heavy pure functions that are cheap to isolate and expensive to exercise indirectly through HTTP + DB round trips.
+
+**Write a unit spec (`*.spec.ts` under `src/`)** for a service or util when it has:
+- Non-trivial conditional branching (multiple failure/success paths through one method)
+- A state machine or ordering invariant (e.g. Order status transitions, token lifecycle)
+- Security-sensitive logic (hashing, lockout backoff, signature/webhook verification)
+- Pure logic with several edge cases that are awkward to hit via a live DB (empty inputs, boundary values)
+
+**Rely on integration tests alone** (`*.integration.spec.ts` under `test/integration/`) for modules that are mostly CRUD passthrough with no meaningful branching — the Controller → Service → Repository → Prisma path is what needs verifying there, not isolated logic.
+
+When a module gains branching logic it didn't have before (e.g. a merge/conflict rule, a new guard condition), add the unit spec in the same change — don't let coverage drift from the module's actual risk.
+
+---
+
+## 13. DRY Rules
 
 - One `PaginationQueryDto` in `common/` — never redeclare it per module.
 - One `AllExceptionsFilter` — never add a second global filter.

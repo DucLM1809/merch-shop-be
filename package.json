@@ -9,13 +9,14 @@
     "start:debug": "nest start --debug --watch",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "test": "jest",
-    "test:integration": "jest --config jest.integration.config.js",
+    "test:integration": "jest --config jest.integration.config.js --runInBand",
     "test:coverage": "jest --coverage",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:studio": "prisma studio",
     "seed:admin": "prisma db seed",
+    "seed:orders": "ts-node prisma/seed-orders.ts",
     "migrate:existing-accounts": "ts-node scripts/migrate-existing-accounts.ts"
   },
   "dependencies": {
